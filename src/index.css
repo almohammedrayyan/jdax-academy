@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Cambria, "Times New Roman", serif;
+  color: #1a1a1a;
+}
+
+.section {
+  @apply py-16 px-6 lg:px-20;
+}
+.section-title {
+  @apply text-3xl font-bold text-midnight mb-6 text-center;
+}
+@keyframes blink {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0.3;
+  }
+}
+
+.blink {
+  animation: blink 2.5s infinite;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}

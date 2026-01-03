@@ -1,0 +1,31 @@
+.nav-div {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Center the whole button group */
+  margin: 20px 0;
+}
+
+.nav-buttonss {
+  display: flex;
+  gap: 16px; /* Horizontal gap between buttons */
+  flex-wrap: nowrap; /* Keep all buttons in one line */
+}
+
+.nav-buttonss button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  background: #f3f4f6;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s ease;
+  white-space: nowrap; /* Prevent text from breaking into 2 lines */
+}
+
+.nav-buttonss button:hover {
+  background: #7c3aed;
+  color: white;
+}
