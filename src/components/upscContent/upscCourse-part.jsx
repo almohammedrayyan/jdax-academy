@@ -17,7 +17,8 @@ body {
 }
 
 .hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #0d1117 0%, #431aa0 100%);
+
     color: white;
     padding: 80px 20px 100px;
     text-align: center;
@@ -78,7 +79,7 @@ body {
 
 .back-btn {
     display: inline-block;
-    background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+    background: linear-gradient(135deg, #0d1117 0%, #431aa0 100%);
     color: white;
     padding: 12px 25px;
     border-radius: 25px;
@@ -517,7 +518,7 @@ body {
     right: 30px;
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, #8B5CF6, #7C3AED);
+    background: linear-gradient(135deg, #0d1117, #431aa0);
     color: white;
     border-radius: 50%;
     display: flex;
@@ -584,19 +585,12 @@ const Hub = ({ onNavigate }) => {
       id: "foundation",
       icon: "🎯",
       title: "Foundation 365",
-      subtitle: "1-Year GS + CSAT Intensive Programme",
+      subtitle:
+        "1-Year GS + CSAT Intensive Programme + Optional Subject (complimentary)",
       duration: "11 Months",
       price: "₹99,000",
       description:
         "An accelerated powerhouse covering General Studies (Prelims + Mains), CSAT, and Optional Subject (complimentary)—designed for dedicated aspirants with complete dedication.",
-      highlights: [
-        "Complete GS coverage for Prelims & Mains",
-        "CSAT mastery with strategic training",
-        "Optional subject coaching (complimentary)",
-        "Prelims initiatives: I2I Daily Tests",
-        "Mains answer writing training",
-        "20+ full-length test series",
-      ],
     },
     {
       id: "mastery",
@@ -607,14 +601,6 @@ const Hub = ({ onNavigate }) => {
       price: "₹40,000",
       description:
         "Advanced programme for aspirants who have completed foundational preparation and need strategic mentorship, advanced Optional coaching, and comprehensive interview readiness.",
-      highlights: [
-        "Personal one-on-one mentorship",
-        "Advanced Optional coaching (complete syllabus)",
-        "Complete Interview preparation",
-        "Advanced initiatives: B2B NCERT Series",
-        "3I Integrated Learning",
-        "Comprehensive test series",
-      ],
     },
     {
       id: "optional",
@@ -625,14 +611,6 @@ const Hub = ({ onNavigate }) => {
       price: "₹25,000",
       description:
         "Specialized mastery programs delivering comprehensive Optional coverage with consistent answer-writing practice and customized exam strategies.",
-      highlights: [
-        "300+ hours expert instruction",
-        "Complete Paper 1 + Paper 2 coverage",
-        "PYQ analysis (last 10 years)",
-        "40+ evaluated answers",
-        "Subject-specific test series",
-        "FREE with Foundation 365",
-      ],
     },
     {
       id: "interview",
@@ -644,144 +622,135 @@ const Hub = ({ onNavigate }) => {
       isFree: true,
       description:
         "Comprehensive Personality Test preparation featuring expert mock interview panels conducted by serving IAS, IPS, IFS officers with detailed DAF analysis.",
-      highlights: [
-        "Mock interviews with serving officers",
-        "Personalized DAF analysis",
-        "Current affairs discussions",
-        "Communication refinement",
-        "Video-recorded practice sessions",
-        "Stress management techniques",
-      ],
     },
     {
       id: "early",
       icon: "🌱",
       title: "Early Foundation Path",
       subtitle: "For School & College Students",
-      duration: "1-4 Years",
-      price: "₹5,000-₹8,000/year",
+      duration: "1–4 Years",
+      price: "₹5,000–₹8,000/year",
       description:
         "Progressive UPSC readiness programs for school and college students, systematically covering GS subjects while complementing regular academic studies.",
-      highlights: [
-        "150 hours annual instruction",
-        "50 hours rigorous testing",
-        "Weekly doubt-clearing sessions",
-        "Complete GS subjects coverage",
-        "Campus partnerships active",
-        "Fee 100% redeemable",
-      ],
     },
   ];
 
   return (
-    <>
-      <div className="hero">
-        <div className="hero-content">
-          <h1>Transform Your UPSC Journey</h1>
-          <p>
+    <div className="bg-gray-50">
+      {/* HERO */}
+      <section className="bg-gradient-to-r from-[#0d1117] to-[#431aa0] text-white py-20">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <h1
+            className="text-4xl md:text-5xl font-bold"
+            style={{ color: "#facc15" }}
+          >
+            Transform Your UPSC Journey
+          </h1>
+          <p className="text-lg opacity-90 text-center">
             Comprehensive coaching programs designed for every stage of your
             civil services preparation
           </p>
         </div>
-      </div>
+      </section>
 
-      <div className="container">
-        <h2 className="section-title">Our UPSC Coaching Programs</h2>
+      {/* COURSES */}
+      <section className="max-w-7xl mx-auto px-6 py-10">
+        <h2 className="text-3xl font-bold text-center mb-12">
+          Our UPSC Coaching Programs
+        </h2>
 
-        <div className="courses-grid">
+        <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {courses.map((course) => (
-            <div key={course.id} className="course-card">
-              <span className="course-icon">{course.icon}</span>
-              <h3>{course.title}</h3>
-              <p className="subtitle">{course.subtitle}</p>
-              <div className="meta-info">
-                <span className="meta-badge">{course.duration}</span>
+            <div
+              key={course.id}
+              className="bg-white rounded-2xl shadow-md p-6 flex flex-col hover:shadow-xl transition"
+            >
+              {/* Icon + Title */}
+              <div className="flex items-center gap-3 mb-2">
+                <span className="text-3xl">{course.icon}</span>
+                <h3 className="text-xl font-semibold">{course.title}</h3>
+              </div>
+
+              <p className="text-sm text-gray-500 mb-4">{course.subtitle}</p>
+
+              {/* Meta */}
+              <div className="flex gap-2 mb-4">
+                <span className="px-3 py-1 text-xs font-medium bg-gray-100 rounded-full">
+                  {course.duration}
+                </span>
                 <span
-                  className={`meta-badge ${course.isFree ? "free" : "price"}`}
+                  className={`px-3 py-1 text-xs font-semibold rounded-full ${
+                    course.isFree
+                      ? "bg-green-100 text-green-700"
+                      : "bg-indigo-100 text-indigo-700"
+                  }`}
                 >
                   {course.price}
                 </span>
               </div>
-              <p className="description">{course.description}</p>
-              <div className="course-highlights">
-                <h4>Key Highlights:</h4>
-                <ul>
-                  {course.highlights.map((highlight, idx) => (
-                    <li key={idx}>{highlight}</li>
-                  ))}
-                </ul>
-              </div>
+
+              <p className="text-gray-600 text-sm mb-6 flex-grow">
+                {course.description}
+              </p>
+
               <button
-                className="learn-more-btn"
                 onClick={() => onNavigate(course.id)}
+                className="mt-auto inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#0d1117] to-[#431aa0] text-white px-4 py-2 text-sm font-semibold hover:bg-indigo-700 transition"
               >
                 Learn More →
               </button>
             </div>
           ))}
         </div>
+      </section>
 
-        <div className="pathway-guide">
-          <h2>🎯 Choose Your Perfect Pathway</h2>
-          <div className="pathway-grid">
-            <div className="pathway-card">
-              <div className="icon">🚀</div>
-              <h4>First-Time Aspirants</h4>
-              <p>
-                Start with <strong>Foundation 365</strong> for complete coverage
-                with Optional subject included
-              </p>
-            </div>
-            <div className="pathway-card">
-              <div className="icon">📈</div>
-              <h4>Second-Year Aspirants</h4>
-              <p>
-                Choose <strong>Mains Mastery 365</strong> for advanced
-                mentorship and Optional excellence
-              </p>
-            </div>
-            <div className="pathway-card">
-              <div className="icon">✨</div>
-              <h4>Optional Focus</h4>
-              <p>
-                Enroll in <strong>Optional Excellence</strong> for specialized
-                subject mastery
-              </p>
-            </div>
-            <div className="pathway-card">
-              <div className="icon">🌱</div>
-              <h4>College Students</h4>
-              <p>
-                Begin with <strong>Early Foundation</strong> to build strong
-                fundamentals early
-              </p>
-            </div>
-            <div className="pathway-card">
-              <div className="icon">🎓</div>
-              <h4>Mains-Qualified</h4>
-              <p>
-                Join <strong>Interview Guidance</strong> (FREE) for personality
-                transformation
-              </p>
-            </div>
+      {/* PATHWAY GUIDE */}
+      <section className="bg-white py-16">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            🎯 Choose Your Perfect Pathway
+          </h2>
+
+          <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5">
+            {[
+              ["🚀", "First-Time Aspirants", "Foundation 365"],
+              ["📈", "Second-Year Aspirants", "Mains Mastery 365"],
+              ["✨", "Optional Focus", "Optional Excellence"],
+              ["🌱", "College Students", "Early Foundation"],
+              ["🎓", "Mains-Qualified", "Interview Guidance (FREE)"],
+            ].map(([icon, title, program]) => (
+              <div
+                key={title}
+                className="bg-gray-50 rounded-xl p-4 text-center shadow-sm"
+              >
+                <div className="text-3xl mb-2">{icon}</div>
+                <h4 className="font-semibold mb-1">{title}</h4>
+                <p className="text-sm text-gray-600">
+                  Join <strong>{program}</strong>
+                </p>
+              </div>
+            ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="footer">
-        <div className="footer-content">
-          <h3>🎯 Your Journey to UPSC Success Starts Here</h3>
-          <p>
+      {/* FOOTER CTA */}
+      {/* <footer className="bg-gray-900 text-white py-14">
+        <div className="max-w-5xl mx-auto px-6 text-center">
+          <h3 className="text-2xl font-bold mb-4">
+            🎯 Your Journey to UPSC Success Starts Here
+          </h3>
+          <p className="text-gray-300 mb-4">
             Choose the programme that aligns with your preparation stage and
             aspirations. Each pathway is meticulously designed to guide you from
             where you are to where you want to be.
           </p>
-          <p style={{ marginTop: "20px", fontSize: "1.2em", fontWeight: 600 }}>
+          <p className="text-lg font-semibold">
             Transform Your Dreams into Reality
           </p>
         </div>
-      </div>
-    </>
+      </footer> */}
+    </div>
   );
 };
 

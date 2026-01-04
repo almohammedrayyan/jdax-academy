@@ -190,13 +190,13 @@ export default function UpscMainPage() {
             to="/course-finder"
             className="px-8 py-4 bg-white text-purple-600 rounded-xl font-bold hover:scale-105 transition"
           >
-            Which Course Fits You?
+            Which Exams Fits You?
           </Link>
           <Link
             to="course-comparison"
             className="px-8 py-4 bg-purple-700 rounded-xl font-bold hover:bg-purple-800 transition"
           >
-            Compare All Courses
+            Compare All Exams
           </Link>
           <Link className="px-8 py-4 border-2 border-white rounded-xl font-bold hover:bg-white hover:text-purple-600 transition">
             Talk to Counselor

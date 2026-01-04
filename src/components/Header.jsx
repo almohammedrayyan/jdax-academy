@@ -2,12 +2,14 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import img from "../assets/images.png";
 import { Menu, User, X, ChevronRight } from "lucide-react";
+import DesktopMenu from "./desktopHeader";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Track open menus with state
+  const [openSubMenu, setOpenSubMenu] = useState(null);
   const [openMenus, setOpenMenus] = useState({
     courses: false,
     resources: false,
@@ -49,6 +51,7 @@ export default function Header() {
         upsc: false,
         tnpscCourse: false,
         cseMaterial: false,
+        syllabusDownload: false,
         syllabus: false,
         pyq: false,
         prelimsPYQ: false,
@@ -63,6 +66,9 @@ export default function Header() {
   const [openStory, setOpenStory] = useState(false);
 
   const [activeSubmenu, setActiveSubmenu] = useState(null);
+  const [activeMenu, setActiveMenu] = useState(null);
+  const [activeSubMenu, setActiveSubMenu] = useState(null);
+  const [activeSubSubMenu, setActiveSubSubMenu] = useState(null);
   const menuRef = useRef();
 
   useEffect(() => {
@@ -116,7 +122,7 @@ export default function Header() {
                   className="h-[50px] w-[100px] object-contain"
                 />
                 <span
-                  className={`text-lg font-bold ${
+                  className={`text-2xl font-bold ${
                     isScrolled ? "text-yellow-400" : "text-[#0d1117]"
                   } ml-[-1.5rem]`}
                 >
@@ -126,558 +132,7 @@ export default function Header() {
             </div>
 
             {/* Desktop Navigation */}
-            <nav
-              className="hidden md:flex space-x-6 items-center"
-              ref={menuRef}
-            >
-              {/* Courses Dropdown */}
-              <div className="relative">
-                {/* Courses button */}
-                <div
-                  className={`cursor-pointer font-medium flex items-center space-x-2 ${
-                    isScrolled ? "text-yellow-400" : "text-[#0d1117]"
-                  }`}
-                  onMouseEnter={() => {
-                    setOpenFreeResource(false);
-                    setOpenStory(false);
-                    setOpenCourses(true);
-                  }}
-                  onClick={() => setOpenCourses((prev) => !prev)}
-                >
-                  <span>Find Your Course</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className={`w-4 h-4 transition-transform transform ${
-                      openCourses ? "rotate-180" : ""
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    strokeWidth="2"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </div>
-
-                {/* Main dropdown */}
-                {openCourses && (
-                  <div className="absolute left-0 mt-3 min-w-[280px] bg-white text-black rounded-xl shadow-xl px-5 py-4 grid gap-3 text-sm z-50">
-                    {/* UPSC */}
-                    {/* <Link
-                      to="/resources/affair"
-                      className="font-bold px-2 py-1 rounded-md hover:bg-gray-100 flex justify-between items-center"
-                    >
-                      Beginner Guide (New)
-                    </Link> */}
-                    <div
-                      className="relative"
-                      onMouseEnter={() => setActiveSubmenu("new")}
-                      onMouseLeave={() => setActiveSubmenu(null)}
-                    >
-                      <Link className="font-bold px-2 py-1 rounded-md hover:bg-gray-100 flex justify-between items-center">
-                        Beginner Guide (New){" "}
-                        <span className="ml-2">&#9662;</span>
-                      </Link>
-                      {activeSubmenu === "new" && (
-                        <div className="absolute left-full top-0 mt-0 min-w-[280px] bg-white text-black rounded-xl shadow-xl px-5 py-4 grid gap-3 text-sm z-50">
-                          <Link
-                            to="/resources/affair"
-                            className="font-bold px-2 py-1 rounded-md hover:bg-gray-100"
-                          >
-                            Beginer New to upsc guide
-                          </Link>
-                          <Link
-                            to="/initiative-ecosystem"
-                            className="font-bold px-2 py-1 rounded-md hover:bg-gray-100"
-                          >
-                            JDAX Competitive Exams Initiatives
-                          </Link>
-                        </div>
-                      )}
-                    </div>
-                    <div
-                      className="relative"
-                      onMouseEnter={() => setActiveSubmenu("upsc")}
-                      onMouseLeave={() => setActiveSubmenu(null)}
-                    >
-                      <Link className="font-bold px-2 py-1 rounded-md hover:bg-gray-100 flex justify-between items-center">
-                        UPSC <span className="ml-2">&#9662;</span>
-                      </Link>
-                      {activeSubmenu === "upsc" && (
-                        <div className="absolute left-full top-0 mt-0 min-w-[280px] bg-white text-black rounded-xl shadow-xl px-5 py-4 grid gap-3 text-sm z-50">
-                          <Link
-                            to="/courses/upsc"
-                            className="font-bold px-2 py-1 rounded-md hover:bg-gray-100"
-                          >
-                            New To Upsc ? Start Here
-                          </Link>
-                          <Link
-                            to="/course/upsc/upsc-service-course"
-                            className="font-bold px-2 py-1 rounded-md hover:bg-gray-100"
-                          >
-                            JDAX UPSC Courses
-                          </Link>
-                          <Link
-                            to="/course/upsc/upsc-peadology"
-                            className="font-bold px-2 py-1 rounded-md hover:bg-gray-100"
-                            onClick={() => setMobileMenuOpen(false)}
-                          >
-                            JDAX's UPSC Pedagogy & Initiatives
-                          </Link>
-                        </div>
-                      )}
-                    </div>
-
-                    {/* TNPSC */}
-                    <div
-                      className="relative"
-                      onMouseEnter={() => setActiveSubmenu("tnpsc")}
-                      onMouseLeave={() => setActiveSubmenu(null)}
-                    >
-                      <Link className="font-bold px-2 py-1 rounded-md hover:bg-gray-100 flex justify-between items-center">
-                        TNPSC <span className="ml-2">&#9662;</span>
-                      </Link>
-                      {activeSubmenu === "tnpsc" && (
-                        <div className="absolute left-full top-0 mt-0 min-w-[280px] bg-white text-black rounded-xl shadow-xl px-5 py-4 grid gap-3 text-sm z-50">
-                          <Link
-                            to="/courses/tnpsc/new-to-start"
-                            className="font-bold px-2 py-1 rounded-md hover:bg-gray-100"
-                          >
-                            New to TNPSC
-                          </Link>
-                          <Link
-                            to="/courses/tnpsc/group-exams"
-                            className="font-bold px-2 py-1 rounded-md hover:bg-gray-100"
-                          >
-                            JDAX TNPSC Courses
-                          </Link>
-                          <Link
-                            to="/courses/tnpsc/learning-framework"
-                            className="font-bold px-2 py-1 rounded-md hover:bg-gray-100"
-                          >
-                            JDAX TNPSC Learning Framework
-                          </Link>
-                        </div>
-                      )}
-                    </div>
-
-                    {/* SSB */}
-                    <div
-                      className="relative"
-                      onMouseEnter={() => setActiveSubmenu("ssb")}
-                      onMouseLeave={() => setActiveSubmenu(null)}
-                    >
-                      <Link className="font-bold px-2 py-1 rounded-md hover:bg-gray-100 flex justify-between items-center">
-                        SSB <span className="ml-2">&#9662;</span>
-                      </Link>
-                      {activeSubmenu === "ssb" && (
-                        <div className="absolute left-full top-0 mt-0 min-w-[280px] bg-white text-black rounded-xl shadow-xl px-5 py-4 grid gap-3 text-sm z-50">
-                          <Link
-                            to="/courses/ssc"
-                            className="font-bold px-2 py-1 rounded-md hover:bg-gray-100"
-                          >
-                            New to SSB (Railway & Banking)
-                          </Link>
-                          <Link
-                            to="/course/RiseToServe"
-                            className="font-bold px-2 py-1 rounded-md hover:bg-gray-100"
-                          >
-                            Rise to Integrated Service
-                          </Link>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                )}
-              </div>
-              <div className="relative">
-                {/* Courses Button */}
-                <div
-                  className={`cursor-pointer font-medium flex items-center space-x-2 ${
-                    isScrolled ? "text-yellow-400" : "text-[#0d1117]"
-                  }`}
-                  onMouseEnter={() => {
-                    setOpenCourses(false);
-                    setOpenFreeResource(true);
-                  }}
-                  onClick={() => setOpenFreeResource((prev) => !prev)}
-                >
-                  <span>Free Resource</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className={`w-4 h-4 transition-transform transform ${
-                      openFreeResource ? "rotate-180" : ""
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    strokeWidth="2"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </div>
-
-                {/* Main Dropdown */}
-                {openFreeResource && (
-                  <div className="absolute left-0 mt-3 min-w-[280px] bg-white text-black rounded-xl shadow-xl px-5 py-4 grid gap-3 text-sm z-50">
-                    {/* UPSC */}
-                    <div
-                      className="relative"
-                      onMouseEnter={() => setActiveSubmenu("upsc")}
-                      onMouseLeave={() => setActiveSubmenu(null)}
-                    >
-                      {/* <Link
-                        to="/resources/affair"
-                        className="font-bold px-2 py-1 rounded-md hover:bg-gray-100 flex justify-between items-center"
-                      >
-                        Beginner Guide (New)
-                        <span className="ml-2">&#9662;</span>
-                      </Link> */}
-                    </div>
-
-                    {/* UPSC CSE Material */}
-                    <div
-                      className="relative"
-                      onMouseEnter={() => setActiveSubmenu("cseMaterial")}
-                      onMouseLeave={() => setActiveSubmenu(null)}
-                    >
-                      <Link
-                        // to="/courses/upsc-cse-material"
-                        className="font-bold px-2 py-1 rounded-md hover:bg-gray-100 flex justify-between items-center"
-                      >
-                        UPSC CSE Material
-                        <span className="ml-2">&#9662;</span>
-                      </Link>
-
-                      {activeSubmenu === "cseMaterial" && (
-                        <div
-                          className="absolute left-full top-0 mt-0 min-w-[280px] bg-white text-black rounded-xl shadow-xl px-3 py-4 grid gap-3 text-sm z-50"
-                          onMouseEnter={() => setActiveSubmenu("cseMaterial")}
-                          onMouseLeave={() => setActiveSubmenu(null)}
-                        >
-                          {/* Syllabus Download */}
-                          <div
-                            className="relative"
-                            onMouseEnter={() =>
-                              setActiveSubmenu("syllabusDownload")
-                            }
-                            onMouseLeave={() => setActiveSubmenu("cseMaterial")}
-                          >
-                            <Link
-                              to="#"
-                              className="font-bold px-2 py-1 rounded-md hover:bg-gray-100 flex justify-between items-center"
-                            >
-                              Syllabus Download{" "}
-                              <span className="ml-2">&#9662;</span>
-                            </Link>
-                            {activeSubmenu === "syllabusDownload" && (
-                              <div className="absolute left-full top-0 mt-0 min-w-[280px] bg-white text-black rounded-xl shadow-xl px-5 py-4 grid gap-3 text-sm z-50">
-                                <Link
-                                  to="/resources/study-materials"
-                                  className="font-bold px-2 py-1 rounded-md hover:bg-gray-100"
-                                >
-                                  Prelims Syllabus
-                                </Link>
-                                <Link
-                                  to="/resources/study-main-materials"
-                                  className="font-bold px-2 py-1 rounded-md hover:bg-gray-100"
-                                >
-                                  Mains Syllabus
-                                </Link>
-                              </div>
-                            )}
-                          </div>
-
-                          {/* Previous Year Question Paper */}
-                          <div
-                            className="relative"
-                            onMouseEnter={() =>
-                              setActiveSubmenu("prevYearQPaper")
-                            }
-                            onMouseLeave={() => setActiveSubmenu("cseMaterial")}
-                          >
-                            <Link
-                              to="/pyq"
-                              className="font-bold px-2 py-1 rounded-md hover:bg-gray-100 flex justify-between items-center"
-                            >
-                              Previous Year Question Paper{" "}
-                              <span className="ml-2">&#9662;</span>
-                            </Link>
-
-                            {activeSubmenu === "prevYearQPaper" && (
-                              <div className="absolute left-full top-0 mt-0 min-w-[280px] bg-white text-black rounded-xl shadow-xl px-5 py-4 grid gap-3 text-sm z-50">
-                                {/* Prelims PYQ */}
-                                <div
-                                  className="relative"
-                                  onMouseEnter={() =>
-                                    setActiveSubmenu("prelimsPYQ")
-                                  }
-                                  onMouseLeave={() =>
-                                    setActiveSubmenu("prevYearQPaper")
-                                  }
-                                >
-                                  <Link
-                                    to="#"
-                                    className="font-bold px-2 py-1 rounded-md hover:bg-gray-100 flex justify-between items-center"
-                                  >
-                                    Prelims PYQ{" "}
-                                    <span className="ml-2">&#9662;</span>
-                                  </Link>
-                                  {activeSubmenu === "prelimsPYQ" && (
-                                    <div className="absolute left-full top-0 mt-0 min-w-[280px] bg-white text-black rounded-xl shadow-xl px-5 py-4 grid gap-3 text-sm z-50">
-                                      <Link
-                                        to="/resources/pqy-prelims"
-                                        className="font-bold px-2 py-1 rounded-md hover:bg-gray-100"
-                                      >
-                                        GS Papers
-                                      </Link>
-                                      <Link
-                                        to="/resource/csat-prelims"
-                                        className="font-bold px-2 py-1 rounded-md hover:bg-gray-100"
-                                      >
-                                        CSAT Papers
-                                      </Link>
-                                    </div>
-                                  )}
-                                </div>
-
-                                {/* Mains PYQ */}
-                                <div
-                                  className="relative"
-                                  onMouseEnter={() =>
-                                    setActiveSubmenu("mainsPYQ")
-                                  }
-                                  onMouseLeave={() =>
-                                    setActiveSubmenu("prevYearQPaper")
-                                  }
-                                >
-                                  <Link
-                                    to="#"
-                                    className="font-bold px-2 py-1 rounded-md hover:bg-gray-100 flex justify-between items-center"
-                                  >
-                                    Mains PYQ{" "}
-                                    <span className="ml-2">&#9662;</span>
-                                  </Link>
-                                  {activeSubmenu === "mainsPYQ" && (
-                                    <div className="absolute left-full top-0 mt-0 min-w-[280px] bg-white text-black rounded-xl shadow-xl px-5 py-4 grid gap-3 text-sm z-50">
-                                      <Link
-                                        to="/resource/gs1main"
-                                        className="font-bold px-2 py-1 rounded-md hover:bg-gray-100"
-                                      >
-                                        GS Paper 1
-                                      </Link>
-                                      <Link
-                                        to="/resource/gs2main"
-                                        className="font-bold px-2 py-1 rounded-md hover:bg-gray-100"
-                                      >
-                                        GS Paper 2
-                                      </Link>
-                                      <Link
-                                        to="/resource/gs3main"
-                                        className="font-bold px-2 py-1 rounded-md hover:bg-gray-100"
-                                      >
-                                        GS Paper 3
-                                      </Link>
-                                      <Link
-                                        to="/resource/gs4main"
-                                        className="font-bold px-2 py-1 rounded-md hover:bg-gray-100"
-                                      >
-                                        GS Paper 4
-                                      </Link>
-                                    </div>
-                                  )}
-                                </div>
-                              </div>
-                            )}
-                          </div>
-                        </div>
-                      )}
-                    </div>
-
-                    {/* TNPSC / SSB */}
-                    <div
-                      className="relative"
-                      onMouseEnter={() => setActiveSubmenu("ssb")}
-                      onMouseLeave={() => setActiveSubmenu(null)}
-                    >
-                      <Link
-                        to="/resource/tnpsc-page"
-                        className="font-bold px-2 py-1 rounded-md hover:bg-gray-100 flex justify-between items-center"
-                      >
-                        Tnpsc Resource <span className="ml-2">&#9662;</span>
-                      </Link>
-
-                      {activeSubmenu === "ssb" && (
-                        <div className="absolute left-full top-0 mt-0 min-w-[280px] bg-white text-black rounded-xl shadow-xl px-5 py-4 grid gap-3 text-sm z-50">
-                          <Link
-                            to="/resource/tnpsc-syllabus"
-                            className="font-bold px-2 py-1 rounded-md hover:bg-gray-100"
-                          >
-                            Syllabus
-                          </Link>
-                          <Link
-                            to="/resource/tnpsc-pyq"
-                            className="font-bold px-2 py-1 rounded-md hover:bg-gray-100"
-                          >
-                            Previous Question Paper
-                          </Link>
-                          <Link
-                            to="/resource/where-study"
-                            className="font-bold px-2 py-1 rounded-md hover:bg-gray-100"
-                          >
-                            JDAX TNPSC where to study
-                          </Link>
-                          <Link
-                            to="/resource/tnpsc-policy"
-                            className="font-bold px-2 py-1 rounded-md hover:bg-gray-100"
-                          >
-                            JDAX TNPSC policy notes
-                          </Link>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                )}
-              </div>
-              <div className="relative">
-                {/* Courses Button */}
-                <div
-                  className={`cursor-pointer font-medium flex items-center space-x-2 ${
-                    isScrolled ? "text-yellow-400" : "text-[#0d1117]"
-                  }`}
-                  onMouseEnter={() => {
-                    // setOpenCourses(false);
-                    // setOpenFreeResource(true);
-                  }}
-                  // onClick={() => setOpenFreeResource((prev) => !prev)}
-                >
-                  <Link to={"/aspirant/student-journey"}>Aspirant</Link>
-                  {/* <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className={`w-4 h-4 transition-transform transform ${
-                      openFreeResource ? "rotate-180" : ""
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    strokeWidth="2"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg> */}
-                </div>
-              </div>
-              <div className="relative">
-                {/* Courses Button */}
-                <div
-                  className={`cursor-pointer font-medium flex items-center space-x-2 ${
-                    isScrolled ? "text-yellow-400" : "text-[#0d1117]"
-                  }`}
-                  onMouseEnter={() => {
-                    setOpenCourses(false);
-                    setOpenFreeResource(false);
-                    setOpenStory(true);
-                  }}
-                  onClick={() => setOpenStory((prev) => !prev)}
-                >
-                  <span>About Jdax</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className={`w-4 h-4 transition-transform transform ${
-                      openStory ? "rotate-180" : ""
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    strokeWidth="2"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </div>
-
-                {/* Main Dropdown */}
-                {openStory && (
-                  <div className="absolute left-0 mt-3 min-w-[280px] bg-white text-black rounded-xl shadow-xl px-5 py-4 grid gap-3 text-sm z-50">
-                    {/* UPSC */}
-                    <div
-                      className="relative"
-                      onMouseEnter={() => setActiveSubmenu("story")}
-                      onMouseLeave={() => setActiveSubmenu(null)}
-                    >
-                      <Link
-                        to="/about-jdax"
-                        className="font-bold px-2 py-1 rounded-md hover:bg-gray-100 flex justify-between items-center"
-                      >
-                        Our Story
-                      </Link>
-                      <Link
-                        to="/commitment"
-                        className="font-bold px-2 py-1 rounded-md hover:bg-gray-100 flex justify-between items-center"
-                      >
-                        Our Commitments and philosophy
-                      </Link>
-                      {/* <Link
-                        to="/jdax-management"
-                        className="font-bold px-2 py-1 rounded-md hover:bg-gray-100 flex justify-between items-center"
-                      >
-                        JDAX Management Team
-                      </Link> */}
-                      <Link
-                        to="/jdax-faculty"
-                        className="font-bold px-2 py-1 rounded-md hover:bg-gray-100 flex justify-between items-center"
-                      >
-                        JDAX Faculty Team
-                      </Link>
-                      <Link
-                        to="/jdax-skill"
-                        className="font-bold px-2 py-1 rounded-md hover:bg-gray-100 flex justify-between items-center"
-                      >
-                        JDAX Academic and skill Council
-                      </Link>
-                      <Link
-                        to="/why-choose"
-                        className="font-bold px-2 py-1 rounded-md hover:bg-gray-100 flex justify-between items-center"
-                      >
-                        Why Choose Jdax
-                      </Link>
-                      <Link
-                        to="/gallery"
-                        className="font-bold px-2 py-1 rounded-md hover:bg-gray-100 flex justify-between items-center"
-                      >
-                        Gallery
-                      </Link>
-                      <Link
-                        to="/prospect"
-                        className="font-bold px-2 py-1 rounded-md hover:bg-gray-100 flex justify-between items-center"
-                      >
-                        JDAX Prospect and Pampers
-                      </Link>
-                      {/* <Link
-                        to="/careers"
-                        className="font-bold px-2 py-1 rounded-md hover:bg-gray-100 flex justify-between items-center"
-                      >
-                        Careers(JDAX Team)
-                      </Link> */}
-                    </div>
-                  </div>
-                )}
-              </div>
-            </nav>
+            <DesktopMenu isScrolled={isScrolled} />
 
             {/* Login Button */}
             {/* Student Login - Desktop */}
@@ -732,7 +187,7 @@ export default function Header() {
             className="flex justify-between items-center cursor-pointer hover:text-yellow-300"
             onClick={() => toggleMenu("new")}
           >
-            <span>Beginer Guide (new)</span>
+            <span>Beginner's Guide</span>
             <ChevronRight
               size={18}
               className={`transition-transform ${
@@ -748,7 +203,7 @@ export default function Header() {
                 className="block hover:text-yellow-300"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Beginer New To Upsc Guide
+                Competitive Exams Overview
               </Link>
               <Link
                 to="/initiative-ecosystem"
@@ -781,7 +236,7 @@ export default function Header() {
                 className="block hover:text-yellow-300"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                New To Upsc ? Start Here
+                New To UPSC ? Start Here
               </Link>
               <Link
                 to="/course/upsc/upsc-service-course"
@@ -821,7 +276,7 @@ export default function Header() {
                 className="block hover:text-yellow-300"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                New To Start Tnpsc
+                New To Start TNPSC
               </Link>
               <Link
                 to="/courses/tnpsc/group-exams"
@@ -844,7 +299,7 @@ export default function Header() {
             className="flex justify-between items-center cursor-pointer hover:text-yellow-300"
             onClick={() => toggleMenu("ssb")}
           >
-            <span>SSC, Banking, and Railways</span>
+            <span>SSC / Banking / RRB</span>
             <ChevronRight
               size={18}
               className={`transition-transform ${
@@ -859,14 +314,14 @@ export default function Header() {
                 className="block hover:text-yellow-300"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                New To SSC, Banking, Railways
+                New To SSC/ Banking/ RRB - Start Here
               </Link>
               <Link
                 to="/course/RiseToServe"
                 className="block hover:text-yellow-300"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                RISE TO SERVE INTEGRATED BATCH
+                JDAX SSC / BANKING / RRB - Courses
               </Link>
 
               {/* CSE Material */}
@@ -874,19 +329,12 @@ export default function Header() {
           )}
           {/* Resources */}
           <p className="font-semibold text-yellow-300 mt-6">Resources</p>
-          {/* <Link
-            to="/resources/affair"
-            className="block hover:text-yellow-300"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Beginners Guide (New)
-          </Link> */}
 
           <div
             className="flex justify-between items-center cursor-pointer hover:text-yellow-300"
             onClick={() => toggleMenu("cseMaterial")}
           >
-            <span>UPSC CSE Material</span>
+            <span>UPSC Resources</span>
             <ChevronRight
               size={16}
               className={`transition-transform ${
@@ -911,21 +359,84 @@ export default function Header() {
                 />
               </div>
               {openMenus.syllabus && (
-                <div className="ml-5 space-y-1 text-white">
+                <div className="ml-5 space-y-2 text-white">
+                  {/* Prelims */}
                   <Link
-                    to="/resources/study-materials"
-                    className="block hover:text-yellow-300"
-                    onClick={() => setMobileMenuOpen(false)}
+                    className="w-full text-left font-semibold hover:text-yellow-300"
+                    onClick={() =>
+                      setOpenSubMenu(
+                        openSubMenu === "prelims" ? null : "prelims"
+                      )
+                    }
                   >
                     Prelims Syllabus
                   </Link>
-                  <Link
-                    to="/resources/study-main-materials"
-                    className="block hover:text-yellow-300"
-                    onClick={() => setMobileMenuOpen(false)}
+
+                  {openSubMenu === "prelims" && (
+                    <div className="ml-4 space-y-1 text-sm">
+                      <Link
+                        to="/resources/study-materials?tab=0"
+                        className="block hover:text-yellow-300"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        GS Syllabus
+                      </Link>
+
+                      <Link
+                        to="/resources/study-materials?tab=1"
+                        className="block hover:text-yellow-300"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        CSAT Syllabus
+                      </Link>
+                    </div>
+                  )}
+
+                  {/* Mains */}
+                  <button
+                    className="w-full text-left font-semibold hover:text-yellow-300 mt-2"
+                    onClick={() =>
+                      setOpenSubMenu(openSubMenu === "mains" ? null : "mains")
+                    }
                   >
                     Mains Syllabus
-                  </Link>
+                  </button>
+
+                  {openSubMenu === "mains" && (
+                    <div className="ml-4 space-y-1 text-sm">
+                      <Link
+                        to="/resources/study-main-materials"
+                        className="block hover:text-yellow-300"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        GS Syllabus 1
+                      </Link>
+
+                      <Link
+                        to="/mains/gs2"
+                        className="block hover:text-yellow-300"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        GS Syllabus 2
+                      </Link>
+
+                      <Link
+                        to="/mains/gs3"
+                        className="block hover:text-yellow-300"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        GS Syllabus 3
+                      </Link>
+
+                      <Link
+                        to="/mains/gs4"
+                        className="block hover:text-yellow-300"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        GS Syllabus 4
+                      </Link>
+                    </div>
+                  )}
                 </div>
               )}
 
@@ -1158,21 +669,19 @@ export default function Header() {
               </Link>
 
               <Link
+                to="/prospect"
+                className="block hover:text-yellow-300"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                JDAX Prospectus & Pamphlets Download
+              </Link>
+              <Link
                 to="/gallery"
                 className="block hover:text-yellow-300"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Gallery
               </Link>
-
-              <Link
-                to="/prospect"
-                className="block hover:text-yellow-300"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                JDAX Prospectus & Pamphlet Download
-              </Link>
-
               {/* <Link
                 to="/careers"
                 className="block hover:text-yellow-300"

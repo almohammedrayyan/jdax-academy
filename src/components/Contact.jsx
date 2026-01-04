@@ -26,6 +26,7 @@ export default function ContactUs() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           className="text-4xl md:text-6xl font-bold mb-4"
+          style={{ color: "#facc15" }}
         >
           Contact Us
         </motion.h1>

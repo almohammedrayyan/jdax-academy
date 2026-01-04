@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function GS4Hero() {
   const [mounted, setMounted] = useState(false);
@@ -57,6 +58,26 @@ export default function GS4Hero() {
         ))}
 
       {/* Content */}
+      <div className="absolute top-10 right-6 flex gap-2">
+        <Link
+          to="/resources/study-main-materials"
+          className="px-3 py-2 bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs uppercase rounded-lg shadow-md transition"
+        >
+          GS1
+        </Link>
+        <Link
+          to="/mains/gs2"
+          className="px-3 py-2 bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs uppercase rounded-lg shadow-md transition"
+        >
+          GS2
+        </Link>
+        <Link
+          to="/mains/gs3"
+          className="px-3 py-2 bg-yellow-600 hover:bg-yellow-700 text-white font-bold text-xs uppercase rounded-lg shadow-md transition"
+        >
+          GS3
+        </Link>
+      </div>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

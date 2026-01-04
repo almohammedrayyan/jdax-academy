@@ -31,63 +31,7 @@ const JdaxSkillManagement = () => {
       icon: nanada2,
     },
   ];
-  const facultyList = [
-    { name: "Prof. Prasanna Ganesh", role: "CSAT, Polity, Economy Faculty" },
-    { name: "Prof. Kaviya Manoharan", role: "Environment Faculty" },
-    { name: "Prof. Kaviyadharshini", role: "Geography Faculty" },
-    { name: "Mr. Soundar", role: "CSAT Faculty" },
-    {
-      name: "Prof. Stephen Arockiasamy",
-      role: "Current Affairs Faculty – 5 years experience",
-    },
-    {
-      name: "Prof. Yugaselvi Gopinath",
-      role: "Senior Faculty – 9 years experience",
-    },
-    {
-      name: "Prof. Navaneethan",
-      role: "Mentoring Aspirants – 7 years experience",
-    },
-    {
-      name: "Prof. Muthukumar",
-      role: "CSAT Trainer, Aptitude & History Faculty",
-    },
-    {
-      name: "Prof. Dr. Muthuraman",
-      role: "Medieval Indian & TN History, Asst. Prof., Loyola College",
-    },
-    {
-      name: "Prof. Sirajudheen",
-      role: "TNPSC – General Science Faculty (6 years)",
-    },
-    {
-      name: "Prof. Hareesh",
-      role: "Contemporary India, Asst. Prof., Loyola College",
-    },
-    { name: "Prof. Jeevith", role: "Faculty – 3 years experience" },
-    {
-      name: "Prof. Dr. Guru",
-      role: "Asst. Prof., International Relations, Loyola College",
-    },
-    { name: "Prof. Sindhu", role: "Tamil Faculty – 3 years experience" },
-    {
-      name: "Prof. Sanjana Rajendran",
-      role: "Geography Faculty – 3 years experience",
-    },
-    {
-      name: "Prof. Karunya Jeeva",
-      role: "TN Administration Faculty – 3 years",
-    },
-    { name: "Prof. Monika", role: "Geography & Modern Indian History Faculty" },
-    { name: "Prof. Karthik", role: "Modern India Faculty" },
-    { name: "Prof. Selvarathinam", role: "Economics & World History Faculty" },
-    { name: "Prof. Ahilan", role: "Modern Indian History Faculty" },
-    {
-      name: "Prof. Shafiq Ahmed",
-      role: "Internal Security & Indian History Faculty",
-    },
-    { name: "Prof. Sathya Kalaivani", role: "Geography & Environment Faculty" },
-  ];
+
   const settings = {
     infinite: true,
     speed: 500,
@@ -130,6 +74,8 @@ const JdaxSkillManagement = () => {
   };
   return (
     <>
+      <JdaxManagement />
+
       <div className="bg-white py-12 px-4 md:px-16">
         <h1 className="text-3xl md:text-4xl font-bold text-center mb-6 text-[#431aa0]">
           JDAX Academic & Skill Council | HR Team
@@ -167,33 +113,6 @@ const JdaxSkillManagement = () => {
           ))}
         </Slider>
       </div>
-      <div className="bg-white py-12 px-4 md:px-16">
-        <h2 className="text-3xl font-bold text-center mb-4">
-          JDAX Visiting Faculty
-        </h2>
-        <p className="text-center text-gray-600 max-w-4xl mx-auto mb-10">
-          JDAX Visiting Faculty Team consists of well-experienced, eminent and
-          efficient teachers to guide and shape aspirants to crack competitive,
-          eligibility and entrance examinations.
-        </p>
-
-        <Slider {...settings}>
-          {facultyList.map((faculty, index) => (
-            <div key={index} className="px-3">
-              <div className="h-full rounded-2xl border bg-white p-6 shadow-sm hover:shadow-md transition">
-                <div className="flex items-center gap-4 mb-4">
-                  <AlphaIcon name={faculty.name} />
-                  <div>
-                    <h3 className="font-semibold text-lg">{faculty.name}</h3>
-                    <p className="text-sm text-gray-600">{faculty.role}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </Slider>
-      </div>
-      <JdaxManagement />
     </>
   );
 };

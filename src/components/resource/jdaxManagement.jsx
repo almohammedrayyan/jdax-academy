@@ -120,21 +120,6 @@ const JdaxManagement = () => {
     <div>
       {/* MANAGEMENT TEAM */}
       <section className="bg-gray-50 py-10 px-6 md:px-20">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-[#431aa0]">
-          JDAX Management Team
-        </h2>
-
-        <Slider {...settings}>
-          {core.map((m, i) => (
-            <div key={i} className="px-4">
-              <Card image={m.img} title={m.title} role={m.role} />
-            </div>
-          ))}
-        </Slider>
-      </section>
-
-      {/* CORE COMMITTEE */}
-      <section className="bg-gray-50 py-10 px-6 md:px-20">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 text-[#431aa0]">
           JDAX Core Committee Team
         </h2>
@@ -152,6 +137,21 @@ const JdaxManagement = () => {
           ))}
         </Slider>
       </section>
+      <section className="bg-gray-50 py-10 px-6 md:px-20">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-[#431aa0]">
+          JDAX Management Team
+        </h2>
+
+        <Slider {...settings}>
+          {core.map((m, i) => (
+            <div key={i} className="px-4">
+              <Card image={m.img} title={m.title} role={m.role} />
+            </div>
+          ))}
+        </Slider>
+      </section>
+
+      {/* CORE COMMITTEE */}
     </div>
   );
 };

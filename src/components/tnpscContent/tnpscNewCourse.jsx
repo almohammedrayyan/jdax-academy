@@ -15,7 +15,7 @@ body {
 }
 
 .hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+   background: linear-gradient(135deg, #0d1117 0%, #431aa0 100%);
     color: white;
     padding: 80px 20px;
     text-align: center;
@@ -69,7 +69,8 @@ body {
 
 .back-btn {
     display: inline-block;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #0d1117 0%, #431aa0 100%);
+
     color: white;
     padding: 12px 25px;
     border-radius: 25px;
@@ -469,7 +470,7 @@ body {
     right: 30px;
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+     background: linear-gradient(135deg, #0d1117, #431aa0);
     color: white;
     border-radius: 50%;
     display: flex;
@@ -568,79 +569,86 @@ const Hub = ({ onNavigate }) => {
   ];
 
   return (
-    <>
-      <div className="hero">
-        <div className="hero-content">
-          <h1>JDAX TNPSC Courses</h1>
-          <p className="tagline">
-            Structured Programs for Tamil Nadu Civil Services Excellence
-          </p>
-        </div>
+    <div className="bg-slate-50">
+      {/* Hero */}
+      <div className="bg-gradient-to-r from-[#0d1117] to-[#431aa0] py-16 text-center">
+        <h1 className="text-4xl font-bold text-yellow-400">
+          JDAX TNPSC Courses
+        </h1>
+        <p className="mt-3 text-lg opacity-90 text-yellow-100 text-center">
+          Structured Programs for Tamil Nadu Civil Services Excellence
+        </p>
       </div>
 
-      <div className="container">
-        <div className="intro-section">
-          <h2>Choose Your Path to TNPSC Success</h2>
-          <p>
-            JDAX Academy offers specialized TNPSC courses designed to meet the
-            unique requirements of different aspirant groups. Whether you're
-            aiming for higher administrative roles through Group 1, executive
-            positions via Group 2/2A, or clerical positions through Group 4, we
-            have the perfect program for you.
+      {/* Content */}
+      <div className="max-w-7xl mx-auto px-6 py-14">
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <h2 className="text-3xl font-semibold">
+            Choose Your Path to TNPSC Success
+          </h2>
+          <p className="mt-4 text-gray-600">
+            JDAX Academy offers specialized TNPSC courses designed for Group 1,
+            Group 2/2A, and Group 4 aspirants with structured guidance and
+            proven strategies.
           </p>
         </div>
 
-        <div className="courses-grid">
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {courses.map((course) => (
             <div
               key={course.id}
-              className="course-tile"
               onClick={() => onNavigate(course.id)}
+              className="relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer p-6 flex flex-col border border-gray-100"
             >
-              <span className="course-badge">{course.badge}</span>
-              <span className="course-icon">{course.icon}</span>
-              <h3 className="course-title">{course.title}</h3>
-              <p className="course-subtitle">{course.subtitle}</p>
-
-              <div className="course-meta">
-                <div className="meta-item">
-                  <h4>Duration</h4>
-                  <p>{course.duration}</p>
-                </div>
-                <div className="meta-item">
-                  <h4>Investment</h4>
-                  <p>{course.investment}</p>
-                </div>
+              {/* Top Badges */}
+              <div className="absolute top-4 right-4 flex flex-col gap-2">
+                <span className="text-xs font-semibold px-3 py-1 rounded-full bg-indigo-100 text-indigo-700">
+                  {course.badge}
+                </span>
               </div>
 
-              <div className="course-highlights">
-                <h4>Key Features:</h4>
-                <ul>
-                  {course.highlights.map((highlight, idx) => (
-                    <li key={idx}>{highlight}</li>
-                  ))}
-                </ul>
+              {/* Icon */}
+              <div className="text-4xl mb-4">{course.icon}</div>
+
+              <h3 className="text-lg font-bold mb-2">{course.title}</h3>
+
+              <p className="text-sm text-gray-600 mb-4">{course.subtitle}</p>
+
+              {/* Duration & Price Badges */}
+              <div className="flex gap-3 mb-6 flex-wrap">
+                <span className="px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 shadow-sm">
+                  ⏳ {course.duration}
+                </span>
+                <span className="px-3 py-1 rounded-full text-xs font-semibold bg-green-50 text-green-700 shadow-sm">
+                  💰 {course.investment}
+                </span>
               </div>
 
-              <button className="explore-course-btn">
+              {/* Highlights */}
+              <ul className="space-y-2 text-sm text-gray-700 mb-6">
+                {course.highlights.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-2">
+                    <span className="text-indigo-600 mt-1">•</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Button */}
+              <button
+                className="mt-auto w-full text-white py-3 rounded-xl font-semibold transition-transform duration-200 hover:scale-[1.02]"
+                style={{
+                  background: "linear-gradient(135deg, #0d1117, #431aa0)",
+                }}
+              >
                 Explore Course Details →
               </button>
             </div>
           ))}
         </div>
       </div>
-
-      {/* <div className="footer">
-        <div className="footer-content">
-          <h3>Ready to Begin Your TNPSC Journey?</h3>
-          <p>
-            Choose the course that aligns with your goals and start your
-            preparation with expert guidance.
-          </p>
-          <button className="cta-button">Contact JDAX Academy</button>
-        </div>
-      </div> */}
-    </>
+    </div>
   );
 };
 

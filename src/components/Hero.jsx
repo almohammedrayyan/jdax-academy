@@ -66,14 +66,14 @@ export default function Hero() {
               to="/course-comparison"
               className="px-8 py-4 bg-[#431aa0] text-white font-semibold rounded-lg shadow-md hover:bg-[#2f0e7a] transition-all text-center"
             >
-              Compare All Courses
+              Compare All Exams
             </Link>
 
             <Link
               to="/course-finder"
               className="px-8 py-4 border-2 border-[#431aa0] text-[#431aa0] font-semibold rounded-lg hover:bg-[#431aa0] hover:text-white transition-all text-center"
             >
-              Which Course Fits You?
+              Which Exams Fits You?
             </Link>
           </motion.div>
         </motion.div>

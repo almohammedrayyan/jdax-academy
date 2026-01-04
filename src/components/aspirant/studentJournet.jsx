@@ -109,7 +109,7 @@ const StudentJourney = () => {
           transition={{ duration: 0.8 }}
           className="text-4xl md:text-5xl font-bold mb-4 text-[#facc15]"
         >
-          Student Voices
+          Aspirant Voices
         </motion.h2>
         <p className="text-gray-200 max-w-2xl mx-auto text-center">
           Real experiences from TNPSC & UPSC aspirants at JDAX

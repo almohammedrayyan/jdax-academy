@@ -1,32 +1,48 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { BookOpen, BarChart3, ListTree, Target } from "lucide-react";
+import { useSearchParams } from "react-router-dom";
 
 import { SyllabusOverview } from "../resourceContent/upsccoursePage/syllabus-overview";
 import { WeightageChart } from "../resourceContent/upsccoursePage/weightedPart";
 import { TopicSections } from "../resourceContent/upsccoursePage/topicBreakdown";
 import { StudyStrategy } from "../resourceContent/upsccoursePage/strategicSyllabus";
 import { HeroMaterial } from "../resourceContent/upsccoursePage/material1";
-import "./studyMaterial.css";
 import CsatMain from "../resourceContent/csat/csatMain";
+import "./studyMaterial.css";
 
 const StudyMaterial = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const tabIndexFromUrl = Number(searchParams.get("tab")) || 0;
+  const [tab, setTab] = useState(tabIndexFromUrl);
+
   const overviewRef = useRef(null);
   const weightRef = useRef(null);
   const topicRef = useRef(null);
   const strategyRef = useRef(null);
-  const [tab, setTab] = useState(0);
+
+  // Sync tab state with URL query param whenever it changes externally
+  useEffect(() => {
+    setTab(tabIndexFromUrl);
+  }, [tabIndexFromUrl]);
+
+  // Function to switch tab and update URL
+  const handleTabSwitch = (newTab) => {
+    setTab(newTab);
+    setSearchParams({ tab: newTab });
+  };
 
   return (
     <div>
+      {/* Toggle Button */}
       <div
         className="absolute z-20"
         style={{
-          top: "5rem", // 80px from top
-          right: "2.5rem", // 40px from right
+          top: "5rem",
+          right: "2.5rem",
         }}
       >
         <button
-          onClick={() => setTab(tab === 1 ? 0 : 1)}
+          onClick={() => handleTabSwitch(tab === 0 ? 1 : 0)}
           className="rounded-full font-bold text-white shadow-2xl tracking-wide flex items-center justify-center"
           style={{
             backgroundColor: "#dc2626f2",
@@ -49,9 +65,9 @@ const StudyMaterial = () => {
         </button>
       </div>
 
+      {/* Prelims GS / Mains Content */}
       {tab === 0 && (
         <div>
-          {/* Passing setTab and tab to HeroMaterial is optional, add if you want child toggle */}
           <HeroMaterial />
 
           <div className="nav-div">
@@ -64,7 +80,6 @@ const StudyMaterial = () => {
                 <BookOpen size={18} />
                 <span>Overview</span>
               </button>
-
               <button
                 onClick={() =>
                   weightRef.current.scrollIntoView({ behavior: "smooth" })
@@ -73,7 +88,6 @@ const StudyMaterial = () => {
                 <BarChart3 size={18} />
                 <span>Weightage</span>
               </button>
-
               <button
                 onClick={() =>
                   topicRef.current.scrollIntoView({ behavior: "smooth" })
@@ -82,7 +96,6 @@ const StudyMaterial = () => {
                 <ListTree size={18} />
                 <span>Topics</span>
               </button>
-
               <button
                 onClick={() =>
                   strategyRef.current.scrollIntoView({ behavior: "smooth" })
@@ -94,7 +107,6 @@ const StudyMaterial = () => {
             </div>
           </div>
 
-          {/* Sections */}
           <SyllabusOverview refProp={overviewRef} />
           <WeightageChart refProp={weightRef} />
           <TopicSections refProp={topicRef} />
@@ -102,12 +114,8 @@ const StudyMaterial = () => {
         </div>
       )}
 
-      {tab === 1 && (
-        <div>
-          {/* Pass setTab & tab if CSAT page should toggle tab internally */}
-          <CsatMain />
-        </div>
-      )}
+      {/* Prelims CSAT Content */}
+      {tab === 1 && <CsatMain />}
     </div>
   );
 };

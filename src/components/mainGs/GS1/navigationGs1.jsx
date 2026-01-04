@@ -39,7 +39,7 @@ export default function GS1Navigation() {
 
   return (
     <motion.nav
-      className={`sticky top-0 z-50 transition-all duration-300 border-b-4 ${
+      className={` top-0 z-50 transition-all duration-300 border-b-4 ${
         scrolled
           ? "bg-gradient-to-r from-emerald-600 to-green-600 shadow-2xl border-emerald-800"
           : "bg-gradient-to-r from-emerald-500 to-green-500 backdrop-blur-sm border-emerald-700"
@@ -51,26 +51,6 @@ export default function GS1Navigation() {
       <div className="mx-auto px-4 py-3">
         <div className="flex flex-wrap justify-center gap-2">
           {/* Other Mains Papers */}
-          <div className="flex gap-2 mr-4 border-r-2 border-white/30 pr-4">
-            <Link
-              to="/mains/gs2"
-              className="px-3 py-2 bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs uppercase rounded-lg shadow-md transition"
-            >
-              GS2
-            </Link>
-            <Link
-              to="/mains/gs3"
-              className="px-3 py-2 bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs uppercase rounded-lg shadow-md transition"
-            >
-              GS3
-            </Link>
-            <Link
-              to="/mains/gs4"
-              className="px-3 py-2 bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs uppercase rounded-lg shadow-md transition"
-            >
-              GS4
-            </Link>
-          </div>
 
           {/* GS1 Navigation */}
           {navItems.map((item, index) => {

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const styles = `
 * {
@@ -1063,6 +1064,34 @@ const Hub = ({ onNavigate }) => {
             pedagogical approaches.
           </p>
         </div>
+        <section className="bg-gradient-to-br from-purple-600 to-indigo-600 rounded-2xl p-10 text-white text-center shadow-2xl">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Ready to Start Your Preparation?
+          </h2>
+
+          <p className="text-lg mb-8 text-purple-100 max-w-2xl mx-auto">
+            Take the next step in your UPSC journey with JDAX Academy&apos;s
+            expert guidance.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              to="/course-finder"
+              className="px-8 py-4 bg-white text-purple-600 rounded-xl font-bold hover:scale-105 transition"
+            >
+              Which Exams Fits You?
+            </Link>
+            <Link
+              to="course-comparison"
+              className="px-8 py-4 bg-purple-700 rounded-xl font-bold hover:bg-purple-800 transition"
+            >
+              Compare All Exams
+            </Link>
+            <Link className="px-8 py-4 border-2 border-white rounded-xl font-bold hover:bg-white hover:text-purple-600 transition">
+              Talk to Counselor
+            </Link>
+          </div>
+        </section>
       </div>
 
       {/* <div className="footer">
@@ -2190,6 +2219,7 @@ const BeginnerNew = () => {
     <>
       <style>{styles}</style>
       {renderPage()}
+
       <button
         className={`scroll-top ${showScrollTop ? "visible" : ""}`}
         onClick={scrollToTop}

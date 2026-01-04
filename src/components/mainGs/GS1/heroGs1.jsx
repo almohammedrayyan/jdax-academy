@@ -21,10 +21,7 @@ export default function HeroGs1() {
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2 },
-    },
+    visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
   };
 
   const itemVariants = {
@@ -32,11 +29,7 @@ export default function HeroGs1() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 80,
-        damping: 12,
-      },
+      transition: { type: "spring", stiffness: 80, damping: 12 },
     },
   };
 
@@ -68,29 +61,34 @@ export default function HeroGs1() {
           }}
         />
       ))}
+      <div className="absolute top-10 right-6 flex gap-2">
+        <Link
+          to="/mains/gs2"
+          className="px-3 py-2 bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs uppercase rounded-lg shadow-md transition"
+        >
+          GS2
+        </Link>
+        <Link
+          to="/mains/gs3"
+          className="px-3 py-2 bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs uppercase rounded-lg shadow-md transition"
+        >
+          GS3
+        </Link>
+        <Link
+          to="/mains/gs4"
+          className="px-3 py-2 bg-yellow-600 hover:bg-yellow-700 text-white font-bold text-xs uppercase rounded-lg shadow-md transition"
+        >
+          GS4
+        </Link>
+      </div>
+      <div className="mx-auto px-4 py-20 relative z-10 text-center text-white">
+        {/* Top Right GS Buttons */}
 
-      <div className="mx-auto px-4 py-20 relative z-10">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={mounted ? "visible" : "hidden"}
-          className="text-center text-white"
         >
-          {/* Breadcrumb */}
-          <motion.div variants={itemVariants} className="mb-6">
-            <div className="flex items-center justify-center gap-3 text-sm md:text-base font-semibold text-emerald-100">
-              <Link to="/prelims" className="hover:text-white">
-                GS Prelims
-              </Link>
-              <span>/</span>
-              <Link to="/csat" className="hover:text-white">
-                CSAT
-              </Link>
-              <span>/</span>
-              <span className="text-white">GS Mains</span>
-            </div>
-          </motion.div>
-
           {/* Heading */}
           <motion.div variants={itemVariants} className="mb-8">
             <div className="inline-block mb-6 px-8 py-3 bg-white/20 backdrop-blur-md rounded-full border border-white/40 shadow-xl">
@@ -102,7 +100,6 @@ export default function HeroGs1() {
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-6">
               GS PAPER I
             </h1>
-
             <h2 className="text-xl md:text-3xl font-bold text-emerald-100 max-w-4xl mx-auto">
               Indian Heritage & Culture, History, Society & Geography
             </h2>
