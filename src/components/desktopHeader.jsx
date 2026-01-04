@@ -47,7 +47,9 @@ export default function DesktopMenu({ isScrolled }) {
                 <MenuLink to="/resources/affair">
                   Competitive Exams Overview
                 </MenuLink>
-                <MenuLink to="/initiative-ecosystem">JDAX Initiatives</MenuLink>
+                <MenuLink to="/initiative-ecosystem">
+                  JDAX Competitive Exams Initiatives
+                </MenuLink>
               </SideDropdown>
             )}
           </SideItem>
@@ -55,12 +57,12 @@ export default function DesktopMenu({ isScrolled }) {
           <SideItem label="UPSC" onEnter={() => setOpenLevel2("upsc")}>
             {openLevel2 === "upsc" && (
               <SideDropdown>
-                <MenuLink to="/courses/upsc">New to UPSC</MenuLink>
+                <MenuLink to="/courses/upsc">New to UPSC ? Start Here</MenuLink>
                 <MenuLink to="/course/upsc/upsc-service-course">
                   JDAX UPSC Courses
                 </MenuLink>
                 <MenuLink to="/course/upsc/upsc-peadology">
-                  Pedagogy & Initiatives
+                  JDAX UPSC Pedagogy & Initiatives
                 </MenuLink>
               </SideDropdown>
             )}
@@ -70,13 +72,13 @@ export default function DesktopMenu({ isScrolled }) {
             {openLevel2 === "tnpsc" && (
               <SideDropdown>
                 <MenuLink to="/courses/tnpsc/new-to-start">
-                  New to TNPSC
+                  New to TNPSC ? Start Here
                 </MenuLink>
                 <MenuLink to="/courses/tnpsc/group-exams">
                   JDAX TNPSC Courses
                 </MenuLink>
                 <MenuLink to="/courses/tnpsc/learning-framework">
-                  Learning Framework
+                  JDAX Learning Framework
                 </MenuLink>
               </SideDropdown>
             )}
@@ -115,7 +117,7 @@ export default function DesktopMenu({ isScrolled }) {
         <Dropdown>
           {/* UPSC RESOURCE */}
           <SideItem
-            label="UPSC Resource"
+            label="UPSC Resources"
             onEnter={() => {
               setOpenLevel2("upscResource");
               setOpenLevel3(null);
@@ -144,11 +146,11 @@ export default function DesktopMenu({ isScrolled }) {
                         Mains Syllabus
                       </div>
                       <MenuLink to="/resources/study-main-materials">
-                        GS Syllabus 1
+                        GS 1 Syllabus
                       </MenuLink>
-                      <MenuLink to="/mains/gs2">GS Syllabus 2</MenuLink>
-                      <MenuLink to="/mains/gs3">GS Syllabus 3</MenuLink>
-                      <MenuLink to="/mains/gs4">GS Syllabus 4</MenuLink>
+                      <MenuLink to="/mains/gs2">GS 2 Syllabus</MenuLink>
+                      <MenuLink to="/mains/gs3">GS 3 Syllabus</MenuLink>
+                      <MenuLink to="/mains/gs4">GS 4 Syllabus</MenuLink>
                     </SideDropdown>
                   )}
                 </SideItem>
@@ -180,7 +182,7 @@ export default function DesktopMenu({ isScrolled }) {
 
           {/* TNPSC RESOURCE */}
           <SideItem
-            label="TNPSC Resource"
+            label="TNPSC Resources"
             onEnter={() => setOpenLevel2("tnpscResource")}
           >
             {openLevel2 === "tnpscResource" && (
@@ -189,8 +191,12 @@ export default function DesktopMenu({ isScrolled }) {
                 <MenuLink to="/resource/tnpsc-pyq">
                   Previous Question Papers
                 </MenuLink>
-                <MenuLink to="/resource/where-study">Where to Study</MenuLink>
-                <MenuLink to="/resource/tnpsc-policy">Policy Notes</MenuLink>
+                <MenuLink to="/resource/where-study">
+                  JDAX TNPSC Where to Study
+                </MenuLink>
+                <MenuLink to="/resource/tnpsc-policy">
+                  JDAX TNPSC Policy Notes
+                </MenuLink>
               </SideDropdown>
             )}
           </SideItem>
@@ -214,7 +220,7 @@ export default function DesktopMenu({ isScrolled }) {
       >
         <Dropdown>
           <MenuLink to="/about-jdax">Our Story</MenuLink>
-          <MenuLink to="/commitment">JDAX Management</MenuLink>
+          <MenuLink to="/jdax-skill">JDAX Management</MenuLink>
           <MenuLink to="/jdax-faculty">JDAX Faculty Team</MenuLink>
           <MenuLink to="/why-choose">Why Choose JDAX</MenuLink>
           <MenuLink to="/prospect">JDAX Prospectus & Pamphlets</MenuLink>

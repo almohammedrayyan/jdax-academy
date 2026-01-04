@@ -1,5 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "./rise.css";
+import {
+  ShieldCheck,
+  RefreshCcw,
+  Headphones,
+  BookOpen,
+  Users,
+  Award,
+} from "lucide-react";
+import { Monitor, CalendarCheck, Clock } from "lucide-react";
+
 const RiseToServeIntegrated = () => {
   // FAQ Accordion
   document.querySelectorAll(".faq-question").forEach((question) => {
@@ -77,6 +87,56 @@ const RiseToServeIntegrated = () => {
       el.style.transition = "all 0.6s ease";
       observer.observe(el);
     });
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggleFAQ = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+  const faqs = [
+    {
+      question: "Can I really prepare for multiple exams simultaneously?",
+      answer: `Absolutely! Government exams share 70-80% common syllabus including Quantitative Aptitude, Reasoning, English, and General Awareness. Our Integrated Batch is specifically designed to leverage this overlap. Our expert faculty will guide you on time management and exam-specific strategies to prepare efficiently for multiple exams without getting overwhelmed.`,
+    },
+    {
+      question: "What is the duration of the Integrated Batch program?",
+      answer: `The Integrated Batch (covering SSC, Banking, and Railways) is a comprehensive 12-month program with 400+ hours of classroom training and 200+ hours of test practice. Individual programs range from 6-10 months depending on the exam category you choose.`,
+    },
+    {
+      question: "Are online classes available for outstation students?",
+      answer: `Yes! All our classes are available in both online and offline modes. You get access to live interactive classes, recorded lectures that you can watch anytime, downloadable study materials, and online mock tests. Additionally, we offer residential facilities for outstation students who prefer classroom learning.`,
+    },
+    {
+      question: "Is there any installment facility for fee payment?",
+      answer: `Yes, we understand financial constraints and offer flexible installment options. You can pay the course fee in 2-4 installments depending on the program chosen. Contact our admission counselor for detailed payment plans and special discounts for early bird registrations.`,
+    },
+    {
+      question: "What if I miss some classes? Will I get recorded lectures?",
+      answer: `Absolutely! Every live class is recorded and made available on your student portal within 24 hours. You can watch these recordings unlimited times throughout your course duration. Additionally, faculty members are available during doubt-clearing sessions to address any concepts you missed.`,
+    },
+    {
+      question:
+        "How many mock tests are provided? Are they similar to actual exams?",
+      answer: `We conduct 100+ mock tests covering all exam patterns - from subject-wise tests to full-length simulations. Our mock tests are designed by experts who have thoroughly analyzed previous year papers and current exam trends. They replicate the actual computer-based test environment, including question difficulty level, time management challenges, and marking schemes.`,
+    },
+    {
+      question:
+        "What makes JDAX Academy different from other coaching institutes?",
+      answer: `Our unique integrated approach, small batch sizes (max 30 students), expert faculty including working professionals from government sectors, personalized mentoring system, and comprehensive study material set us apart. We also offer a Money-Back Guarantee and Free Repeat Program - showing our confidence in our teaching methodology and commitment to student success.`,
+    },
+    {
+      question:
+        "Do you provide study material, or do I need to buy books separately?",
+      answer: `Comprehensive study material covering all subjects and exams is included in your course fee. You'll receive printed books, digital PDFs, practice question banks, previous year papers, and current affairs compilations. All materials are regularly updated to reflect latest exam patterns. No need to purchase additional books!`,
+    },
+    {
+      question: "Can I switch from one program to another during the course?",
+      answer: `Yes, we offer flexibility to upgrade your program. For example, if you enrolled for SSC only and later decide to prepare for Banking exams too, you can upgrade to the Integrated Batch by paying the difference amount. Contact our academic team for smooth transitions between programs.`,
+    },
+    {
+      question: "What is the success rate of your students?",
+      answer: `We maintain an impressive 87% success rate, with over 450 students securing government positions in the last few years. However, success ultimately depends on your dedication, regular attendance, and consistent practice. Our role is to provide the best guidance, resources, and environment - and we excel at that! Your sincere effort combined with our expert coaching is the winning formula.`,
+    },
+  ];
 
   return (
     <div>
@@ -86,7 +146,12 @@ const RiseToServeIntegrated = () => {
           <p className="tagline">
             For SSC, Banking, Railways & Other Regulatory Bodies
           </p>
-          <p style={{ fontSize: "1.8rem", fontWeight: 600, margin: "2rem 0" }}>
+          <p
+            style={{
+              fontSize: "1.8rem",
+              margin: "2rem 0",
+            }}
+          >
             Your Gateway to Government Services: One Course. Multiple
             Opportunities. Guaranteed Success.
           </p>
@@ -114,48 +179,69 @@ const RiseToServeIntegrated = () => {
               money, and effort while maximizing your chances of success.
             </p>
           </div>
-          <div className="benefits-grid">
-            <div className="benefit-card">
-              <div className="benefit-icon">
-                <i className="fas fa-book"></i>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 p-4">
+            {/* Benefit 1 */}
+            <div className="bg-white p-5 rounded-xl shadow-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300">
+              <div className="flex items-center gap-3 mb-2">
+                <BookOpen className="w-7 h-7 text-blue-500 flex-shrink-0" />
+                <h3 className="text-lg font-semibold text-gray-900">
+                  Common Syllabus Overlap
+                </h3>
               </div>
-              <h3>Common Syllabus Overlap</h3>
-              <p>
+              <p className="text-gray-600 text-sm leading-relaxed">
                 70-80% syllabus overlap across government exams saves time and
                 effort
               </p>
             </div>
-            <div className="benefit-card">
-              <div className="benefit-icon">
-                <i className="fas fa-laptop-code"></i>
+
+            {/* Benefit 2 */}
+            <div className="bg-white p-5 rounded-xl shadow-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300">
+              <div className="flex items-center gap-3 mb-2">
+                <Monitor className="w-7 h-7 text-blue-500 flex-shrink-0" />
+                <h3 className="text-lg font-semibold text-gray-900">
+                  Similar Exam Pattern
+                </h3>
               </div>
-              <h3>Similar Exam Pattern</h3>
-              <p>
+              <p className="text-gray-600 text-sm leading-relaxed">
                 Computer-based tests with objective questions across all exams
               </p>
             </div>
-            <div className="benefit-card">
-              <div className="benefit-icon">
-                <i className="fas fa-sync-alt"></i>
+
+            {/* Benefit 3 */}
+            <div className="bg-white p-5 rounded-xl shadow-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300">
+              <div className="flex items-center gap-3 mb-2">
+                <RefreshCcw className="w-7 h-7 text-blue-500 flex-shrink-0" />
+                <h3 className="text-lg font-semibold text-gray-900">
+                  Complementary Preparation
+                </h3>
               </div>
-              <h3>Complementary Preparation</h3>
-              <p>Studying for one exam enhances your preparation for others</p>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Studying for one exam enhances your preparation for others
+              </p>
             </div>
-            <div className="benefit-card">
-              <div className="benefit-icon">
-                <i className="fas fa-calendar-check"></i>
+
+            {/* Benefit 4 */}
+            <div className="bg-white p-5 rounded-xl shadow-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300">
+              <div className="flex items-center gap-3 mb-2">
+                <CalendarCheck className="w-7 h-7 text-blue-500 flex-shrink-0" />
+                <h3 className="text-lg font-semibold text-gray-900">
+                  Year-Round Opportunities
+                </h3>
               </div>
-              <h3>Year-Round Opportunities</h3>
-              <p>
+              <p className="text-gray-600 text-sm leading-relaxed">
                 Multiple exams throughout the year = more chances to succeed
               </p>
             </div>
-            <div className="benefit-card">
-              <div className="benefit-icon">
-                <i className="fas fa-clock"></i>
+
+            {/* Benefit 5 */}
+            <div className="bg-white p-5 rounded-xl shadow-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300">
+              <div className="flex items-center gap-3 mb-2">
+                <Clock className="w-7 h-7 text-blue-500 flex-shrink-0" />
+                <h3 className="text-lg font-semibold text-gray-900">
+                  Strategic Time Management
+                </h3>
               </div>
-              <h3>Strategic Time Management</h3>
-              <p>
+              <p className="text-gray-600 text-sm leading-relaxed">
                 Expert guidance on preparing for multiple exams simultaneously
               </p>
             </div>
@@ -169,7 +255,7 @@ const RiseToServeIntegrated = () => {
             <h2 style={{ color: "white" }}>
               Exams Covered Under Integrated Batch
             </h2>
-            <p style={{ color: "white" }}>
+            <p style={{ color: "white", textAlign: "center" }}>
               Comprehensive coverage of all major government examinations
             </p>
           </div>
@@ -242,7 +328,13 @@ const RiseToServeIntegrated = () => {
         <div className="container">
           <div className="section-header">
             <h2 style={{ color: "white" }}>Course Highlights</h2>
-            <p style={{ color: "white" }}>
+            <p
+              style={{
+                color: "white",
+
+                textAlign: "center",
+              }}
+            >
               Everything you need to excel in government examinations
             </p>
           </div>
@@ -351,7 +443,7 @@ const RiseToServeIntegrated = () => {
         <div className="container">
           <div className="section-header">
             <h2 style={{ color: "white" }}>Course Fee Structure</h2>
-            <p style={{ color: "white" }}>
+            <p style={{ color: "white", textAlign: "center" }}>
               Affordable pricing with maximum value - Choose the program that
               fits your goals
             </p>
@@ -544,88 +636,94 @@ const RiseToServeIntegrated = () => {
         <div className="container">
           <div className="section-header">
             <h2 style={{ color: "white" }}>Our Commitment to Your Success</h2>
-            <p style={{ color: "white" }}>
+            <p style={{ color: "white", textAlign: "center" }}>
               We stand behind our promise with these guarantees and benefits
             </p>
           </div>
-          <div className="guarantee-grid">
-            <div className="guarantee-card">
-              <div className="guarantee-icon">
-                <i className="fas fa-shield-alt"></i>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 p-4">
+            {/* Card 1 */}
+            <div className="bg-white p-5 rounded-xl shadow-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300">
+              <div className="flex items-center gap-3 mb-2">
+                <ShieldCheck className="w-7 h-7 text-yellow-400 flex-shrink-0" />
+                <h3 className="text-lg font-semibold text-gray-900">
+                  Money-Back Guarantee
+                </h3>
               </div>
-              <div className="guarantee-content">
-                <h3>Money-Back Guarantee</h3>
-                <p>
-                  If you attend all classes, complete all assignments, and don't
-                  qualify in any exam within the course duration, we'll refund
-                  your fees (Terms & Conditions Apply)
-                </p>
-              </div>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                If you attend all classes, complete all assignments, and don't
+                qualify in any exam within the course duration, we'll refund
+                your fees (Terms & Conditions Apply)
+              </p>
             </div>
 
-            <div className="guarantee-card">
-              <div className="guarantee-icon">
-                <i className="fas fa-redo"></i>
+            {/* Card 2 */}
+            <div className="bg-white p-5 rounded-xl shadow-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300">
+              <div className="flex items-center gap-3 mb-2">
+                <RefreshCcw className="w-7 h-7 text-yellow-400 flex-shrink-0" />
+                <h3 className="text-lg font-semibold text-gray-900">
+                  Free Repeat Program
+                </h3>
               </div>
-              <div className="guarantee-content">
-                <h3>Free Repeat Program</h3>
-                <p>
-                  Didn't clear in first attempt? Join our next batch absolutely
-                  free until you succeed
-                </p>
-              </div>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Didn't clear in first attempt? Join our next batch absolutely
+                free until you succeed
+              </p>
             </div>
 
-            <div className="guarantee-card">
-              <div className="guarantee-icon">
-                <i className="fas fa-headset"></i>
+            {/* Card 3 */}
+            <div className="bg-white p-5 rounded-xl shadow-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300">
+              <div className="flex items-center gap-3 mb-2">
+                <Headphones className="w-7 h-7 text-yellow-400 flex-shrink-0" />
+                <h3 className="text-lg font-semibold text-gray-900">
+                  Lifetime Support
+                </h3>
               </div>
-              <div className="guarantee-content">
-                <h3>Lifetime Support</h3>
-                <p>
-                  Get access to our doubt-clearing sessions and mentorship even
-                  after course completion
-                </p>
-              </div>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Get access to our doubt-clearing sessions and mentorship even
+                after course completion
+              </p>
             </div>
 
-            <div className="guarantee-card">
-              <div className="guarantee-icon">
-                <i className="fas fa-book-open"></i>
+            {/* Card 4 */}
+            <div className="bg-white p-5 rounded-xl shadow-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300">
+              <div className="flex items-center gap-3 mb-2">
+                <BookOpen className="w-7 h-7 text-yellow-400 flex-shrink-0" />
+                <h3 className="text-lg font-semibold text-gray-900">
+                  Free Study Material Updates
+                </h3>
               </div>
-              <div className="guarantee-content">
-                <h3>Free Study Material Updates</h3>
-                <p>
-                  Receive all syllabus updates and new study materials at no
-                  additional cost
-                </p>
-              </div>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Receive all syllabus updates and new study materials at no
+                additional cost
+              </p>
             </div>
 
-            <div className="guarantee-card">
-              <div className="guarantee-icon">
-                <i className="fas fa-user-friends"></i>
+            {/* Card 5 */}
+            <div className="bg-white p-5 rounded-xl shadow-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300">
+              <div className="flex items-center gap-3 mb-2">
+                <Users className="w-7 h-7 text-yellow-400 flex-shrink-0" />
+                <h3 className="text-lg font-semibold text-gray-900">
+                  Small Batch Sizes
+                </h3>
               </div>
-              <div className="guarantee-content">
-                <h3>Small Batch Sizes</h3>
-                <p>
-                  Maximum 30 students per batch to ensure personalized attention
-                  for every student
-                </p>
-              </div>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Maximum 30 students per batch to ensure personalized attention
+                for every student
+              </p>
             </div>
 
-            <div className="guarantee-card">
-              <div className="guarantee-icon">
-                <i className="fas fa-certificate"></i>
+            {/* Card 6 */}
+            <div className="bg-white p-5 rounded-xl shadow-md hover:-translate-y-2 hover:shadow-lg transition-transform duration-300">
+              <div className="flex items-center gap-3 mb-2">
+                <Award className="w-7 h-7 text-yellow-400 flex-shrink-0" />
+                <h3 className="text-lg font-semibold text-gray-900">
+                  Interview Preparation
+                </h3>
               </div>
-              <div className="guarantee-content">
-                <h3>Interview Preparation</h3>
-                <p>
-                  Free personality development and interview guidance sessions
-                  for qualified candidates
-                </p>
-              </div>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Free personality development and interview guidance sessions for
+                qualified candidates
+              </p>
             </div>
           </div>
         </div>
@@ -635,7 +733,9 @@ const RiseToServeIntegrated = () => {
         <div className="container">
           <div className="section-header">
             <h2 style={{ color: "white" }}>Simple Enrollment Process</h2>
-            <p style={{ color: "white" }}>Get started in just 5 easy steps</p>
+            <p style={{ color: "white", textAlign: "center" }}>
+              Get started in just 5 easy steps
+            </p>
           </div>
           <div className="process-timeline">
             <div className="process-step">
@@ -702,353 +802,46 @@ const RiseToServeIntegrated = () => {
         <div className="container">
           <div className="section-header">
             <h2 style={{ color: "white" }}>Frequently Asked Questions</h2>
-            <p style={{ color: "white" }}>Got questions? We've got answers!</p>
-          </div>
-          <div className="faq-container">
-            <div className="faq-item">
-              <div className="faq-question">
-                <span>
-                  Can I really prepare for multiple exams simultaneously?
-                </span>
-                <i className="fas fa-chevron-down"></i>
-              </div>
-              <div className="faq-answer">
-                <div className="faq-answer-content">
-                  Absolutely! Government exams share 70-80% common syllabus
-                  including Quantitative Aptitude, Reasoning, English, and
-                  General Awareness. Our Integrated Batch is specifically
-                  designed to leverage this overlap. Our expert faculty will
-                  guide you on time management and exam-specific strategies to
-                  prepare efficiently for multiple exams without getting
-                  overwhelmed.
-                </div>
-              </div>
-            </div>
-
-            <div className="faq-item">
-              <div className="faq-question">
-                <span>
-                  What is the duration of the Integrated Batch program?
-                </span>
-                <i className="fas fa-chevron-down"></i>
-              </div>
-              <div className="faq-answer">
-                <div className="faq-answer-content">
-                  The Integrated Batch (covering SSC, Banking, and Railways) is
-                  a comprehensive 12-month program with 400+ hours of classroom
-                  training and 200+ hours of test practice. Individual programs
-                  range from 6-10 months depending on the exam category you
-                  choose.
-                </div>
-              </div>
-            </div>
-
-            <div className="faq-item">
-              <div className="faq-question">
-                <span>
-                  Are online classes available for outstation students?
-                </span>
-                <i className="fas fa-chevron-down"></i>
-              </div>
-              <div className="faq-answer">
-                <div className="faq-answer-content">
-                  Yes! All our classes are available in both online and offline
-                  modes. You get access to live interactive classes, recorded
-                  lectures that you can watch anytime, downloadable study
-                  materials, and online mock tests. Additionally, we offer
-                  residential facilities for outstation students who prefer
-                  classroom learning.
-                </div>
-              </div>
-            </div>
-
-            <div className="faq-item">
-              <div className="faq-question">
-                <span>Is there any installment facility for fee payment?</span>
-                <i className="fas fa-chevron-down"></i>
-              </div>
-              <div className="faq-answer">
-                <div className="faq-answer-content">
-                  Yes, we understand financial constraints and offer flexible
-                  installment options. You can pay the course fee in 2-4
-                  installments depending on the program chosen. Contact our
-                  admission counselor for detailed payment plans and special
-                  discounts for early bird registrations.
-                </div>
-              </div>
-            </div>
-
-            <div className="faq-item">
-              <div className="faq-question">
-                <span>
-                  What if I miss some classes? Will I get recorded lectures?
-                </span>
-                <i className="fas fa-chevron-down"></i>
-              </div>
-              <div className="faq-answer">
-                <div className="faq-answer-content">
-                  Absolutely! Every live className is recorded and made
-                  available on your student portal within 24 hours. You can
-                  watch these recordings unlimited times throughout your course
-                  duration. Additionally, faculty members are available during
-                  doubt-clearing sessions to address any concepts you missed.
-                </div>
-              </div>
-            </div>
-
-            <div className="faq-item">
-              <div className="faq-question">
-                <span>
-                  How many mock tests are provided? Are they similar to actual
-                  exams?
-                </span>
-                <i className="fas fa-chevron-down"></i>
-              </div>
-              <div className="faq-answer">
-                <div className="faq-answer-content">
-                  We conduct 100+ mock tests covering all exam patterns - from
-                  subject-wise tests to full-length simulations. Our mock tests
-                  are designed by experts who have thoroughly analyzed previous
-                  year papers and current exam trends. They replicate the actual
-                  computer-based test environment, including question difficulty
-                  level, time management challenges, and marking schemes.
-                </div>
-              </div>
-            </div>
-
-            <div className="faq-item">
-              <div className="faq-question">
-                <span>
-                  What makes JDAX Academy different from other coaching
-                  institutes?
-                </span>
-                <i className="fas fa-chevron-down"></i>
-              </div>
-              <div className="faq-answer">
-                <div className="faq-answer-content">
-                  Our unique integrated approach, small batch sizes (max 30
-                  students), expert faculty including working professionals from
-                  government sectors, personalized mentoring system, and
-                  comprehensive study material set us apart. We also offer a
-                  Money-Back Guarantee and Free Repeat Program - showing our
-                  confidence in our teaching methodology and commitment to
-                  student success.
-                </div>
-              </div>
-            </div>
-
-            <div className="faq-item">
-              <div className="faq-question">
-                <span>
-                  Do you provide study material, or do I need to buy books
-                  separately?
-                </span>
-                <i className="fas fa-chevron-down"></i>
-              </div>
-              <div className="faq-answer">
-                <div className="faq-answer-content">
-                  Comprehensive study material covering all subjects and exams
-                  is included in your course fee. You'll receive printed books,
-                  digital PDFs, practice question banks, previous year papers,
-                  and current affairs compilations. All materials are regularly
-                  updated to reflect latest exam patterns. No need to purchase
-                  additional books!
-                </div>
-              </div>
-            </div>
-
-            <div className="faq-item">
-              <div className="faq-question">
-                <span>
-                  Can I switch from one program to another during the course?
-                </span>
-                <i className="fas fa-chevron-down"></i>
-              </div>
-              <div className="faq-answer">
-                <div className="faq-answer-content">
-                  Yes, we offer flexibility to upgrade your program. For
-                  example, if you enrolled for SSC only and later decide to
-                  prepare for Banking exams too, you can upgrade to the
-                  Integrated Batch by paying the difference amount. Contact our
-                  academic team for smooth transitions between programs.
-                </div>
-              </div>
-            </div>
-
-            <div className="faq-item">
-              <div className="faq-question">
-                <span>What is the success rate of your students?</span>
-                <i className="fas fa-chevron-down"></i>
-              </div>
-              <div className="faq-answer">
-                <div className="faq-answer-content">
-                  We maintain an impressive 87% success rate, with over 450
-                  students securing government positions in the last few years.
-                  However, success ultimately depends on your dedication,
-                  regular attendance, and consistent practice. Our role is to
-                  provide the best guidance, resources, and environment - and we
-                  excel at that! Your sincere effort combined with our expert
-                  coaching is the winning formula.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="next-steps">
-        <div className="container">
-          <div className="next-steps-content">
-            <h2>Ready to Begin Your Government Service Journey?</h2>
-            <p>
-              Don't wait for the "right time" - Start now and make your dreams
-              come true!
+            <p style={{ color: "white", textAlign: "center" }}>
+              Got questions? We've got answers!
             </p>
+          </div>
 
-            <div className="urgency-banner">
-              <i className="fas fa-clock"></i>
-              <span>
-                Limited Seats Available! New Batch Starting Soon - Register Now
-                to Secure Your Spot
-              </span>
-            </div>
-
-            <div className="cta-buttons">
-              <a href="#enrollment" className="btn btn-primary">
-                <i className="fas fa-rocket"></i> Enroll in Integrated Batch
-              </a>
-              <a href="#contact" className="btn btn-secondary">
-                <i className="fas fa-calendar-check"></i> Book Free Demo Class
-              </a>
-            </div>
-
-            <div
-              style={{
-                marginTop: "3rem",
-                padding: "2rem",
-                background: "var(--light-bg)",
-                borderRadius: "15px",
-              }}
-            >
-              <h3
-                style={{ color: "var(--primary-blue)", marginBottom: "1rem" }}
-              >
-                Your Next Steps:
-              </h3>
+          <div className="faq-container space-y-4 max-w-4xl mx-auto">
+            {faqs.map((faq, index) => (
               <div
-                style={{
-                  display: "grid",
-                  gap: "1rem",
-                  textAlign: "left",
-                  maxWidth: "600px",
-                  margin: "0 auto",
-                }}
+                key={index}
+                className="faq-item border rounded-lg overflow-hidden"
               >
-                <p
-                  style={{ display: "flex", alignItems: "center", gap: "1rem" }}
+                {/* Question */}
+                <div
+                  className="faq-question flex justify-between items-center p-4 cursor-pointer bg-gray-100"
+                  onClick={() => toggleFAQ(index)}
                 >
-                  <span
-                    style={{
-                      background: "var(--gradient-primary)",
-                      color: "white",
-                      width: "30px",
-                      height: "30px",
-                      borderRadius: "50%",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    1
-                  </span>
-                  <span>
-                    Register online or call us to book your free demo className
-                  </span>
-                </p>
-                <p
-                  style={{ display: "flex", alignItems: "center", gap: "1rem" }}
-                >
-                  <span
-                    style={{
-                      background: "var(--gradient-primary)",
-                      color: "white",
-                      width: "30px",
-                      height: "30px",
-                      borderRadius: "50%",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    2
-                  </span>
-                  <span>
-                    Attend the demo and meet with our academic counselor
-                  </span>
-                </p>
+                  <span>{faq.question}</span>
+                  <i
+                    className={`fas fa-chevron-down transition-transform duration-300 ${
+                      openIndex === index ? "rotate-180" : ""
+                    }`}
+                  ></i>
+                </div>
 
-                <p
-                  style={{ display: "flex", alignItems: "center", gap: "1rem" }}
+                {/* Answer */}
+                <div
+                  className={`faq-answer overflow-hidden transition-all duration-300 ${
+                    openIndex === index ? "max-h-96" : "max-h-0"
+                  }`}
                 >
-                  <span
-                    style={{
-                      background: "var(--gradient-primary)",
-                      color: "white",
-                      width: "30px",
-                      height: "30px",
-                      borderRadius: "50%",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    3
-                  </span>
-                  <span>Choose your program and complete the enrollment</span>
-                </p>
-
-                <p
-                  style={{ display: "flex", alignItems: "center", gap: "1rem" }}
-                >
-                  <span
-                    style={{
-                      background: "var(--gradient-primary)",
-                      color: "white",
-                      width: "30px",
-                      height: "30px",
-                      borderRadius: "50%",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    4
-                  </span>
-                  <span>
-                    Start your journey towards a prestigious government job!
-                  </span>
-                </p>
+                  <div className="faq-answer-content p-4 text-gray-700">
+                    {faq.answer}
+                  </div>
+                </div>
               </div>
-            </div>
-
-            <p
-              style={{
-                marginTop: "2rem",
-                fontSize: "1.1rem",
-                color: "var(--text-dark)",
-                fontWeight: 600,
-              }}
-            >
-              Join thousands of successful aspirants who chose JDAX Academy for
-              their government exam preparation!
-            </p>
+            ))}
           </div>
         </div>
       </section>
+
       <button className="scroll-top" id="scrollTop">
         <i className="fas fa-arrow-up"></i>
       </button>

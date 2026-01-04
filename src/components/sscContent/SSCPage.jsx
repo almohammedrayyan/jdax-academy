@@ -55,7 +55,7 @@ const SSCPage = () => {
   ];
   const navigate = useNavigate();
   return (
-    <div className="pt-20">
+    <div className="pt-20" style={{ fontSize: "25px" }}>
       <div className="hidden md:flex justify-center space-x-4">
         {navLinks.map((link) => (
           <Link
@@ -80,7 +80,10 @@ const SSCPage = () => {
           <h1 className="text-4xl md:text-5xl font-extrabold mb-4 uppercase tracking-tight">
             I. SSC EXAMS (Staff Selection Commission)
           </h1>
-          <p className="text-xl opacity-90 max-w-3xl">
+          <p
+            className="text-xl opacity-90 text-center"
+            style={{ textAlign: "center" }}
+          >
             Comprehensive Roadmap and Detailed Pattern for India's Premier
             Recruiting Agency.
           </p>

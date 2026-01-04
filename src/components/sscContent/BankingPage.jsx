@@ -10,7 +10,7 @@ const BankingPage = () => {
     { name: "Regulatory", path: "/regulatory" },
   ];
   return (
-    <div className="pt-20">
+    <div className="pt-20" style={{ fontSize: "25px" }}>
       <div className="hidden md:flex justify-center space-x-4">
         {navLinks.map((link) => (
           <Link
@@ -35,7 +35,7 @@ const BankingPage = () => {
           <h1 className="text-4xl md:text-5xl font-extrabold mb-4 uppercase">
             🏦 II. BANKING EXAMS
           </h1>
-          <p className="text-xl opacity-90 max-w-3xl">
+          <p className="text-xl opacity-90" style={{ textAlign: "center" }}>
             Comprehensive Roadmap for Careers in IBPS, SBI, RBI and Regional
             Rural Banks.
           </p>

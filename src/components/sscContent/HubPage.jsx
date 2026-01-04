@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { BookOpen, Landmark, Train, Scale, ArrowRight } from "lucide-react";
 
 const HubPage = () => {
   const hubs = [
@@ -8,7 +9,7 @@ const HubPage = () => {
       description: "Group B & C recruitment for Central Government ministries.",
       path: "/ssc",
       color: "bg-blue-gradient",
-      icon: "fa-book-open",
+      icon: BookOpen,
       subTopics: [
         "CGL",
         "CHSL",
@@ -23,7 +24,7 @@ const HubPage = () => {
       description: "Careers in IBPS, SBI, RBI, and Nationalized Banks.",
       path: "/banking",
       color: "bg-success-gradient",
-      icon: "fa-building-columns",
+      icon: Landmark,
       subTopics: [
         "IBPS PO/Clerk",
         "SBI PO/Clerk",
@@ -36,7 +37,7 @@ const HubPage = () => {
       description: "Technical and Non-Technical positions in Indian Railways.",
       path: "/rrb",
       color: "bg-orange-gradient",
-      icon: "fa-train",
+      icon: Train,
       subTopics: ["NTPC", "ALP", "Group D", "JE (Railways)"],
     },
     {
@@ -44,7 +45,7 @@ const HubPage = () => {
       description: "Specialized roles in finance and governance sectors.",
       path: "/regulatory",
       color: "bg-green-gradient",
-      icon: "fa-scale-balanced",
+      icon: Scale,
       subTopics: ["RBI Grade B", "SEBI Grade A", "NABARD", "IRDAI", "EPFO"],
     },
   ];
@@ -106,53 +107,65 @@ const HubPage = () => {
       {/* Categories Grid */}
       <section className="py-20 px-4 max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl font-bold text-gray-700 mb-4">
             Choose Your Exam Path
           </h2>
           <div className="w-24 h-1 bg-indigo-600 mx-auto"></div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {hubs.map((hub) => (
-            <Link to={hub.path} key={hub.title} className="group block h-full">
-              <div className="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform group-hover:-translate-y-2 h-full border border-gray-100">
-                <div
-                  className={`${hub.color} p-10 flex flex-col items-center justify-center text-white relative`}
-                >
-                  <i
-                    className={`fas ${hub.icon} text-6xl mb-4 group-hover:scale-110 transition-transform`}
-                  ></i>
-                  <h3 className="text-3xl font-bold">{hub.title}</h3>
-                  <div className="absolute bottom-0 left-0 w-full h-1 bg-white/20"></div>
-                </div>
-                <div className="p-8">
-                  <p className="text-gray-600 mb-6 text-lg leading-relaxed">
-                    {hub.description}
-                  </p>
+          {hubs.map((hub) => {
+            const Icon = hub.icon;
 
-                  <div className="mb-6">
-                    <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">
-                      Popular Sub-topics
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {hub.subTopics.map((topic) => (
-                        <span
-                          key={topic}
-                          className="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-50 hover:text-indigo-600 transition-colors"
-                        >
-                          {topic}
-                        </span>
-                      ))}
+            return (
+              <Link
+                to={hub.path}
+                key={hub.title}
+                className="group block h-full"
+              >
+                <div className="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform group-hover:-translate-y-2 h-full border border-gray-100">
+                  {/* Card Header */}
+                  <div
+                    className={`${hub.color} p-12 flex flex-col items-center justify-center text-white relative`}
+                  >
+                    <Icon className="w-20 h-20 mb-5 group-hover:scale-110 transition-transform" />
+                    <h3 className="text-4xl font-extrabold text-center">
+                      {hub.title}
+                    </h3>
+                    <div className="absolute bottom-0 left-0 w-full h-1 bg-white/20"></div>
+                  </div>
+
+                  {/* Card Body */}
+                  <div className="p-10">
+                    <p className="text-gray-600 mb-8 text-xl leading-relaxed">
+                      {hub.description}
+                    </p>
+
+                    <div className="mb-8">
+                      <h4 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">
+                        Popular Sub-topics
+                      </h4>
+                      <div className="flex flex-wrap gap-3">
+                        {hub.subTopics.map((topic) => (
+                          <span
+                            key={topic}
+                            className="bg-gray-100 text-gray-700 px-5 py-2 rounded-xl text-base font-semibold hover:bg-indigo-50 hover:text-indigo-600 transition-colors"
+                          >
+                            {topic}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="flex items-center text-indigo-600 font-extrabold text-lg group-hover:gap-4 gap-2 transition-all">
+                      Explore Full Guide
+                      <ArrowRight className="w-5 h-5" />
                     </div>
                   </div>
-
-                  <div className="flex items-center text-indigo-600 font-bold group-hover:gap-4 gap-2 transition-all">
-                    Explore Full Guide <i className="fas fa-arrow-right"></i>
-                  </div>
                 </div>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            );
+          })}
         </div>
       </section>
 

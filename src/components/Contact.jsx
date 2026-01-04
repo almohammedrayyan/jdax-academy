@@ -7,7 +7,8 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import image2 from "../assets/images.png";
+import image2 from "../assets/JDAX-1.png";
+import { FaTelegramPlane } from "react-icons/fa";
 
 export default function ContactUs() {
   const formRef = useRef(null);
@@ -15,6 +16,15 @@ export default function ContactUs() {
     e.preventDefault();
     alert("Response successfully submitted");
     formRef.current.reset();
+  };
+  const iconMotion = {
+    whileHover: {
+      scale: 1.25,
+      y: -6,
+      boxShadow: "0 12px 25px rgba(0,0,0,0.25)",
+    },
+    whileTap: { scale: 0.9 },
+    transition: { type: "spring", stiffness: 300 },
   };
 
   return (
@@ -110,16 +120,40 @@ export default function ContactUs() {
             <img
               src={image2}
               alt="girl"
-              className="relative z-10 w-56 h-72 sm:w-72 sm:h-80 md:w-[320px] md:h-[400px] lg:w-[360px] lg:h-[440px] object-contain"
+              className="relative z-10 
+             w-96 h-96 
+             sm:w-[400px] sm:h-[420px] 
+             md:w-[460px] md:h-[520px] 
+             lg:w-[520px] lg:h-[600px] 
+             object-contain"
             />
 
             {/* Social Icons */}
-            <div className="hidden sm:block overflow-visible">
+            <div className="block overflow-visible">
               {/* Facebook */}
+              <motion.a
+                href="https://t.me/jdaxtnpsc"
+                target="_blank"
+                rel="noopener noreferrer"
+                {...iconMotion}
+                whileHover={{ scale: 1.2 }}
+                className="absolute bottom-[-10px] right-[30%] bg-white p-3 rounded-full shadow-lg cursor-pointer"
+              >
+                <FaTelegramPlane
+                  className="text-3xl"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #a855f7, #ec4899, #facc15)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                  }}
+                />
+              </motion.a>
               <motion.a
                 href="https://www.facebook.com/JD.Academy.of.eXcellence/"
                 target="_blank"
                 rel="noopener noreferrer"
+                {...iconMotion}
                 whileHover={{ scale: 1.2 }}
                 className="absolute top-[35%] -left-10 sm:-left-12 bg-white p-2 sm:p-3 rounded-full shadow-lg cursor-pointer"
               >
@@ -131,6 +165,7 @@ export default function ContactUs() {
                 href="https://www.instagram.com/jdax_upsc/"
                 target="_blank"
                 rel="noopener noreferrer"
+                {...iconMotion}
                 whileHover={{ scale: 1.2 }}
                 className="absolute -top-6 right-[30%] sm:right-[35%] bg-white p-2 sm:p-3 rounded-full shadow-lg cursor-pointer"
               >
@@ -142,6 +177,7 @@ export default function ContactUs() {
                 href="https://youtube.com/@jdacademyofexcellence?si=QQV7ufkMUzGsDP3l"
                 target="_blank"
                 rel="noopener noreferrer"
+                {...iconMotion}
                 whileHover={{ scale: 1.2 }}
                 className="absolute bottom-[35%] -left-12 sm:-left-14 bg-white p-2 sm:p-3 rounded-full shadow-lg cursor-pointer"
               >
@@ -153,33 +189,31 @@ export default function ContactUs() {
                 href="https://whatsapp.com/channel/0029VbCEWVx4yltHLtMFk71l"
                 target="_blank"
                 rel="noopener noreferrer"
+                {...iconMotion}
                 whileHover={{ scale: 1.2 }}
                 className="absolute top-[50%] right-[-12px] bg-white p-3 rounded-full shadow-lg"
               >
                 <FaWhatsapp className="text-green-500 text-3xl" />
               </motion.a>
+
+              <motion.a
+                href="https://t.me/jdax_upsc"
+                target="_blank"
+                {...iconMotion}
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.2 }}
+                className="absolute top-[1%] left-[30%] bg-white p-3 rounded-full shadow-lg cursor-pointer"
+              >
+                <FaTelegramPlane
+                  className="text-3xl"
+                  style={{
+                    background: "linear-gradient(135deg, #0f172a, #1e3a8a)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                  }}
+                />
+              </motion.a>
             </div>
-
-            {/* Info Badges */}
-            {/* <div className="hidden sm:block overflow-visible">
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="absolute right-[-110px] sm:right-[-160px] top-[35%] bg-white/90 backdrop-blur px-3 sm:px-4 py-2 rounded-2xl shadow-md"
-              >
-                <p className="text-gray-700 text-sm sm:text-base font-semibold whitespace-nowrap">
-                  🤝 200+ Brand Joined
-                </p>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="absolute left-[-110px] sm:left-[-160px] bottom-[25%] bg-white/90 backdrop-blur px-3 sm:px-4 py-2 rounded-2xl shadow-md"
-              >
-                <p className="text-gray-700 text-sm sm:text-base font-semibold whitespace-nowrap">
-                  📈 90% Sales Growth
-                </p>
-              </motion.div>
-            </div> */}
           </div>
         </motion.div>
       </section>

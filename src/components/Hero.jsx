@@ -19,7 +19,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="font-bold leading-tight"
+            className="font-bold leading-tight mt-5"
           >
             <span className="block text-xl sm:text-3xl lg:text-4xl text-[#431aa0]">
               WELCOME TO
@@ -47,7 +47,7 @@ export default function Hero() {
               initial={{ x: -40, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
-              className="text-sm sm:text-base 2xl:text-lg text-gray-900 text-center sm:text-left"
+              className="text-sm sm:text-base 2xl:text-xl text-gray-900 text-center sm:text-left"
             >
               Located in the heart of Santhome near the iconic Santhome
               Cathedral, Chennai, JDAX Academy is a unique academic unit
@@ -99,9 +99,9 @@ export default function Hero() {
             />
           </motion.div>
 
-          <p className="text-gray-600 text-sm sm:text-base 2xl:text-lg max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
-            Join structured programs for UPSC, TNPSC, RRB, and SSB exams with
-            top mentors and curated resources.
+          <p className="text-gray-600 text-md sm:text-base 2xl:text-lg max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
+            Join structured programs for UPSC, TNPSC, SSC, BANKING AND RRB exams
+            with top mentors and curated resources.
           </p>
         </motion.div>
       </div>

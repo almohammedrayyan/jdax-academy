@@ -145,7 +145,7 @@ export default function Header() {
               onClick={() => window.open("https://jdax.co.in", "_blank")}
             >
               <User className="w-5 h-5 mr-2" />
-              Student Login
+              Aspirant Login
             </button>
 
             {/* Student Login - Mobile Icon */}
@@ -252,7 +252,7 @@ export default function Header() {
                 className="block hover:text-yellow-300"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                JDAX's UPSC Pedagogy & Initiatives
+                JDAX UPSC Pedagogy & Initiatives
               </Link>
             </div>
           )}
@@ -409,7 +409,7 @@ export default function Header() {
                         className="block hover:text-yellow-300"
                         onClick={() => setMobileMenuOpen(false)}
                       >
-                        GS Syllabus 1
+                        GS 1 Syllabus
                       </Link>
 
                       <Link
@@ -417,7 +417,7 @@ export default function Header() {
                         className="block hover:text-yellow-300"
                         onClick={() => setMobileMenuOpen(false)}
                       >
-                        GS Syllabus 2
+                        GS 2 Syllabus
                       </Link>
 
                       <Link
@@ -425,7 +425,7 @@ export default function Header() {
                         className="block hover:text-yellow-300"
                         onClick={() => setMobileMenuOpen(false)}
                       >
-                        GS Syllabus 3
+                        GS 3 Syllabus
                       </Link>
 
                       <Link
@@ -433,7 +433,7 @@ export default function Header() {
                         className="block hover:text-yellow-300"
                         onClick={() => setMobileMenuOpen(false)}
                       >
-                        GS Syllabus 4
+                        GS 4 Syllabus
                       </Link>
                     </div>
                   )}
@@ -625,31 +625,7 @@ export default function Header() {
                 className="block hover:text-yellow-300"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Our Story (Founder’s Vision)
-              </Link>
-
-              <Link
-                to="/commitment"
-                className="block hover:text-yellow-300"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Our Commitment & Philosophy
-              </Link>
-
-              {/* <Link
-                to="/jdax-management"
-                className="block hover:text-yellow-300"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                JDAX Management Team
-              </Link> */}
-
-              <Link
-                to="/jdax-faculty"
-                className="block hover:text-yellow-300"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                JDAX Faculty Team
+                Our Story
               </Link>
 
               <Link
@@ -657,7 +633,15 @@ export default function Header() {
                 className="block hover:text-yellow-300"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                JDAX Academic & Skill Council Team
+                JDAX Management
+              </Link>
+
+              <Link
+                to="/jdax-faculty"
+                className="block hover:text-yellow-300"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                JDAX Faculty Team
               </Link>
 
               <Link
