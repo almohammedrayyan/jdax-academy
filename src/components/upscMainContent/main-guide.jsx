@@ -123,10 +123,10 @@ export default function MainsGuidePage() {
             structure, and optional subject strategy are critical for success.
           </p>
         </KeyTakeawayBox>
-
+        {/* 
         <div className="my-8 text-center">
           <PDFExportButton title="UPSC Mains Guide" />
-        </div>
+        </div> */}
 
         <RelatedResources resources={resources} />
 

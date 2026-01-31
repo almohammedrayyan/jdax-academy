@@ -11,7 +11,10 @@ const BankingPage = () => {
   ];
   return (
     <div className="pt-20" style={{ fontSize: "25px" }}>
-      <div className="hidden md:flex justify-center space-x-4">
+      <div
+        className="hidden md:flex justify-center space-x-4"
+        style={{ margin: "20px" }}
+      >
         {navLinks.map((link) => (
           <Link
             key={link.path}

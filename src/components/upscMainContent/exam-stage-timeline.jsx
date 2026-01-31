@@ -154,10 +154,10 @@ export default function ExamStagesTimelinePage() {
             count for final ranking. Plan at least 12–18 months of preparation.
           </p>
         </KeyTakeawayBox>
-
+        {/* 
         <div className="my-8 text-center">
           <PDFExportButton title="Exam Stages and Timeline" />
-        </div>
+        </div> */}
 
         <RelatedResources resources={resources} />
 

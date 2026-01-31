@@ -138,9 +138,9 @@ export default function WhatIsUPSCPage() {
         </KeyTakeawayBox>
 
         {/* PDF Export */}
-        <div className="my-8 text-center">
+        {/* <div className="my-8 text-center">
           <PDFExportButton title="What is UPSC Civil Services Exam" />
-        </div>
+        </div> */}
 
         {/* Related Resources */}
         <RelatedResources resources={resources} />

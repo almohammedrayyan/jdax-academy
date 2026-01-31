@@ -136,9 +136,9 @@ export default function PrelimsGuidePage() {
           </p>
         </KeyTakeawayBox>
 
-        <div className="my-8 text-center">
+        {/* <div className="my-8 text-center">
           <PDFExportButton title="UPSC Prelims Guide" />
-        </div>
+        </div>  */}
 
         <RelatedResources resources={resources} />
 

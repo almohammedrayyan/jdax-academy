@@ -614,17 +614,30 @@ body {
     border-bottom: none;
 }
 
+.faq-section {
+  // max-width: 800px;
+  margin: auto;
+}
+
+.faq-item {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  background: #fff;
+}
+
 .faq-question {
-    font-size: 1.3em;
-    color: #667eea;
-    font-weight: 600;
-    margin-bottom: 15px;
+  padding: 16px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
 }
 
 .faq-answer {
-    color: #555;
-    line-height: 1.8;
-    font-size: 1.05em;
+
+  padding: 0 16px 16px;
+  color: #555;
 }
 
 .educators-section {
@@ -745,6 +758,11 @@ body {
 
 // Hub Component with ENHANCED FEATURED UPSC Section
 const Hub = ({ onNavigate }) => {
+  const [openIndex, setOpenIndex] = useState(null);
+  const message = encodeURIComponent(
+    "Hello, Im seeking expert mentorship and structured guidance for UPSC, TNPSC, SSC, Banking, and RRB competitive exam preparation.",
+  );
+
   const upscPreviewTiles = [
     {
       number: 1,
@@ -1040,12 +1058,29 @@ const Hub = ({ onNavigate }) => {
         {/* FAQ Section */}
         <div className="faq-section">
           <h2 className="section-title">Frequently Asked Questions</h2>
-          {faqs.map((faq, index) => (
-            <div key={index} className="faq-item">
-              <div className="faq-question">{faq.question}</div>
-              <div className="faq-answer">{faq.answer}</div>
-            </div>
-          ))}
+
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index;
+
+            return (
+              <div
+                key={index}
+                className="faq-item"
+                onClick={() => setOpenIndex(isOpen ? null : index)}
+              >
+                <div className="faq-question">
+                  {faq.question}
+                  <span className="faq-icon">{isOpen ? "−" : "+"}</span>
+                </div>
+
+                {isOpen && (
+                  <div className="faq-answer" style={{ minHeight: "75px" }}>
+                    {faq.answer}
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
 
         {/* For Educators Section */}
@@ -1087,9 +1122,14 @@ const Hub = ({ onNavigate }) => {
             >
               Compare All Exams
             </Link>
-            <Link className="px-8 py-4 border-2 border-white rounded-xl font-bold hover:bg-white hover:text-purple-600 transition">
+            <a
+              href={`https://wa.me/6379923050?text=${message}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 border-2 border-white rounded-xl font-bold hover:bg-white hover:text-purple-600 transition"
+            >
               Talk to Counselor
-            </Link>
+            </a>
           </div>
         </section>
       </div>
@@ -1806,18 +1846,6 @@ const CivilServices = ({ onNavigate }) => {
               </li>
             </ul>
           </div>
-        </div>
-      </div>
-
-      <div className="footer">
-        <div className="footer-content">
-          <h3>🏛️ Your IAS Journey Begins at JDAX Academy</h3>
-          <p>
-            Transform your UPSC aspiration into reality with our comprehensive
-            preparation programmes, expert mentorship, and proven "RISE TO
-            SERVE" methodology.
-          </p>
-          <button className="cta-button">Explore Our UPSC Programs</button>
         </div>
       </div>
     </>

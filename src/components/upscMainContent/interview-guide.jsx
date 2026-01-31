@@ -148,9 +148,9 @@ export default function InterviewGuidePage() {
           </p>
         </KeyTakeawayBox>
 
-        <div className="my-8 text-center">
+        {/* <div className="my-8 text-center">
           <PDFExportButton title="UPSC Interview Guide" />
-        </div>
+        </div> */}
 
         <RelatedResources resources={resources} />
 

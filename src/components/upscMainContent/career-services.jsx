@@ -364,10 +364,10 @@ export default function CareerServicesPage() {
             the highest levels.
           </p>
         </KeyTakeawayBox>
-
+        {/* 
         <div className="my-8 text-center">
           <PDFExportButton title="UPSC Career Services" />
-        </div>
+        </div> */}
 
         <RelatedResources resources={resources} />
 

@@ -59,6 +59,7 @@ body {
     opacity: 0.95;
     font-weight: 300;
     letter-spacing: 1px;
+    color: #f0eafc;
 }
 
 .container {
@@ -640,15 +641,17 @@ const Hub = ({ onNavigate }) => {
           <div className="intro-highlights">
             <div className="intro-highlight-item">
               <h4>Group 1</h4>
-              <p>Higher Administrative Roles</p>
+              <p style={{ textAlign: "center" }}>Higher Administrative Roles</p>
             </div>
             <div className="intro-highlight-item">
               <h4>Group 2/2A</h4>
-              <p>Executive & Ministerial Roles</p>
+              <p style={{ textAlign: "center" }}>
+                Executive & Ministerial Roles
+              </p>
             </div>
             <div className="intro-highlight-item">
               <h4>Group 4</h4>
-              <p>Clerical & Support Roles</p>
+              <p style={{ textAlign: "center" }}>Clerical & Support Roles</p>
             </div>
           </div>
         </div>

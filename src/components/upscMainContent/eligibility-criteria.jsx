@@ -424,9 +424,9 @@ export default function EligibilityCriteriaPage() {
           </p>
         </KeyTakeawayBox>
 
-        <div className="my-8 text-center">
+        {/* <div className="my-8 text-center">
           <PDFExportButton title="UPSC Eligibility Criteria" />
-        </div>
+        </div> */}
 
         <RelatedResources resources={resources} />
 

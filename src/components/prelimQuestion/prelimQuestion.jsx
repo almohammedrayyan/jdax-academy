@@ -14,13 +14,29 @@ import { Link } from "react-router-dom";
 
 export default function PrelimsPYQPage() {
   const [expandedYear, setExpandedYear] = useState(2025);
-
+  const driveFileIds = {
+    2025: "1YlkhAahxvvqX9io-LAJPMQb8NdMmVllW",
+    2024: "1PpKT_iMtHbwBOJYldDVtkbbXoonWzNuG",
+    2023: "1e53ujPW4-idxPE2K8_x_Zd27ZHnJKNsr",
+    2022: "1P2WruBSJYydOj4QAtQb2OtZpQoRJ3wP9",
+    2021: "14qOPHhFO41-FdYMyeHnJzHNf833v5wMM",
+    2020: "1nrfA7gDc3MgYaHpJtvhtKGKak56fDe0k",
+    2019: "1Md4e8HNOKw9AobJW3aD4VB2c7hW-0X1p",
+    2018: "12wbUFz3BCwUlD7BxxfTUkaweWopxA-Y-",
+    2017: "121N5LVLbVk-To9X9zpY9RRtbQ8EaZ-bK",
+    2016: "10xVno5PZMdho68UomxypH4lOOsuawsQc",
+    2015: "1hJGowOSPTRMBgV17FSPaleoHEJrmVcp9",
+    2014: "1JG5SUOS7sMh9866z8gus-hKBPU1jfY7P",
+    2013: "1y9q6QZ_vlXV75KAipFKNZYiIAbmh3Uer",
+    // add till 2013
+  };
   // Generate years from 2025 to 2013
   const years = Array.from({ length: 13 }, (_, i) => 2025 - i);
 
   // Placeholder download links - Replace with your actual Google Drive links
   const getDownloadLink = (year) => {
-    return `https://drive.google.com/file/d/YOUR_FILE_ID_FOR_${year}/view`;
+    const fileId = driveFileIds[year];
+    return fileId ? `https://drive.google.com/file/d/${fileId}/view` : "#";
   };
 
   return (
@@ -181,7 +197,7 @@ export default function PrelimsPYQPage() {
                             PDF Format • Authentic UPSC Paper
                           </p>
                           <a
-                            to={getDownloadLink(year)}
+                            href={getDownloadLink(year)}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-all"

@@ -50,8 +50,26 @@ const Footer = () => {
           <p style={{ textAlign: "center" }}>
             © 2025 • JD Academy of eXcellence. All rights reserved.
           </p>
-          <p className="mt-0.5" style={{ textAlign: "center" }}>
-            Developed by Mohammed Fuzail Rayyan H
+          <p className="mt-0.5 text-center">
+            Developed by{" "}
+            <a
+              href="https://in.linkedin.com/in/mohammed-fuzail-rayyan-689a6915a"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold hover:underline transition"
+              style={{ color: "#facc15" }}
+            >
+              Mohammed Fuzail Rayyan H
+            </a>
+            <span className="mx-1 text-gray-400">—</span>
+            <a
+              href="https://fuzail.netlify.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-blue-400 hover:underline hover:text-blue-600 transition"
+            >
+              View Portfolio
+            </a>
           </p>
         </div>
       </motion.div>

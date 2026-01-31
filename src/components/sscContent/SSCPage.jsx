@@ -1,51 +1,60 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import {
+  User,
+  GraduationCap,
+  Users,
+  Shield,
+  HardHat,
+  Keyboard,
+} from "lucide-react";
 
 const SSCPage = () => {
   const exams = [
     {
       title: "CGL",
       sub: "Combined Graduate Level",
-      icon: "fa-user-tie",
+      icon: User,
       color: "bg-blue-600",
       description: "30L+ Typical Annual Applicants",
     },
     {
       title: "CHSL",
       sub: "Higher Secondary Level",
-      icon: "fa-graduation-cap",
+      icon: GraduationCap,
       color: "bg-indigo-600",
       description: "50L+ Typical Annual Applicants",
     },
     {
       title: "MTS",
       sub: "Multi Tasking Staff",
-      icon: "fa-users",
+      icon: Users,
       color: "bg-purple-600",
       description: "Highly Popular Entry Level",
     },
     {
       title: "CPO",
       sub: "Sub-Inspector",
-      icon: "fa-shield-halved",
+      icon: Shield,
       color: "bg-red-600",
       description: "Delhi Police & CAPFs",
     },
     {
       title: "JE",
       sub: "Junior Engineer",
-      icon: "fa-helmet-safety",
+      icon: HardHat,
       color: "bg-orange-600",
       description: "Civil, Mechanical, Electrical",
     },
     {
       title: "Steno",
       sub: "Grades C & D",
-      icon: "fa-keyboard",
+      icon: Keyboard,
       color: "bg-teal-600",
       description: "Stenography Services",
     },
   ];
+
   const navLinks = [
     { name: "Hub Home", path: "/courses/ssc" },
     { name: "SSC Exams", path: "/ssc" },
@@ -56,7 +65,10 @@ const SSCPage = () => {
   const navigate = useNavigate();
   return (
     <div className="pt-20" style={{ fontSize: "25px" }}>
-      <div className="hidden md:flex justify-center space-x-4">
+      <div
+        className="hidden md:flex justify-center space-x-4"
+        style={{ margin: "20px" }}
+      >
         {navLinks.map((link) => (
           <Link
             key={link.path}
@@ -343,32 +355,39 @@ const SSCPage = () => {
             Popular Career Paths
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {exams.map((exam) => (
-              <div
-                key={exam.title}
-                className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-blue-300 transition-all card-hover"
-              >
+            {exams.map((exam) => {
+              const Icon = exam.icon; // 👈 important
+
+              return (
                 <div
-                  className={`${exam.color} w-16 h-16 rounded-2xl flex items-center justify-center text-white text-2xl mb-6`}
+                  key={exam.title}
+                  className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-blue-300 transition-all card-hover"
                 >
-                  <i className={`fas ${exam.icon}`}></i>
+                  <div
+                    className={`${exam.color} w-16 h-16 rounded-2xl flex items-center justify-center mb-6`}
+                  >
+                    <Icon className="w-8 h-8 text-white" />
+                  </div>
+
+                  <h3 className="text-xl font-bold text-gray-900 mb-1">
+                    {exam.title}
+                  </h3>
+
+                  <p className="text-blue-600 font-semibold mb-4 text-sm uppercase tracking-wider">
+                    {exam.sub}
+                  </p>
+
+                  <p className="text-gray-500">{exam.description}</p>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-1">
-                  {exam.title}
-                </h3>
-                <p className="text-blue-600 font-semibold mb-4 text-sm uppercase tracking-wider">
-                  {exam.sub}
-                </p>
-                <p className="text-gray-500">{exam.description}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </section>
 
         {/* Calendar */}
         <section className="mb-20 overflow-hidden rounded-3xl shadow-xl border border-gray-200">
           <div className="bg-gray-900 text-white p-6 flex justify-between items-center">
-            <h3 className="text-xl font-bold">
+            <h3 className="text-xl font-bold" style={{ color: "white" }}>
               📅 Typical Annual Exam Calendar
             </h3>
             <span className="bg-indigo-600 px-3 py-1 rounded-full text-xs">

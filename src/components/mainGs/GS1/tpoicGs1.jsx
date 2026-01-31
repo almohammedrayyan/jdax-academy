@@ -46,16 +46,178 @@ const sections = [
         number: 2,
         title: "Modern Indian History",
         syllabus:
-          "Modern Indian history from about the middle of the eighteenth century until the present.",
+          "Modern Indian history from about the middle of the eighteenth century until the present- significant events, personalities, issues.",
         breakdown: [
-          "📊 Economic: Drain of wealth, deindustrialization, land revenue systems",
-          "👥 Social: Reform movements, education policies",
-          "⚖️ Administrative: Constitutional developments",
-          "🏭 Impact: British policies on economy and society",
+          "📊 Economic: Drain of wealth, deindustrialization, land revenue systems (Permanent, Ryotwari, Mahalwari)",
+          "👥 Social: Reform movements (Raja Ram Mohan Roy, Vivekananda, Ambedkar), education policies",
+          "⚖️ Administrative: Constitutional developments (Acts 1773-1935, Government of India Act)",
+          "🏭 Impact: British policies on economy, society, agriculture, industry",
         ],
         upscLoves:
-          "Colonial economic impact, land revenue systems, tribal/peasant revolts",
+          "Colonial economic impact, land revenue systems, tribal/peasant revolts, social reform movements, constitutional evolution",
         priority: "high",
+      },
+      {
+        number: 3,
+        title: "Freedom Struggle - Stages and Contributors",
+        syllabus:
+          "The Freedom Struggle — its various stages and important contributors/contributions from different parts of the country.",
+        breakdown: [
+          "📅 Stages: 1885-1905 (Moderate phase), 1905-1918 (Extremist phase), 1919-1939 (Gandhian movements), 1939-1947 (Quit India)",
+          "🌍 Regional Diversity: Bengal, Maharashtra, Tamil Nadu, Punjab, Kerala, Northeast movements",
+          "⚔️ Parallel Streams: Revolutionary movement (Bhagat Singh, Chandrashekhar Azad), Left-wing movements",
+          "👩 Women's Role: Sarojini Naidu, Annie Besant, Kamaladevi Chattopadhyay, women's participation",
+        ],
+        upscLoves:
+          "Gandhian movements (ALMOST EVERY YEAR!), revolutionary movement, women's role in freedom struggle, regional variations",
+        priority: "critical",
+      },
+      {
+        number: 4,
+        title: "Post-Independence Consolidation & Reorganization",
+        syllabus:
+          "Post-independence consolidation and reorganization within the country.",
+        breakdown: [
+          "🗺️ Political: Princely states integration (Sardar Patel), linguistic reorganization (States Reorganization Act 1956)",
+          "💰 Economic: Land reforms (Zamindari abolition), Five-Year Plans, Planning Commission establishment",
+          "👥 Social: Hindu Code Bills, reservation policy, social justice measures",
+          "🏛️ Administrative: Institution building (Election Commission, Supreme Court, bureaucracy)",
+        ],
+        upscLoves:
+          "Land reforms effectiveness, linguistic reorganization merits/demerits, Hindu Code Bills significance, Patel's integration",
+        priority: "high",
+      },
+      {
+        number: 5,
+        title: "World History (18th Century Onwards)",
+        syllabus:
+          "History of the world will include events from 18th century such as industrial revolution, world wars, redrawal of national boundaries, colonization, decolonization, political philosophies.",
+        breakdown: [
+          "🏭 Industrial Revolution: Impacts on economy, society, urbanization, labor movements",
+          "⚔️ World Wars: WWI & WWII causes, consequences, Treaty of Versailles, impact on decolonization",
+          "🌍 Decolonization: Africa vs Asia comparison, boundary redrawals (Sykes-Picot, Berlin Conference)",
+          "📖 Political Philosophies: Communism, capitalism, socialism, fascism - forms and societal effects",
+        ],
+        upscLoves:
+          "WWI/WWII impacts, Cold War dynamics, decolonization processes, French Revolution influence, political philosophies comparison",
+        priority: "high",
+      },
+    ],
+  },
+  {
+    id: "society",
+    title: "Section 3: Society",
+    icon: Users,
+    color: "rose",
+    topics: [
+      {
+        number: 6,
+        title: "Salient Features of Indian Society, Diversity",
+        syllabus: "Salient features of Indian Society, Diversity of India.",
+        breakdown: [
+          "🌈 Features: Unity in diversity, pluralism, syncretism, caste system evolution, joint family system",
+          "🗣️ Diversity: Linguistic (22 scheduled languages), religious (6 major religions), ethnic, cultural, regional",
+          "🤝 Challenges: Maintaining unity amidst diversity, cultural pluralism in globalized world",
+          "💪 Strengths: Cultural adaptability, tolerance, composite culture",
+        ],
+        upscLoves:
+          "Unity in diversity challenges, factors promoting/threatening national unity, cultural pluralism, diversity vs uniformity debate",
+        priority: "medium",
+      },
+      {
+        number: 7,
+        title: "Women, Population, Poverty, Urbanization",
+        syllabus:
+          "Role of women and women's organization, population and associated issues, poverty and developmental issues, urbanization, their problems and their remedies.",
+        breakdown: [
+          "👩 Women: Political participation barriers, gender inequality, women's movements, workforce participation challenges, violence against women",
+          "📊 Population: Demographic dividend, sex ratio imbalance, aging society, migration patterns, population stabilization",
+          "💵 Poverty: Estimation debates (Tendulkar, Rangarajan, Multidimensional Poverty Index), poverty alleviation programs effectiveness",
+          "🏙️ Urbanization: Challenges (slums, infrastructure deficit, pollution), solutions (Smart Cities, AMRUT, PMAY), urban governance",
+        ],
+        upscLoves:
+          "Women's reservation debate, demographic dividend utilization, urbanization challenges (ALMOST EVERY YEAR!), poverty estimation methodology",
+        priority: "critical",
+      },
+      {
+        number: 8,
+        title: "Effects of Globalization on Indian Society",
+        syllabus: "Effects of globalization on Indian society.",
+        breakdown: [
+          "📱 Cultural Impact: Consumerism rise, Westernization, homogenization vs heterogenization of culture",
+          "📈 Inequality: Widening gap between urban-rural, rich-poor, digital divide",
+          "⚖️ Values Conflict: Traditional vs modern values, family structure changes, individualism vs collectivism",
+          "✅ Positives: Exposure to global ideas, economic opportunities, technological advancement, cultural exchange",
+        ],
+        upscLoves:
+          "Cultural erosion vs enrichment debate, globalization and inequality, Indian society's response, glocalization concept",
+        priority: "high",
+      },
+      {
+        number: 9,
+        title: "Social Empowerment, Communalism, Regionalism, Secularism",
+        syllabus: "Social empowerment, communalism, regionalism & secularism.",
+        breakdown: [
+          "💪 Social Empowerment: SC/ST/OBC/minorities/women/disabled - affirmative action, reservation debates, empowerment vs entitlement",
+          "🕊️ Communalism: Causes (historical, political, economic), remedies, communal harmony promotion, role of media",
+          "🗺️ Regionalism: Regional identities vs national integration, linguistic movements, state autonomy demands",
+          "⚖️ Secularism: Indian model vs Western, challenges (majority-minority relations), Uniform Civil Code debate",
+        ],
+        upscLoves:
+          "Secularism challenges (ALMOST EVERY YEAR!), reservation policy debates, communalism causes and solutions, regionalism vs nationalism",
+        priority: "critical",
+      },
+    ],
+  },
+  {
+    id: "geography",
+    title: "Section 4: Geography",
+    icon: Globe,
+    color: "teal",
+    topics: [
+      {
+        number: 10,
+        title: "Salient Features of World's Physical Geography",
+        syllabus: "Salient features of world's physical geography.",
+        breakdown: [
+          "🏔️ Landforms: Mountains (fold, block, volcanic), plateaus, plains (formation processes, types, global distribution)",
+          "🌊 Water Bodies: Ocean currents (warm/cold), impact on climate, major rivers, glaciers, water cycle",
+          "🌡️ Climate: Climate zones (tropical, temperate, polar), atmospheric circulation, monsoon mechanism (global), El Niño/La Niña",
+          "🌳 Vegetation: Forest types (tropical, temperate, boreal), grasslands, deserts, tundra - distribution and characteristics",
+        ],
+        upscLoves:
+          "Ocean currents-climate linkage, mountain formation theories, climate zones-vegetation correlation, atmospheric circulation patterns",
+        priority: "high",
+      },
+      {
+        number: 11,
+        title: "Natural Resources Distribution & Industrial Location",
+        syllabus:
+          "Distribution of key natural resources across the world (including South Asia and the Indian subcontinent); factors responsible for the location of primary, secondary, and tertiary sector industries in various parts of the world (including India).",
+        breakdown: [
+          "⛏️ Minerals: Iron ore, coal, petroleum, bauxite, copper - global distribution, major producers",
+          "⚡ Energy: Fossil fuels, renewable energy potential (solar, wind, hydro), energy geopolitics",
+          "🏭 Industries: Primary (agriculture, mining), Secondary (manufacturing - Weber's theory), Tertiary (services) - location factors",
+          "🌏 Special Focus: South Asia resources, Indian subcontinent mineral wealth, industrial corridors in India",
+        ],
+        upscLoves:
+          "Energy resource distribution and geopolitics, industrial location factors (raw material, market, labor), renewable energy potential",
+        priority: "high",
+      },
+      {
+        number: 12,
+        title: "Geophysical Phenomena & Critical Geographical Changes",
+        syllabus:
+          "Important Geophysical phenomena such as earthquakes, Tsunami, Volcanic activity, cyclone etc., geographical features and their location-changes in critical geographical features (including water-bodies and ice-caps) and in flora and fauna and the effects of such changes.",
+        breakdown: [
+          "🌋 Phenomena: Earthquakes (plate tectonics, Ring of Fire), tsunamis (causes, 2004 Indian Ocean), volcanoes (types, distribution), cyclones (formation, naming)",
+          "❄️ Glacier Changes: Himalayan glaciers retreat, polar ice caps melting, glacial lake outburst floods (GLOFs)",
+          "💧 Water Bodies: Shrinking (Aral Sea, Dead Sea, Lake Chad), sea level rise, coastal erosion, coral bleaching",
+          "🌿 Biodiversity: Flora and fauna changes, habitat loss, climate change impacts, species migration, conservation challenges",
+        ],
+        upscLoves:
+          "Glacier retreat impacts on rivers (REGULAR!), climate change and geography, disaster preparedness, geographical feature changes",
+        priority: "critical",
       },
     ],
   },

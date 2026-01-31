@@ -20,11 +20,47 @@ export default function MainsPYQTemplate({
   urlPrefix,
 }) {
   const [expandedYear, setExpandedYear] = useState(2025);
-  const years = Array.from({ length: 13 }, (_, i) => 2025 - i);
-
-  const getDownloadLink = (year) => {
-    return `https://drive.google.com/file/d/${urlPrefix}_${year}/view`;
+  const driveFileIds1 = {
+    2025: "1j4AkhDtaZOsnJAd-be0BPTne02VRLm2u",
+    2024: "1a947fsAw22DSaJ-i-tLvHHZitqVhO1yo",
+    2023: "1q00cHmpghLh1YacMdIucNvEvpMT_QVo-",
+    2022: "1OndUsNSAppPW0Kgwv52413IM7jhWz-7E",
+    2021: "1YzMdlEpSDXTDdKPLYw6_2CzocFcW5_G5",
+    2020: "12SHBxZlVRMvHiIhMNP-q_LUptkJvs7Gh",
+    2019: "19F7AsrVbtQrcuPRVgoQ9K_kV6jTikGzw",
+    2018: "1q2yKQc42N-jIzMOn2_-zUxDB1OTSAdjm",
+    2017: "1tgy26r_3bagvHNj4H5ikAMFNR0uSlAgo",
+    2016: " 1dDQCh8z76vqXqECpOR4LHc156DS3Y7is",
+    2015: "1Bl5nL6JPP4mjgiziSQg-6eDvmnNdR7S0",
+    2014: "1JnfPK51JQ11rX5_iyhzl2L5ibghaTcaO",
+    2013: "1hkZA1OUp5NndZzceGGO0fAAxXXYx1AlT",
+    // add till 2013
   };
+  const driveFileIds2 = {
+    2025: "1ZIiXTfFYjOJ-QRjGdigU1howXdQqZ4EL",
+    2024: "1CSqRqnsG0akr3BiVTeDwqkPI3vbpvjTy",
+    2023: "1Ir_SMNpPn5fcBo_ss2qQvxgm3ZmdW0Xo",
+    2022: "1OPO6o4jzxj7TDrVs0blGBA8Q_rNOXiru",
+    2021: "1yiJjilVy-QKOscDdFjyGOYjBmGIwcjpF",
+    2020: "1Ce9EZY_m8nfZRS6kF4pUM0J9A9mAsIsi",
+    2019: "17x8qsod7b48VY-_93nPdObBQMTQfP3wz",
+    2018: "1gqFgIGuDeXsy7XHuRdBzd7kJvQoPoTON",
+    2017: "1Ox5ubvOugMWEIbrTe2bN9omVZ9AFcV3j",
+    2016: "15m_dn0SnbpC1Zp5Rgzyi_6OdU74KauEf",
+    2015: "1e1GMa2vubOkXva-g4GdRMbudFAL01mJV",
+    2014: "14Ggy_1UHg9jE02WZ7gamr9dJWd06kV08",
+    2013: "15qypLzG2tKGnj-UPHZyDvJp606zjUnhf",
+    // add till 2013
+  };
+  const getDownloadLink = (year) => {
+    const fileId = driveFileIds1[year];
+    return fileId ? `https://drive.google.com/file/d/${fileId}/view` : "#";
+  };
+  const getDownloadLink2 = (year) => {
+    const fileId = driveFileIds2[year];
+    return fileId ? `https://drive.google.com/file/d/${fileId}/view` : "#";
+  };
+  const years = Array.from({ length: 13 }, (_, i) => 2025 - i);
 
   return (
     <main
@@ -206,19 +242,36 @@ export default function MainsPYQTemplate({
                           <p className="text-sm text-gray-600 mb-4">
                             PDF Format • Authentic UPSC Paper
                           </p>
-                          <button
-                            onClick={() =>
-                              window.open(
-                                getDownloadLink(year),
-                                "_blank",
-                                "noopener,noreferrer"
-                              )
-                            }
-                            className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-all shadow-md hover:shadow-lg"
-                          >
-                            <Download className="w-5 h-5" />
-                            Download Paper
-                          </button>
+                          {paperNumber === "GS1" && (
+                            <button
+                              onClick={() =>
+                                window.open(
+                                  getDownloadLink(year),
+                                  "_blank",
+                                  "noopener,noreferrer",
+                                )
+                              }
+                              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-all shadow-md hover:shadow-lg"
+                            >
+                              <Download className="w-5 h-5" />
+                              Download Paper
+                            </button>
+                          )}
+                          {paperNumber === "GS2" && (
+                            <button
+                              onClick={() =>
+                                window.open(
+                                  getDownloadLink2(year),
+                                  "_blank",
+                                  "noopener,noreferrer",
+                                )
+                              }
+                              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-all shadow-md hover:shadow-lg"
+                            >
+                              <Download className="w-5 h-5" />
+                              Download Paper
+                            </button>
+                          )}
                         </div>
                       </div>
                     </div>
