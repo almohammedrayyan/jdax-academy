@@ -73,7 +73,7 @@ export default function Hero() {
               to="/course-finder"
               className="px-8 py-4 border-2 border-[#431aa0] text-[#431aa0] font-semibold rounded-lg hover:bg-[#431aa0] hover:text-white transition-all text-center"
             >
-              Which Exams Fits You?
+              Which Exam Fits You?
             </Link>
           </motion.div>
         </motion.div>
