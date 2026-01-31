@@ -36,12 +36,12 @@ const PQYTNPSC = () => {
 
   return (
     <div
-      className="
-        min-h-screen 
-        bg-[#d3d3ff]
-        p-4 sm:p-6 md:p-8 lg:p-12 xl:p-14
-        box-border
-      "
+    // className="
+    //   min-h-screen
+    //   bg-[#d3d3ff]
+    //   p-4 sm:p-6 md:p-8 lg:p-12 xl:p-14
+    //   box-border
+    // "
     >
       <div className="bg-white rounded-xl shadow-lg overflow-hidden">
         <Header />

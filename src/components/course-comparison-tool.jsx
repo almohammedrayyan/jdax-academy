@@ -67,7 +67,7 @@ const CourseComparisonTool = () => {
       workLocation: "Tamil Nadu State",
       growth: "Good (District level)",
       ourBatch: "TNPSC Group 2 Integrated",
-      batchLink: "/courses/tnpsc",
+      batchLink: "/courses/tnpsc/new-to-start",
     },
     banking: {
       minEducation: "Graduate (any stream)",
@@ -83,7 +83,7 @@ const CourseComparisonTool = () => {
       workLocation: "Pan India (transfers common)",
       growth: "Good (Scale VI, VII)",
       ourBatch: "Banking Fast Track",
-      batchLink: "/courses/banking",
+      batchLink: "/courses/ssc",
     },
     ssc: {
       minEducation: "10th to Graduate (varies)",
@@ -115,7 +115,7 @@ const CourseComparisonTool = () => {
       workLocation: "Indian Railways (transfers)",
       growth: "Good job security",
       ourBatch: "RRB NTPC Complete",
-      batchLink: "/courses/railway",
+      batchLink: "/courses/ssc",
     },
   };
 

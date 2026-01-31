@@ -6,16 +6,16 @@ import MainsGS4PYQPage from "../../components/mainQuestion/gs4main";
 const Gs4MainPage = () => {
   return (
     <div
-      className="
-        min-h-screen 
-        bg-[#d3d3ff]
-        p-4                /* base padding for mobile */
-        sm:p-6             /* small screens */
-        md:p-8             /* tablets */
-        lg:p-12            /* laptops */
-        xl:p-14            /* desktops */
-        box-border
-      "
+    // className="
+    //   min-h-screen
+    //   bg-[#d3d3ff]
+    //   p-4                /* base padding for mobile */
+    //   sm:p-6             /* small screens */
+    //   md:p-8             /* tablets */
+    //   lg:p-12            /* laptops */
+    //   xl:p-14            /* desktops */
+    //   box-border
+    // "
     >
       <div className="bg-white rounded-xl shadow-lg overflow-hidden">
         {/* Static Header */}
