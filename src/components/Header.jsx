@@ -365,7 +365,7 @@ export default function Header() {
                     className="w-full text-left font-semibold hover:text-yellow-300"
                     onClick={() =>
                       setOpenSubMenu(
-                        openSubMenu === "prelims" ? null : "prelims"
+                        openSubMenu === "prelims" ? null : "prelims",
                       )
                     }
                   >
@@ -666,13 +666,13 @@ export default function Header() {
               >
                 Gallery
               </Link>
-              {/* <Link
+              <Link
                 to="/careers"
                 className="block hover:text-yellow-300"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Careers (Join JDAX Team)
-              </Link> */}
+              </Link>
             </div>
           )}
           <div className="h-16" />

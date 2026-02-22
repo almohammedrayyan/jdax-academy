@@ -52,12 +52,52 @@ export default function MainsPYQTemplate({
     2013: "15qypLzG2tKGnj-UPHZyDvJp606zjUnhf",
     // add till 2013
   };
+  const driveFileIds3 = {
+    2025: "1SSBEpe28C67WLJvRVkUDYvgW4I8YVBcF",
+    2024: "17yTbDelI_8OVwwZUN_2ixH_EjygBOfKm",
+    2023: "1eCDR7-OgL_oSRg8cDXUVovWKyAg97GPC",
+    2022: "1IcSHyO1AV4-8vH6ita6TCH5NL3dKxWC0",
+    2021: "1FRvZ-Wl2NHdsKqKpZFpTfEVsLAEOOdCR",
+    2020: "17pzTOMnFU_0v9-1j53gQLkO26-QRFbao",
+    2019: "1dc4OdLucj-x-Ny8TGr5Mqjzr-iYlituw",
+    2018: "1vrYOXbT9m4AMZNAuxiaLWRFxpj2rruU6",
+    2017: "10YqGufxv-FRqD2i5x3X89tjITUgUJrTb",
+    2016: "1nQdBe8oX9aSlcfs_THTQatDUjuk1HAl4",
+    2015: "14SY8RZEemR7-YAag2FSoKvI6OQcjGpX8",
+    2014: "1x1vCno5ThALN6v50PEU-j0HQtECnZCwc",
+    2013: "1PXQEQQCAm6j249_5o0d1q0TEbS_vaHqg",
+    // add till 2013
+  };
+  const driveFileIds4 = {
+    2013: "1YLR4wRyQtjPx377Ypf5ArOeSIi8CkPO-",
+    2014: "1G9fpmWQqlqdLFpmZr_EBrd4J8mD6xjls",
+    2015: "1yxieeg-9A51FJS8tq1mpBeFXmPB-7UPJ",
+    2016: "1cCyL79toeGM6Qmiqfx9ptKuFShvT8YY-",
+    2017: "1FOcEQ6uR03JuWuh59Rteyn_Juri9QIik",
+    2018: "1FOcEQ6uR03JuWuh59Rteyn_Juri9QIik",
+    2019: "1FOcEQ6uR03JuWuh59Rteyn_Juri9QIik",
+    2020: "16MBWNSIdVDBzq4aeQ-F5O8UXkKCWmfMF",
+    2021: "19o_A0W5A0HP9rbGzPl9zmBYjrAVyht0S",
+    2022: "1epxXEOMC5i7xbbpDMB0DwCifW1xayxLa",
+    2023: "1gSCiFejtbNQB02Va9aTg11lqx7r9vOoo",
+    2024: "1ilUQEK2XLQl4q3WpS2oy2NvANGcRbZQo",
+    2025: "1PFNv-XHRK2EyC98_jvDIyUdq6CMZrdv7",
+    // add till 2013
+  };
   const getDownloadLink = (year) => {
     const fileId = driveFileIds1[year];
     return fileId ? `https://drive.google.com/file/d/${fileId}/view` : "#";
   };
   const getDownloadLink2 = (year) => {
     const fileId = driveFileIds2[year];
+    return fileId ? `https://drive.google.com/file/d/${fileId}/view` : "#";
+  };
+  const getDownloadLink3 = (year) => {
+    const fileId = driveFileIds3[year];
+    return fileId ? `https://drive.google.com/file/d/${fileId}/view` : "#";
+  };
+  const getDownloadLink4 = (year) => {
+    const fileId = driveFileIds4[year];
     return fileId ? `https://drive.google.com/file/d/${fileId}/view` : "#";
   };
   const years = Array.from({ length: 13 }, (_, i) => 2025 - i);
@@ -262,6 +302,36 @@ export default function MainsPYQTemplate({
                               onClick={() =>
                                 window.open(
                                   getDownloadLink2(year),
+                                  "_blank",
+                                  "noopener,noreferrer",
+                                )
+                              }
+                              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-all shadow-md hover:shadow-lg"
+                            >
+                              <Download className="w-5 h-5" />
+                              Download Paper
+                            </button>
+                          )}
+                          {paperNumber === "GS3" && (
+                            <button
+                              onClick={() =>
+                                window.open(
+                                  getDownloadLink3(year),
+                                  "_blank",
+                                  "noopener,noreferrer",
+                                )
+                              }
+                              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-all shadow-md hover:shadow-lg"
+                            >
+                              <Download className="w-5 h-5" />
+                              Download Paper
+                            </button>
+                          )}
+                          {paperNumber === "GS4" && (
+                            <button
+                              onClick={() =>
+                                window.open(
+                                  getDownloadLink4(year),
                                   "_blank",
                                   "noopener,noreferrer",
                                 )

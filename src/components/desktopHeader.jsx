@@ -225,6 +225,7 @@ export default function DesktopMenu({ isScrolled }) {
           <MenuLink to="/why-choose">Why Choose JDAX</MenuLink>
           <MenuLink to="/prospect">JDAX Prospectus & Pamphlets</MenuLink>
           <MenuLink to="/gallery">Gallery</MenuLink>
+          <MenuLink to="/careers">Careers (Join JDAX Team)</MenuLink>
         </Dropdown>
       </MenuButton>
     </nav>
