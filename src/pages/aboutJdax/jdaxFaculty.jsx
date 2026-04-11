@@ -1,12 +1,32 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import JdaxManagement from "../../components/resource/jdaxManagement";
 import JdaxFaculty from "../../components/resource/jdaxFaculty";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
 const JdaxFacultyPage = () => {
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 1024
+  );
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const slidesToShow = windowWidth < 480 ? 1 : windowWidth < 1024 ? 2 : 3;
+
+  const settings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+  };
   const facultyList = [
     { name: "Prof. Prasanna Ganesh", role: "CSAT, Polity, Economy Faculty" },
     { name: "Prof. Kaviya Manoharan", role: "Environment Faculty" },
@@ -64,22 +84,6 @@ const JdaxFacultyPage = () => {
     },
     { name: "Prof. Sathya Kalaivani", role: "Geography & Environment Faculty" },
   ];
-  const settings = {
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    responsive: [
-      { breakpoint: 1024, settings: { slidesToShow: 2 } },
-      {
-        breakpoint: 640,
-        settings: { slidesToShow: 1 }, // Mobile
-      },
-      { breakpoint: 480, settings: { slidesToShow: 1 } },
-    ],
-  };
   const AlphaIcon = ({ name }) => (
     <div className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-600 text-white font-bold text-lg">
       {name.charAt(6).toUpperCase()}
@@ -106,33 +110,34 @@ const JdaxFacultyPage = () => {
         {/* Page content will be injected here */}
         <main className="flex-grow">
           <JdaxFaculty />
-          <div className="bg-white py-12 px-4 md:px-16">
-            <h2 className="text-3xl font-bold text-center mb-4">
+          <div className="bg-white py-12">
+            <h2 className="text-3xl font-bold text-center mb-4 px-4">
               JDAX Visiting Faculty
             </h2>
-            <p className="text-center text-gray-600 max-w-4xl mx-auto mb-10">
+            <p className="text-center text-gray-600 max-w-4xl mx-auto mb-10 px-4">
               JDAX Visiting Faculty Team consists of well-experienced, eminent
               and efficient teachers to guide and shape aspirants to crack
               competitive, eligibility and entrance examinations.
             </p>
-
-            <Slider {...settings}>
-              {facultyList.map((faculty, index) => (
-                <div key={index} className="px-3">
-                  <div className="h-full rounded-2xl border bg-white p-6 shadow-sm hover:shadow-md transition">
-                    <div className="flex items-center gap-4 mb-4">
-                      <AlphaIcon name={faculty.name} />
-                      <div>
-                        <h3 className="font-semibold text-lg">
-                          {faculty.name}
-                        </h3>
-                        <p className="text-sm text-gray-600">{faculty.role}</p>
+            <div className="overflow-hidden">
+              <Slider {...settings}>
+                {facultyList.map((faculty, index) => (
+                  <div key={index} className="px-2">
+                    <div className="h-full rounded-2xl border bg-white p-6 shadow-sm hover:shadow-md transition">
+                      <div className="flex items-center gap-4 mb-4">
+                        <AlphaIcon name={faculty.name} />
+                        <div>
+                          <h3 className="font-semibold text-lg">
+                            {faculty.name}
+                          </h3>
+                          <p className="text-sm text-gray-600">{faculty.role}</p>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
-            </Slider>
+                ))}
+              </Slider>
+            </div>
           </div>
         </main>
 

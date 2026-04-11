@@ -86,54 +86,59 @@ const Career = () => {
           <h1 className="text-3xl font-bold text-gray-800 mb-8">
             Career Openings
           </h1>
+          {jobsData.filter((j) => j.isActive).length === 0 ? (
+            <p className="text-gray-600 text-center py-20">
+              No active job openings at the moment. Please check back later.
+            </p>
+          ) : (
+            <div className="space-y-6">
+              {jobsData
+                .filter((j) => j.isActive)
+                .map((job) => (
+                  <div
+                    key={job.id}
+                    className="bg-white p-6 rounded-2xl shadow-sm border border-gray-200"
+                  >
+                    <div className="flex justify-between items-center mb-3">
+                      <h2
+                        className="text-xl font-bold"
+                        style={{ color: brandColor }}
+                      >
+                        {job.title}
+                      </h2>
+                      <span className="text-sm text-gray-400 font-mono">
+                        {job.postedAt}
+                      </span>
+                    </div>
 
-          <div className="space-y-6">
-            {jobsData
-              .filter((j) => j.isActive)
-              .map((job) => (
-                <div
-                  key={job.id}
-                  className="bg-white p-6 rounded-2xl shadow-sm border border-gray-200"
-                >
-                  <div className="flex justify-between items-center mb-3">
-                    <h2
-                      className="text-xl font-bold"
-                      style={{ color: brandColor }}
-                    >
-                      {job.title}
-                    </h2>
-                    <span className="text-sm text-gray-400 font-mono">
-                      {job.postedAt}
-                    </span>
+                    <p className="text-gray-600 leading-relaxed">
+                      {expandedId === job.id
+                        ? job.description
+                        : `${job.description.substring(0, 120)}...`}
+                    </p>
+
+                    <div className="mt-5 flex items-center gap-4">
+                      <button
+                        onClick={() =>
+                          setExpandedId(expandedId === job.id ? null : job.id)
+                        }
+                        className="text-gray-500 font-medium hover:text-gray-800"
+                      >
+                        {expandedId === job.id ? "Show Less" : "Read More"}
+                      </button>
+
+                      <button
+                        onClick={() => openApplyModal(job)}
+                        className="ml-auto text-white px-8 py-2 rounded-full font-semibold shadow-md active:scale-95 transition-all"
+                        style={{ backgroundColor: brandColor }}
+                      >
+                        Apply Now
+                      </button>
+                    </div>
                   </div>
-
-                  <p className="text-gray-600 leading-relaxed">
-                    {expandedId === job.id
-                      ? job.description
-                      : `${job.description.substring(0, 120)}...`}
-                  </p>
-
-                  <div className="mt-5 flex items-center gap-4">
-                    <button
-                      onClick={() =>
-                        setExpandedId(expandedId === job.id ? null : job.id)
-                      }
-                      className="text-gray-500 font-medium hover:text-gray-800"
-                    >
-                      {expandedId === job.id ? "Show Less" : "Read More"}
-                    </button>
-
-                    <button
-                      onClick={() => openApplyModal(job)}
-                      className="ml-auto text-white px-8 py-2 rounded-full font-semibold shadow-md active:scale-95 transition-all"
-                      style={{ backgroundColor: brandColor }}
-                    >
-                      Apply Now
-                    </button>
-                  </div>
-                </div>
-              ))}
-          </div>
+                ))}
+            </div>
+          )}
         </div>
 
         {/* --- Apply Popup Modal --- */}
