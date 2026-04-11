@@ -24,12 +24,12 @@ const syllabusData = [
         title: "Group 1 Prelims Syllabus",
         description:
           "Preliminary examination syllabus with objective type questions",
-        fileId: "YOUR_GROUP1_PRELIMS_FILE_ID",
+        fileId: "1qtJ7_Y-XD0GcQQDj3uT-0vraMJLuYwOY",
       },
       {
         title: "Group 1 Mains Syllabus",
         description: "Main examination syllabus with descriptive papers",
-        fileId: "YOUR_GROUP1_MAINS_FILE_ID",
+        fileId: "1hgkAgOYAabGvodUIELEU29N7PVq4NPAT",
       },
     ],
   },
@@ -43,7 +43,7 @@ const syllabusData = [
         title: "Group 1A Mains Exam Plan & Syllabus",
         description:
           "Complete examination plan and detailed syllabus for Group 1A",
-        fileId: "YOUR_GROUP1A_MAINS_FILE_ID",
+        fileId: "1xKDj9x4AkpaMt2V7gCuiH332BX_1uFH4",
       },
     ],
   },
@@ -56,22 +56,22 @@ const syllabusData = [
       {
         title: "Group 2 & 2A Prelims Syllabus",
         description: "Preliminary examination syllabus for both Group 2 and 2A",
-        fileId: "YOUR_GROUP2_PRELIMS_FILE_ID",
+        fileId: "1zUHWW_Tm9zGiBRRuHTgSmrvFx6CuYx2B",
       },
       {
         title: "Group 2 Mains Syllabus",
         description: "Main examination syllabus for Group 2 posts",
-        fileId: "YOUR_GROUP2_MAINS_FILE_ID",
+        fileId: "1OtmLzVJH1-hSVoFX-jXIMgeoaN3wO8az",
       },
       {
         title: "Group 2A Mains Syllabus",
         description: "Main examination syllabus for Group 2A posts",
-        fileId: "YOUR_GROUP2A_MAINS_FILE_ID",
+        fileId: "1aP9TvbxB0vqhBTQ3codCI8RLFsPTHmRc",
       },
       {
         title: "Group 2 & 2A Tamil Eligibility Syllabus",
         description: "Tamil language eligibility test syllabus",
-        fileId: "YOUR_GROUP2_TAMIL_FILE_ID",
+        fileId: "15RVslCiCS8z8WA5rPew4EgGojGQYtSI4",
       },
     ],
   },
@@ -84,7 +84,7 @@ const syllabusData = [
       {
         title: "Group 4 Syllabus",
         description: "Complete syllabus for Group 4 examination",
-        fileId: "YOUR_GROUP4_FILE_ID",
+        fileId: "1ASYCtBgdN14MXF3HpTZxnoBLyZDB70jg",
       },
     ],
   },
@@ -92,15 +92,19 @@ const syllabusData = [
 
 function DownloadButton({ fileId, title }) {
   return (
-    <a
-      to={`https://drive.google.com/file/d/${fileId}/view`}
-      target="_blank"
-      rel="noopener noreferrer"
+    <button
+      onClick={() =>
+        window.open(
+          `https://drive.google.com/file/d/${fileId}/view`,
+          "_blank",
+          "noopener,noreferrer",
+        )
+      }
       className="flex items-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-all duration-200 shadow-md hover:shadow-lg group-hover:scale-105"
     >
       <Download className="w-5 h-5" />
       Download
-    </a>
+    </button>
   );
 }
 

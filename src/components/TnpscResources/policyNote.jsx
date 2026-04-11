@@ -26,11 +26,11 @@ const policyCategories = [
     notes: [
       {
         name: "AGRICULTURE AND FARMERS WELFARE",
-        fileId: "YOUR_AGRICULTURE_FARMERS_WELFARE_FILE_ID",
+        fileId: "1_fvcztvBn4uDYBN6Jb4tcIdIj1_Kx_hY",
       },
       {
         name: "ENVIRONMENT AND CLIMATE CHANGE",
-        fileId: "YOUR_ENVIRONMENT_CLIMATE_CHANGE_FILE_ID",
+        fileId: "1vVzbKy7DynkqhIB4qIk8tJ0dsxrTdn_U",
       },
     ],
   },
@@ -43,21 +43,24 @@ const policyCategories = [
     notes: [
       {
         name: "HEALTH AND FAMILY WELFARE",
-        fileId: "YOUR_HEALTH_FAMILY_WELFARE_FILE_ID",
+        fileId: "1QVD5nGOkXFUOvKP7mSnDI2ZUti0GEh3U",
       },
       {
         name: "SOCIAL WELFARE AND WOMEN EMPOWERMENT",
-        fileId: "YOUR_SOCIAL_WELFARE_WOMEN_EMPOWERMENT_FILE_ID",
+        fileId: "1z09cgRIWDszY8sfeu7chTnOMwXKOvwDC",
       },
       {
         name: "WELFARE OF DIFFERENTLY ABLED",
-        fileId: "YOUR_WELFARE_DIFFERENTLY_ABLED_FILE_ID",
+        fileId: "1OI86wRZCKnBSgVsN50uMx2bObE6MIJrA",
       },
       {
         name: "BACKWARD CLASSES AND MBC WELFARE",
-        fileId: "YOUR_BACKWARD_CLASSES_MBC_WELFARE_FILE_ID",
+        fileId: "1SPqHMOnzYd9mm76KEWguDJzj_zlAgfk0",
       },
-      { name: "MINORITIES WELFARE", fileId: "YOUR_MINORITIES_WELFARE_FILE_ID" },
+      {
+        name: "MINORITIES WELFARE",
+        fileId: "16hMYKav-Iof4L0Blq6UVcMYHp49CTBm6",
+      },
     ],
   },
   {
@@ -67,9 +70,12 @@ const policyCategories = [
     bgColor: "bg-blue-50",
     iconColor: "text-blue-600",
     notes: [
-      { name: "HIGHER EDUCATION", fileId: "YOUR_HIGHER_EDUCATION_FILE_ID" },
-      { name: "SCHOOL EDUCATION", fileId: "YOUR_SCHOOL_EDUCATION_FILE_ID" },
-      { name: "TAMIL DEVELOPMENT", fileId: "YOUR_TAMIL_DEVELOPMENT_FILE_ID" },
+      { name: "HIGHER EDUCATION", fileId: "1vvVJoWOGsuqh3KI0mVE_EPTOxV7tcz2V" },
+      { name: "SCHOOL EDUCATION", fileId: "15HEru1ek5D1jmLR7ntOJUlg3kAvIsADZ" },
+      {
+        name: "TAMIL DEVELOPMENT",
+        fileId: "1bhi9Ide0Gq5YumzuqiWJFWZAgku_UlKv",
+      },
     ],
   },
   {
@@ -81,9 +87,9 @@ const policyCategories = [
     notes: [
       {
         name: "INDUSTRIES AND COMMERCE",
-        fileId: "YOUR_INDUSTRIES_COMMERCE_FILE_ID",
+        fileId: "10l_ilGywrsXSOBlfOf_5axjNTD-tH2Rr ",
       },
-      { name: "TOURISM", fileId: "YOUR_TOURISM_FILE_ID" },
+      { name: "TOURISM", fileId: "1ACR2P6Rv40R7GyYoE-dzt2nqMQCB2RRk" },
     ],
   },
   {
@@ -95,7 +101,7 @@ const policyCategories = [
     notes: [
       {
         name: "REVENUE AND DISASTER MANAGEMENT",
-        fileId: "YOUR_REVENUE_DISASTER_MANAGEMENT_FILE_ID",
+        fileId: "1otKpwVB5aNiitXp9Y219WRWO0eO6CGVn",
       },
     ],
   },
@@ -108,7 +114,7 @@ function getDownloadLink(fileId) {
 export default function TNPSCPolicyNotesPage() {
   const totalNotes = policyCategories.reduce(
     (sum, cat) => sum + cat.notes.length,
-    0
+    0,
   );
 
   return (

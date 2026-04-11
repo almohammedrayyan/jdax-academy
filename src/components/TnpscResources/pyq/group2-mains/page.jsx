@@ -8,6 +8,7 @@ import {
   CheckCircle,
 } from "lucide-react";
 import React from "react";
+import Footer from "../../../Footer";
 const metadata = {
   title: "GROUP 2 & 2A Mains PYQ Papers (2021-2025) - TNPSC",
   description:

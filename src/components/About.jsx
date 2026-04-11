@@ -107,29 +107,43 @@ export default function AboutUs() {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 2000, // transition speed
-    slidesToShow: 4, // adjust as needed
+    speed: 2000,
+    slidesToShow: 4,
     slidesToScroll: 1,
-    autoplay: true, // enables auto scroll
-    autoplaySpeed: 3000, // delay between slides (ms)
+    autoplay: true,
+    autoplaySpeed: 3000,
     responsive: [
       {
         breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-        },
+        settings: { slidesToShow: 3 },
       },
       {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: 1,
-        },
+        breakpoint: 768,
+        settings: { slidesToShow: 2 },
       },
       {
         breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-        },
+        settings: { slidesToShow: 1 },
+      },
+    ],
+  };
+
+  const councilSettings = {
+    dots: false,
+    infinite: true,
+    speed: 600,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: { slidesToShow: 2 },
+      },
+      {
+        breakpoint: 480,
+        settings: { slidesToShow: 1 },
       },
     ],
   };
@@ -313,107 +327,70 @@ export default function AboutUs() {
             </motion.div>
           </div>
         </section>
-        <section className="bg-gray-50 py-8 px-6 md:px-20">
-          <h2 className="text-5xl font-bold text-blue-900 text-center mb-10">
+        <section className="bg-gray-50 py-8">
+          <h2 className="text-3xl sm:text-5xl font-bold text-blue-900 text-center mb-10 px-4">
             JDAX Consultative Council
           </h2>
-
-          <Slider
-            infinite={true}
-            speed={600}
-            slidesToShow={3}
-            slidesToScroll={1}
-            autoplay={true}
-            autoplaySpeed={3000}
-            responsive={[
-              {
-                breakpoint: 1024,
-                settings: {
-                  slidesToShow: 4,
-                },
-              },
-              {
-                breakpoint: 640,
-                settings: {
-                  slidesToShow: 1,
-                },
-              },
-              {
-                breakpoint: 480,
-                settings: {
-                  slidesToShow: 1,
-                },
-              },
-            ]}
-          >
+          <div className="overflow-hidden">
+          <Slider {...councilSettings}>
             {core.map((member, i) => (
-              <div key={i} className="px-4">
-                <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg text-center">
+              <div key={i} className="px-2">
+                <div className="bg-white p-4 rounded-xl shadow hover:shadow-lg text-center w-full">
                   <img
                     src={member.img}
                     alt={member.title}
-                    className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-yellow-400"
+                    className="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-4 border-4 border-yellow-400 object-cover"
                   />
-                  <h3 className="text-xl font-semibold text-blue-900">
+                  <h3 className="text-base sm:text-xl font-semibold text-blue-900">
                     {member.title}
                   </h3>
-                  <p className="text-gray-600" style={{ textAlign: "center" }}>
+                  <p className="text-sm text-gray-600 text-center">
                     {member.role}
                   </p>
                 </div>
               </div>
             ))}
           </Slider>
+          </div>
         </section>
 
-        <section className="bg-white py-16 px-6 md:px-20 mb-16">
-          <h2 className="text-5xl font-bold text-blue-900 text-center mb-10">
+        <section className="bg-white py-8 sm:py-16 mb-16">
+          <h2 className="text-3xl sm:text-5xl font-bold text-blue-900 text-center mb-10 px-4">
             JDAX Faculty Team
           </h2>
-
-          <Slider {...settings} className="!px-8">
-            {" "}
-            {/* <-- add padding here */}
+          <div className="overflow-hidden">
+          <Slider {...settings}>
             {facultyList.map((f, i) => (
-              <div key={i} className="px-4">
-                {" "}
-                {/* horizontal gap */}
-                <div className="bg-white rounded-xl shadow p-4 text-center hover:shadow-md transition">
+              <div key={i} className="px-2">
+                <div className="bg-white rounded-xl shadow p-4 text-center hover:shadow-md transition w-full">
                   <img
                     src={f.img}
                     alt={f.name}
-                    className="w-20 h-20 rounded-full mx-auto mb-2 border-2 border-yellow-400"
+                    className="w-20 h-20 rounded-full mx-auto mb-2 border-2 border-yellow-400 object-cover"
                   />
-                  <h3
-                    className="font-semibold text-blue-800"
-                    style={{ textAlign: "center" }}
-                  >
+                  <h3 className="font-semibold text-blue-800 text-center">
                     {f.name}
                   </h3>
-                  <p
-                    className="text-sm text-gray-600"
-                    style={{ textAlign: "center" }}
-                  >
-                    {f.role}
-                  </p>
+                  <p className="text-sm text-gray-600 text-center">{f.role}</p>
                 </div>
               </div>
             ))}
           </Slider>
+          </div>
         </section>
 
-        <section className="bg-white">
+        <section className="bg-white py-10 sm:py-16 px-4 sm:px-6 md:px-20">
           <div className="max-w-5xl mx-auto">
             <motion.h2
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-5xl font-bold text-blue-900 mb-10 text-center"
+              className="text-2xl sm:text-3xl md:text-5xl font-bold text-blue-900 mb-8 text-center"
             >
               Why Choose JDAX Academy?
             </motion.h2>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               {whyJdaxPoints.map((point, index) => (
                 <motion.div
                   key={index}
@@ -426,16 +403,10 @@ export default function AboutUs() {
                     onClick={() => toggle(index)}
                     className="w-full flex justify-between items-center px-4 py-3 text-left font-medium text-blue-800 bg-gray-50 hover:bg-gray-100 transition"
                   >
-                    <span
-                      className="flex-1 text-2xl"
-                      style={{
-                        textAlign: "center",
-                        textTransform: "capitalize",
-                      }}
-                    >
+                    <span className="flex-1 text-sm sm:text-base md:text-xl text-center capitalize pr-2">
                       {point}
                     </span>
-                    <span className="text-2xl">
+                    <span className="text-xl flex-shrink-0">
                       {activeIndex === index ? "−" : "+"}
                     </span>
                   </button>
@@ -513,44 +484,27 @@ export default function AboutUs() {
         <section className="bg-gray-50 py-8 px-6 md:px-20">
           <GalleryPage />
         </section>
-        <section className="bg-white py-8 px-6 md:px-20 mb-16">
-          <h2 className="text-5xl font-bold text-blue-900 text-center mb-10">
+        <section className="bg-white py-8 mb-16">
+          <h2 className="text-3xl sm:text-5xl font-bold text-blue-900 text-center mb-10 px-4">
             JDAX Aspirant Testimonial
           </h2>
-
-          <Slider {...settings} className="!px-8">
+          <div className="overflow-hidden">
+          <Slider {...settings}>
             {interleavedTestimonials.map((f, i) => (
-              <div key={i} className="px-4">
-                <div
-                  className="
-            bg-white 
-            rounded-xl 
-            shadow 
-            hover:shadow-md 
-            transition
-            min-h-[220px] 
-            flex 
-            flex-col 
-            p-5
-            space-y-2
-          "
-                >
+              <div key={i} className="px-2">
+                <div className="bg-white rounded-xl shadow hover:shadow-md transition min-h-[220px] flex flex-col p-4 space-y-2 w-full">
                   <h3 className="font-semibold text-blue-800 text-lg">
                     {f.name}
                   </h3>
-
                   <p className="text-sm text-gray-500">{f.role}</p>
-
-                  <p
-                    className="text-sm text-gray-700"
-                    style={{ textAlign: "left" }}
-                  >
+                  <p className="text-sm text-gray-700 text-left">
                     {truncateText(f.text, 200)}
                   </p>
                 </div>
               </div>
             ))}
           </Slider>
+          </div>
         </section>
 
         {/* <section className="bg-white py-16 px-6 md:px-20 text-center">

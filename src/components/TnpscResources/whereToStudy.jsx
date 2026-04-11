@@ -18,7 +18,7 @@ const gsResources = [
     title: "GS WHERE TO STUDY",
     description: "Complete resource guide for General Studies preparation",
     fileName: "TNPSC_GS_Where_To_Study.pdf",
-    fileId: "YOUR_TNPSC_GS_WHERE_TO_STUDY_FILE_ID",
+    fileId: "1uyga3sU4tafkLf8VUWRfEHl7YHFcRtgt",
     icon: BookOpen,
     color: "from-purple-500 to-pink-600",
     bgColor: "bg-purple-50",
@@ -36,7 +36,7 @@ const gsResources = [
     title: "TAMIL WHERE TO STUDY",
     description: "Complete resource guide for Tamil language preparation",
     fileName: "TNPSC_Tamil_Where_To_Study.pdf",
-    fileId: "YOUR_TNPSC_TAMIL_WHERE_TO_STUDY_FILE_ID",
+    fileId: "1xyus4kyruwaCf_Ik5lRwA26UgdansyHh",
     icon: Languages,
     color: "from-blue-500 to-indigo-600",
     bgColor: "bg-blue-50",
@@ -284,15 +284,19 @@ export default function TNPSCWhereToStudyPage() {
                       </div>
                     </div>
 
-                    <a
-                      to={getDownloadLink(resource.fileId)}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <button
+                      onClick={() =>
+                        window.open(
+                          getDownloadLink(resource.fileId),
+                          "_blank",
+                          "noopener,noreferrer",
+                        )
+                      }
                       className={`flex items-center gap-2 px-6 py-3 bg-gradient-to-r ${resource.color} hover:opacity-90 text-white rounded-lg font-medium transition-all duration-200 shadow-md hover:shadow-lg`}
                     >
                       <Download className="w-5 h-5" />
                       Download PDF
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
