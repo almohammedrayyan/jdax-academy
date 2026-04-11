@@ -1,6 +1,6 @@
 // src/pages/AboutUs.jsx
 import { motion, AnimatePresence } from "framer-motion";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import GalleryPage from "./gallery";
 import { Link } from "react-router-dom";
 import imageOne from "../assets/onetwo.jpg";
@@ -46,6 +46,22 @@ const whyJdaxPoints = [
 ];
 export default function AboutUs() {
   const [activeIndex, setActiveIndex] = useState(null);
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 1024
+  );
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const isMobile = windowWidth < 480;
+  const isTablet = windowWidth >= 480 && windowWidth < 768;
+  const isMedium = windowWidth >= 768 && windowWidth < 1024;
+
+  const facultySlidesToShow = isMobile ? 1 : isTablet ? 2 : isMedium ? 3 : 4;
+  const councilSlidesToShow = isMobile ? 1 : isTablet ? 2 : 3;
 
   const toggle = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
@@ -107,45 +123,21 @@ export default function AboutUs() {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 2000,
-    slidesToShow: 4,
+    speed: 500,
+    slidesToShow: facultySlidesToShow,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: { slidesToShow: 3 },
-      },
-      {
-        breakpoint: 768,
-        settings: { slidesToShow: 2 },
-      },
-      {
-        breakpoint: 480,
-        settings: { slidesToShow: 1 },
-      },
-    ],
   };
 
   const councilSettings = {
     dots: false,
     infinite: true,
-    speed: 600,
-    slidesToShow: 3,
+    speed: 500,
+    slidesToShow: councilSlidesToShow,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: { slidesToShow: 2 },
-      },
-      {
-        breakpoint: 480,
-        settings: { slidesToShow: 1 },
-      },
-    ],
   };
   function truncateText(text, maxChars) {
     if (text.length <= maxChars) return text;
