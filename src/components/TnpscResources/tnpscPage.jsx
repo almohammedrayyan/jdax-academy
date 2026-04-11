@@ -17,13 +17,13 @@ const pyqGroups = [
     subCategories: [
       {
         name: "Prelims PYQs",
-        href: "/resource/group-one-main-pyq",
+        href: "/resource/group-one-prelim-pyq",
         years: "2021-2025",
         icon: BookOpen,
       },
       {
         name: "Mains PYQs",
-        href: "/resource/group-one-prelim-pyq",
+        href: "/resource/group-one-main-pyq",
         years: "2021-2025",
         icon: FileText,
       },
@@ -38,13 +38,13 @@ const pyqGroups = [
     subCategories: [
       {
         name: "Prelims PYQs",
-        href: "/resource/group-two-main-pyq",
+        href: "/resource/group-two-prelim-pyq",
         years: "2021-2025",
         icon: BookOpen,
       },
       {
         name: "Mains PYQs",
-        href: "/resource/group-two-prelim-pyq",
+        href: "/resource/group-two-main-pyq",
         years: "2021-2025",
         icon: FileText,
       },

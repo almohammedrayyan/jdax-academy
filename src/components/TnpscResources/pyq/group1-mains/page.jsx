@@ -7,31 +7,186 @@ import {
   BookOpen,
   CheckCircle,
 } from "lucide-react";
-import React from "react";
-const metadata = {
-  title: "GROUP 1 Mains PYQ Papers (2021-2025) - TNPSC",
-  description:
-    "Download GROUP 1 Mains Previous Year Question Papers from 2021 to 2025 for TNPSC preparation.",
-};
+import React, { useState } from "react";
 
 const years = [
-  { year: 2025, status: "latest" },
-  { year: 2024, status: "available" },
-  { year: 2023, status: "available" },
-  { year: 2022, status: "available" },
-  { year: 2021, status: "available" },
+  {
+    year: 2025,
+    status: "latest",
+    papers: [
+      {
+        label: "Paper 1 – General Studies",
+        link: "https://drive.google.com/file/d/YOUR_2025_PAPER1_ID/view",
+      },
+      {
+        label: "Paper 2 – General Studies",
+        link: "https://drive.google.com/file/d/YOUR_2025_PAPER2_ID/view",
+      },
+      {
+        label: "Paper 3 – General Studies",
+        link: "https://drive.google.com/file/d/YOUR_2025_PAPER3_ID/view",
+      },
+      {
+        label: "Paper 4 – General Tamil",
+        link: "https://drive.google.com/file/d/YOUR_2025_PAPER4_ID/view",
+      },
+    ],
+  },
+  {
+    year: 2024,
+    status: "available",
+    papers: [
+      {
+        label: "Paper 1 – General Studies",
+        link: "https://drive.google.com/file/d/YOUR_2024_PAPER1_ID/view",
+      },
+      {
+        label: "Paper 2 – General Studies",
+        link: "https://drive.google.com/file/d/YOUR_2024_PAPER2_ID/view",
+      },
+      {
+        label: "Paper 3 – General Studies",
+        link: "https://drive.google.com/file/d/YOUR_2024_PAPER3_ID/view",
+      },
+      {
+        label: "Paper 4 – General Tamil",
+        link: "https://drive.google.com/file/d/YOUR_2024_PAPER4_ID/view",
+      },
+    ],
+  },
+  {
+    year: 2023,
+    status: "available",
+    papers: [
+      {
+        label: "Paper 1 – General Studies",
+        link: "https://drive.google.com/file/d/YOUR_2023_PAPER1_ID/view",
+      },
+      {
+        label: "Paper 2 – General Studies",
+        link: "https://drive.google.com/file/d/YOUR_2023_PAPER2_ID/view",
+      },
+      {
+        label: "Paper 3 – General Studies",
+        link: "https://drive.google.com/file/d/YOUR_2023_PAPER3_ID/view",
+      },
+      {
+        label: "Paper 4 – General Tamil",
+        link: "https://drive.google.com/file/d/YOUR_2023_PAPER4_ID/view",
+      },
+    ],
+  },
+  {
+    year: 2022,
+    status: "available",
+    papers: [
+      {
+        label: "Paper 1 – General Studies",
+        link: "https://drive.google.com/file/d/YOUR_2022_PAPER1_ID/view",
+      },
+      {
+        label: "Paper 2 – General Studies",
+        link: "https://drive.google.com/file/d/YOUR_2022_PAPER2_ID/view",
+      },
+      {
+        label: "Paper 3 – General Studies",
+        link: "https://drive.google.com/file/d/YOUR_2022_PAPER3_ID/view",
+      },
+      {
+        label: "Paper 4 – General Tamil",
+        link: "https://drive.google.com/file/d/YOUR_2022_PAPER4_ID/view",
+      },
+    ],
+  },
+  {
+    year: 2021,
+    status: "available",
+    papers: [
+      {
+        label: "Paper 1 – General Studies",
+        link: "https://drive.google.com/file/d/YOUR_2021_PAPER1_ID/view",
+      },
+      {
+        label: "Paper 2 – General Studies",
+        link: "https://drive.google.com/file/d/YOUR_2021_PAPER2_ID/view",
+      },
+      {
+        label: "Paper 3 – General Studies",
+        link: "https://drive.google.com/file/d/YOUR_2021_PAPER3_ID/view",
+      },
+      {
+        label: "Paper 4 – General Tamil",
+        link: "https://drive.google.com/file/d/YOUR_2021_PAPER4_ID/view",
+      },
+    ],
+  },
 ];
 
-function getDownloadLink(year) {
-  return `https://drive.google.com/file/d/YOUR_TNPSC_GROUP1_MAINS_${year}_FILE_ID/view`;
+function YearAccordion({ item }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="bg-white rounded-xl shadow-lg border-2 border-slate-200 hover:border-emerald-400 transition-all duration-300 overflow-hidden">
+      <button
+        onClick={() => setOpen((prev) => !prev)}
+        className="w-full p-6 flex items-center justify-between gap-4 text-left"
+      >
+        <div className="flex items-center gap-4">
+          <div className="p-3 bg-emerald-100 rounded-lg">
+            <FileText className="w-8 h-8 text-emerald-600" />
+          </div>
+          <div>
+            <div className="flex items-center gap-3 mb-1">
+              <h3 className="text-2xl font-bold text-slate-900">
+                GROUP 1 Mains {item.year}
+              </h3>
+              {item.status === "latest" && (
+                <span className="px-3 py-1 bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-xs font-bold rounded-full">
+                  LATEST
+                </span>
+              )}
+            </div>
+            <p className="text-slate-600">Previous Year Question Papers</p>
+          </div>
+        </div>
+        <ChevronDown
+          className={`w-6 h-6 text-emerald-600 transition-transform duration-300 flex-shrink-0 ${
+            open ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+
+      {open && (
+        <div className="px-6 pb-6 border-t border-slate-100">
+          <div className="pt-4 grid sm:grid-cols-2 gap-3">
+            {item.papers.map((paper, i) => (
+              <a
+                key={i}
+                href={paper.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between gap-3 px-4 py-3 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 rounded-lg transition-all duration-200 group"
+              >
+                <div className="flex items-center gap-3">
+                  <FileText className="w-5 h-5 text-emerald-600 flex-shrink-0" />
+                  <span className="text-sm font-medium text-slate-800">
+                    {paper.label}
+                  </span>
+                </div>
+                <Download className="w-4 h-4 text-emerald-600 group-hover:scale-110 transition-transform flex-shrink-0" />
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default function Group1MainsPYQPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
-      {/* Hero Section */}
       <section className="relative py-16 px-4 overflow-hidden">
-        {/* Animated Background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {[...Array(5)].map((_, i) => (
             <div
@@ -49,7 +204,6 @@ export default function Group1MainsPYQPage() {
         </div>
 
         <div className="max-w-5xl mx-auto relative z-10">
-          {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-sm text-slate-600 mb-6 flex-wrap">
             <Link
               to="/resource/tnpsc-page"
@@ -68,7 +222,6 @@ export default function Group1MainsPYQPage() {
             <span className="text-slate-900 font-medium">GROUP 1 Mains</span>
           </div>
 
-          {/* Title */}
           <div className="flex items-center gap-4 mb-6">
             <div className="p-4 bg-emerald-100 rounded-xl">
               <FileText className="w-10 h-10 text-emerald-600" />
@@ -83,7 +236,6 @@ export default function Group1MainsPYQPage() {
             </div>
           </div>
 
-          {/* Paper Details */}
           <div className="grid md:grid-cols-4 gap-4 mb-8">
             <div className="bg-white rounded-xl p-4 shadow-md border-l-4 border-emerald-500">
               <div className="flex items-center gap-2 text-slate-600 mb-1">
@@ -117,55 +269,14 @@ export default function Group1MainsPYQPage() {
         </div>
       </section>
 
-      {/* Papers Section */}
       <section className="py-8 px-4 pb-16">
         <div className="max-w-5xl mx-auto">
           <div className="space-y-4">
             {years.map((item, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl shadow-lg border-2 border-slate-200 hover:border-emerald-400 transition-all duration-300"
-              >
-                <div className="p-6">
-                  <div className="flex items-center justify-between gap-4 flex-wrap">
-                    <div className="flex items-center gap-4">
-                      <div className="p-3 bg-emerald-100 rounded-lg">
-                        <FileText className="w-8 h-8 text-emerald-600" />
-                      </div>
-                      <div>
-                        <div className="flex items-center gap-3 mb-1">
-                          <h3 className="text-2xl font-bold text-slate-900">
-                            GROUP 1 Mains {item.year}
-                          </h3>
-                          {item.status === "latest" && (
-                            <span className="px-3 py-1 bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-xs font-bold rounded-full">
-                              LATEST
-                            </span>
-                          )}
-                        </div>
-                        <p className="text-slate-600">
-                          Previous Year Question Paper
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Download Button */}
-                    <a
-                      href={getDownloadLink(item.year)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-all duration-200 shadow-md hover:shadow-lg"
-                    >
-                      <Download className="w-5 h-5" />
-                      Download PDF
-                    </a>
-                  </div>
-                </div>
-              </div>
+              <YearAccordion key={index} item={item} />
             ))}
           </div>
 
-          {/* Tips Section */}
           <div className="mt-12 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl p-8 border-2 border-emerald-200">
             <h3 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
               <div className="p-2 bg-emerald-100 rounded-lg">
@@ -219,7 +330,6 @@ export default function Group1MainsPYQPage() {
             </div>
           </div>
 
-          {/* Back Button */}
           <div className="mt-8 text-center">
             <Link
               to="/resource/tnpsc-page"
