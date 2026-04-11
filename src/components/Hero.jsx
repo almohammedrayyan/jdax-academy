@@ -5,7 +5,7 @@ import santhomeImg from "../assets/santhome.png";
 
 export default function Hero() {
   return (
-    <section className="relative bg-white py-16 sm:py-24 2xl:py-40 px-4 sm:px-6 overflow-hidden">
+    <section className="relative bg-white pt-32 pb-16 sm:pt-36 sm:pb-24 2xl:py-40 px-4 sm:px-6 overflow-hidden">
       <div className="mx-auto max-w-7xl 2xl:max-w-[1600px] grid lg:grid-cols-2 gap-12 2xl:gap-24 items-center">
         {/* LEFT CONTENT */}
         <motion.div
@@ -19,7 +19,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="font-bold leading-tight mt-5"
+            className="font-bold leading-tight"
           >
             <span className="block text-xl sm:text-3xl lg:text-4xl text-[#431aa0]">
               WELCOME TO
