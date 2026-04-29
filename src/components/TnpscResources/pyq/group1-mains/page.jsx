@@ -16,19 +16,19 @@ const years = [
     papers: [
       {
         label: "Paper 1 – General Studies",
-        link: "https://drive.google.com/file/d/YOUR_2025_PAPER1_ID/view",
+        link: "https://drive.google.com/file/d/1f4XCLQpuaNrSagNbNb8HPVZskLxaDA_8/view",
       },
       {
         label: "Paper 2 – General Studies",
-        link: "https://drive.google.com/file/d/YOUR_2025_PAPER2_ID/view",
+        link: "https://drive.google.com/file/d/1Ln51ATSNvJeqnywcJ9nzDYBymObdYOC6/view",
       },
       {
         label: "Paper 3 – General Studies",
-        link: "https://drive.google.com/file/d/YOUR_2025_PAPER3_ID/view",
+        link: "https://drive.google.com/file/d/1vGFei__wJ74nPKUcc4vJQxhapJZ1Xgpe/view",
       },
       {
         label: "Paper 4 – General Tamil",
-        link: "https://drive.google.com/file/d/YOUR_2025_PAPER4_ID/view",
+        link: "https://drive.google.com/file/d/1XtWG6oIOAn5E4KisQjGIPduLlq2NlSIS/view",
       },
     ],
   },
@@ -38,19 +38,19 @@ const years = [
     papers: [
       {
         label: "Paper 1 – General Studies",
-        link: "https://drive.google.com/file/d/YOUR_2024_PAPER1_ID/view",
+        link: "https://drive.google.com/file/d/1-B4sEtjzj5e0k13Xda77kafcuv52uvXz/view",
       },
       {
         label: "Paper 2 – General Studies",
-        link: "https://drive.google.com/file/d/YOUR_2024_PAPER2_ID/view",
+        link: "https://drive.google.com/file/d/1h8neK3rC7etzD7MaY9c73NwDfTgJ4IxD/view",
       },
       {
         label: "Paper 3 – General Studies",
-        link: "https://drive.google.com/file/d/YOUR_2024_PAPER3_ID/view",
+        link: "https://drive.google.com/file/d/1x9nOApL4D1jk2ArTJ4RBSnxPh3EVifwt/view",
       },
       {
         label: "Paper 4 – General Tamil",
-        link: "https://drive.google.com/file/d/YOUR_2024_PAPER4_ID/view",
+        link: "https://drive.google.com/file/d/1yT0YY1-UPbUj9sW6C8ZB_DXJU7yom0RK/view",
       },
     ],
   },
@@ -60,63 +60,19 @@ const years = [
     papers: [
       {
         label: "Paper 1 – General Studies",
-        link: "https://drive.google.com/file/d/YOUR_2023_PAPER1_ID/view",
+        link: "https://drive.google.com/file/d/1dpCDS_zpaghlkCL7GJinlZ-qHip1bQ3G/view",
       },
       {
         label: "Paper 2 – General Studies",
-        link: "https://drive.google.com/file/d/YOUR_2023_PAPER2_ID/view",
+        link: "https://drive.google.com/file/d/1AK9g1vOzUTpHtKRs86J9RUy4gx7LWfe_/view",
       },
       {
         label: "Paper 3 – General Studies",
-        link: "https://drive.google.com/file/d/YOUR_2023_PAPER3_ID/view",
+        link: "https://drive.google.com/file/d/15jQ1ds1j6mpP86cAcGOe38h98hRSE22I/view",
       },
       {
         label: "Paper 4 – General Tamil",
-        link: "https://drive.google.com/file/d/YOUR_2023_PAPER4_ID/view",
-      },
-    ],
-  },
-  {
-    year: 2022,
-    status: "available",
-    papers: [
-      {
-        label: "Paper 1 – General Studies",
-        link: "https://drive.google.com/file/d/YOUR_2022_PAPER1_ID/view",
-      },
-      {
-        label: "Paper 2 – General Studies",
-        link: "https://drive.google.com/file/d/YOUR_2022_PAPER2_ID/view",
-      },
-      {
-        label: "Paper 3 – General Studies",
-        link: "https://drive.google.com/file/d/YOUR_2022_PAPER3_ID/view",
-      },
-      {
-        label: "Paper 4 – General Tamil",
-        link: "https://drive.google.com/file/d/YOUR_2022_PAPER4_ID/view",
-      },
-    ],
-  },
-  {
-    year: 2021,
-    status: "available",
-    papers: [
-      {
-        label: "Paper 1 – General Studies",
-        link: "https://drive.google.com/file/d/YOUR_2021_PAPER1_ID/view",
-      },
-      {
-        label: "Paper 2 – General Studies",
-        link: "https://drive.google.com/file/d/YOUR_2021_PAPER2_ID/view",
-      },
-      {
-        label: "Paper 3 – General Studies",
-        link: "https://drive.google.com/file/d/YOUR_2021_PAPER3_ID/view",
-      },
-      {
-        label: "Paper 4 – General Tamil",
-        link: "https://drive.google.com/file/d/YOUR_2021_PAPER4_ID/view",
+        link: "https://drive.google.com/file/d/1r21mEbcD7lx9D0Y03_Cobk1ruvcfbv90/view",
       },
     ],
   },
