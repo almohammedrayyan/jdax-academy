@@ -13,42 +13,52 @@ import Footer from "../../../Footer";
 const years = [
   {
     year: 2025,
-    status: "latest",
+    status: "available",
     papers: [
-      { label: "General Studies", link: "https://drive.google.com/file/d/YOUR_2025_GS_ID/view" },
-      { label: "General Tamil", link: "https://drive.google.com/file/d/YOUR_2025_TAMIL_ID/view" },
+      {
+        label:
+          "GROUP II AND IIA PRELIMS GENERAL TAMIL AND GENERAL STUDIES 2025",
+        link: "https://drive.google.com/file/d/1V4UqhpDI9e_1kC4nNcBXHubAe83KPUKZ/view",
+      },
+      {
+        label:
+          "GROUP II AND IIA PRELIMS GENERAL ENGLISH AND GENERAL STUDIES 2025",
+        link: "https://drive.google.com/file/d/1sM_dVUB1TEf-zXsROHUe48zLr3Uow86l/view",
+      },
     ],
   },
   {
     year: 2024,
     status: "available",
     papers: [
-      { label: "General Studies", link: "https://drive.google.com/file/d/YOUR_2024_GS_ID/view" },
-      { label: "General Tamil", link: "https://drive.google.com/file/d/YOUR_2024_TAMIL_ID/view" },
-    ],
-  },
-  {
-    year: 2023,
-    status: "available",
-    papers: [
-      { label: "General Studies", link: "https://drive.google.com/file/d/YOUR_2023_GS_ID/view" },
-      { label: "General Tamil", link: "https://drive.google.com/file/d/YOUR_2023_TAMIL_ID/view" },
+      {
+        label:
+          "GROUP II AND IIA PRELIMS GENERAL ENGLISH AND GENERAL STUDIES 2024",
+        link: "https://drive.google.com/file/d/1UJblHCTGNcFt2Ec7AgUzqLlVICniUsus/view",
+      },
+      {
+        label:
+          "GROUP II AND IIA PRELIMS GENERAL TAMIL AND GENERAL STUDIES 2024",
+        link: "https://drive.google.com/file/d/1_SdtrHKh-vD3Cp46qNrsKL3vqVb-rwa4/view",
+      },
     ],
   },
   {
     year: 2022,
-    status: "available",
+    status: "latest",
     papers: [
-      { label: "General Studies", link: "https://drive.google.com/file/d/YOUR_2022_GS_ID/view" },
-      { label: "General Tamil", link: "https://drive.google.com/file/d/YOUR_2022_TAMIL_ID/view" },
-    ],
-  },
-  {
-    year: 2021,
-    status: "available",
-    papers: [
-      { label: "General Studies", link: "https://drive.google.com/file/d/YOUR_2021_GS_ID/view" },
-      { label: "General Tamil", link: "https://drive.google.com/file/d/YOUR_2021_TAMIL_ID/view" },
+      {
+        label: "GROUP II AND IIA PRELIMS GENERAL TAMIL 2022",
+        link: "https://drive.google.com/file/d/1mjML7VQPfKrEcQCOIJJBWpvBfbPBektY/view",
+      },
+      {
+        label: "GROUP II AND IIA PRELIMS GENERAL STUDIES 2022",
+        link: "https://drive.google.com/file/d/1v5OEFlVjkwt89Jj4T0MP0Xn0Q9xbqRbt/view",
+      },
+      {
+        label: "GROUP II AND IIA PRELIMS GENERAL ENGLISH 2022",
+        link: "https://drive.google.com/file/d/1gv7WFCU4TK79Z9YrD3xe7RwdO7oLZwuU/view",
+      },
     ],
   },
 ];
@@ -138,15 +148,23 @@ export default function Group2PrelimsPYQPage() {
         <div className="max-w-5xl mx-auto relative z-10">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-sm text-slate-600 mb-6 flex-wrap">
-            <Link to="/resource/tnpsc-page" className="hover:text-blue-600 transition-colors">
+            <Link
+              to="/resource/tnpsc-page"
+              className="hover:text-blue-600 transition-colors"
+            >
               TNPSC Resources
             </Link>
             <ChevronDown className="w-4 h-4 rotate-[-90deg]" />
-            <Link to="/resource/tnpsc-pyq" className="hover:text-blue-600 transition-colors">
+            <Link
+              to="/resource/tnpsc-pyq"
+              className="hover:text-blue-600 transition-colors"
+            >
               PYQ Papers
             </Link>
             <ChevronDown className="w-4 h-4 rotate-[-90deg]" />
-            <span className="text-slate-900 font-medium">GROUP 2 & 2A Prelims</span>
+            <span className="text-slate-900 font-medium">
+              GROUP 2 & 2A Prelims
+            </span>
           </div>
 
           {/* Title */}
@@ -189,8 +207,18 @@ export default function Group2PrelimsPYQPage() {
             </div>
             <div className="bg-white rounded-xl p-4 shadow-md border-l-4 border-red-500">
               <div className="flex items-center gap-2 text-slate-600 mb-1">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 </svg>
                 <span className="text-sm font-medium">Negative Marking</span>
               </div>
@@ -213,8 +241,18 @@ export default function Group2PrelimsPYQPage() {
           <div className="mt-12 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 border-2 border-blue-200">
             <h3 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
               <div className="p-2 bg-blue-100 rounded-lg">
-                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                <svg
+                  className="w-6 h-6 text-blue-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                  />
                 </svg>
               </div>
               How to Use These Papers Effectively
@@ -222,23 +260,32 @@ export default function Group2PrelimsPYQPage() {
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white rounded-xl p-5 shadow-md">
                 <div className="text-3xl mb-3">⏱️</div>
-                <h4 className="font-bold text-slate-900 mb-2">Timed Practice</h4>
+                <h4 className="font-bold text-slate-900 mb-2">
+                  Timed Practice
+                </h4>
                 <p className="text-sm text-slate-600">
-                  Solve papers in exactly 3 hours to simulate exam conditions and improve time management.
+                  Solve papers in exactly 3 hours to simulate exam conditions
+                  and improve time management.
                 </p>
               </div>
               <div className="bg-white rounded-xl p-5 shadow-md">
                 <div className="text-3xl mb-3">📊</div>
-                <h4 className="font-bold text-slate-900 mb-2">Analyze Patterns</h4>
+                <h4 className="font-bold text-slate-900 mb-2">
+                  Analyze Patterns
+                </h4>
                 <p className="text-sm text-slate-600">
-                  Identify recurring topics and question types to focus your preparation strategically.
+                  Identify recurring topics and question types to focus your
+                  preparation strategically.
                 </p>
               </div>
               <div className="bg-white rounded-xl p-5 shadow-md">
                 <div className="text-3xl mb-3">🔄</div>
-                <h4 className="font-bold text-slate-900 mb-2">Regular Revision</h4>
+                <h4 className="font-bold text-slate-900 mb-2">
+                  Regular Revision
+                </h4>
                 <p className="text-sm text-slate-600">
-                  Revisit papers multiple times to reinforce concepts and improve accuracy.
+                  Revisit papers multiple times to reinforce concepts and
+                  improve accuracy.
                 </p>
               </div>
             </div>
@@ -250,16 +297,24 @@ export default function Group2PrelimsPYQPage() {
               to="/resource/tnpsc-page"
               className="inline-flex items-center gap-2 px-6 py-3 bg-slate-200 hover:bg-slate-300 text-slate-800 rounded-lg font-medium transition-colors"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
               </svg>
               Back to All PYQ Papers
             </Link>
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

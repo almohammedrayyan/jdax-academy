@@ -15,50 +15,14 @@ const years = [
     year: 2025,
     status: "latest",
     papers: [
-      { label: "Paper 1 – General Studies", link: "https://drive.google.com/file/d/YOUR_2025_PAPER1_ID/view" },
-      { label: "Paper 2 – General Studies", link: "https://drive.google.com/file/d/YOUR_2025_PAPER2_ID/view" },
-      { label: "Paper 3 – General Studies", link: "https://drive.google.com/file/d/YOUR_2025_PAPER3_ID/view" },
-      { label: "Paper 4 – General Tamil", link: "https://drive.google.com/file/d/YOUR_2025_PAPER4_ID/view" },
-    ],
-  },
-  {
-    year: 2024,
-    status: "available",
-    papers: [
-      { label: "Paper 1 – General Studies", link: "https://drive.google.com/file/d/YOUR_2024_PAPER1_ID/view" },
-      { label: "Paper 2 – General Studies", link: "https://drive.google.com/file/d/YOUR_2024_PAPER2_ID/view" },
-      { label: "Paper 3 – General Studies", link: "https://drive.google.com/file/d/YOUR_2024_PAPER3_ID/view" },
-      { label: "Paper 4 – General Tamil", link: "https://drive.google.com/file/d/YOUR_2024_PAPER4_ID/view" },
-    ],
-  },
-  {
-    year: 2023,
-    status: "available",
-    papers: [
-      { label: "Paper 1 – General Studies", link: "https://drive.google.com/file/d/YOUR_2023_PAPER1_ID/view" },
-      { label: "Paper 2 – General Studies", link: "https://drive.google.com/file/d/YOUR_2023_PAPER2_ID/view" },
-      { label: "Paper 3 – General Studies", link: "https://drive.google.com/file/d/YOUR_2023_PAPER3_ID/view" },
-      { label: "Paper 4 – General Tamil", link: "https://drive.google.com/file/d/YOUR_2023_PAPER4_ID/view" },
-    ],
-  },
-  {
-    year: 2022,
-    status: "available",
-    papers: [
-      { label: "Paper 1 – General Studies", link: "https://drive.google.com/file/d/YOUR_2022_PAPER1_ID/view" },
-      { label: "Paper 2 – General Studies", link: "https://drive.google.com/file/d/YOUR_2022_PAPER2_ID/view" },
-      { label: "Paper 3 – General Studies", link: "https://drive.google.com/file/d/YOUR_2022_PAPER3_ID/view" },
-      { label: "Paper 4 – General Tamil", link: "https://drive.google.com/file/d/YOUR_2022_PAPER4_ID/view" },
-    ],
-  },
-  {
-    year: 2021,
-    status: "available",
-    papers: [
-      { label: "Paper 1 – General Studies", link: "https://drive.google.com/file/d/YOUR_2021_PAPER1_ID/view" },
-      { label: "Paper 2 – General Studies", link: "https://drive.google.com/file/d/YOUR_2021_PAPER2_ID/view" },
-      { label: "Paper 3 – General Studies", link: "https://drive.google.com/file/d/YOUR_2021_PAPER3_ID/view" },
-      { label: "Paper 4 – General Tamil", link: "https://drive.google.com/file/d/YOUR_2021_PAPER4_ID/view" },
+      {
+        label: "GROUP IIA MAINS GENERAL TAMIL AND GENERAL STUDIES 2025",
+        link: "https://drive.google.com/file/d/1uJRHwldCFciP7aterXi9XYt0TEpJp0nI/view",
+      },
+      {
+        label: "GROUP IIA MAINS GENERAL ENGLISH AND GENERAL STUDIES 2025",
+        link: "https://drive.google.com/file/d/1QtzXjGbhh32NR_aYZ4ol9_TrM0bbgtQB/view",
+      },
     ],
   },
 ];
@@ -148,15 +112,23 @@ export default function Group2MainsPYQPage() {
         <div className="max-w-5xl mx-auto relative z-10">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-sm text-slate-600 mb-6 flex-wrap">
-            <Link to="/resource/tnpsc-page" className="hover:text-blue-600 transition-colors">
+            <Link
+              to="/resource/tnpsc-page"
+              className="hover:text-blue-600 transition-colors"
+            >
               TNPSC Resources
             </Link>
             <ChevronDown className="w-4 h-4 rotate-[-90deg]" />
-            <Link to="/resource/tnpsc-pyq" className="hover:text-blue-600 transition-colors">
+            <Link
+              to="/resource/tnpsc-pyq"
+              className="hover:text-blue-600 transition-colors"
+            >
               PYQ Papers
             </Link>
             <ChevronDown className="w-4 h-4 rotate-[-90deg]" />
-            <span className="text-slate-900 font-medium">GROUP 2 & 2A Mains</span>
+            <span className="text-slate-900 font-medium">
+              GROUP 2 & 2A Mains
+            </span>
           </div>
 
           {/* Title */}
@@ -221,8 +193,18 @@ export default function Group2MainsPYQPage() {
           <div className="mt-12 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 border-2 border-blue-200">
             <h3 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
               <div className="p-2 bg-blue-100 rounded-lg">
-                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                <svg
+                  className="w-6 h-6 text-blue-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                  />
                 </svg>
               </div>
               Answer Writing Tips for Mains
@@ -230,23 +212,32 @@ export default function Group2MainsPYQPage() {
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white rounded-xl p-5 shadow-md">
                 <div className="text-3xl mb-3">📝</div>
-                <h4 className="font-bold text-slate-900 mb-2">Structure Matters</h4>
+                <h4 className="font-bold text-slate-900 mb-2">
+                  Structure Matters
+                </h4>
                 <p className="text-sm text-slate-600">
-                  Use introduction, body, and conclusion format. Bullet points help in clarity.
+                  Use introduction, body, and conclusion format. Bullet points
+                  help in clarity.
                 </p>
               </div>
               <div className="bg-white rounded-xl p-5 shadow-md">
                 <div className="text-3xl mb-3">🎯</div>
-                <h4 className="font-bold text-slate-900 mb-2">Precise Answers</h4>
+                <h4 className="font-bold text-slate-900 mb-2">
+                  Precise Answers
+                </h4>
                 <p className="text-sm text-slate-600">
-                  Stick to word limits. Quality over quantity - write relevant points only.
+                  Stick to word limits. Quality over quantity - write relevant
+                  points only.
                 </p>
               </div>
               <div className="bg-white rounded-xl p-5 shadow-md">
                 <div className="text-3xl mb-3">📖</div>
-                <h4 className="font-bold text-slate-900 mb-2">Practice Daily</h4>
+                <h4 className="font-bold text-slate-900 mb-2">
+                  Practice Daily
+                </h4>
                 <p className="text-sm text-slate-600">
-                  Write at least 3-5 answers daily. Get them evaluated for improvement.
+                  Write at least 3-5 answers daily. Get them evaluated for
+                  improvement.
                 </p>
               </div>
             </div>
@@ -258,16 +249,24 @@ export default function Group2MainsPYQPage() {
               to="/resource/tnpsc-page"
               className="inline-flex items-center gap-2 px-6 py-3 bg-slate-200 hover:bg-slate-300 text-slate-800 rounded-lg font-medium transition-colors"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
               </svg>
               Back to All PYQ Papers
             </Link>
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

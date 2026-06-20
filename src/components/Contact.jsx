@@ -1,21 +1,60 @@
 import { motion } from "framer-motion";
-import React, { useRef } from "react";
+import { useRef, useState } from "react";
 import {
   FaFacebookF,
   FaInstagram,
   FaWhatsapp,
   FaYoutube,
 } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-import image2 from "../assets/JDAX-1.png";
 import { FaTelegramPlane } from "react-icons/fa";
+import image2 from "../assets/JDAX-1.png";
+import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function ContactUs() {
   const formRef = useRef(null);
-  const handleSubmit = (e) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Response successfully submitted");
-    formRef.current.reset();
+    setIsSubmitting(true);
+
+    const formData = new FormData(formRef.current);
+    const payload = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      mobile: formData.get("mobile"),
+      subject: formData.get("subject"),
+      message: formData.get("message"),
+    };
+
+    try {
+      // Replace with your actual API endpoint
+      await axios.post(
+        "https://jdax-server.onrender.com/api/contacts/form",
+        payload,
+      );
+
+      toast.success("Enquiry form submitted! We will call you.", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+
+      formRef.current.reset();
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error("Failed to submit the form. Please try again.", {
+        position: "top-right",
+        autoClose: 5000,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   const iconMotion = {
     whileHover: {
@@ -29,6 +68,7 @@ export default function ContactUs() {
 
   return (
     <div className="bg-white text-gray-800 overflow-hidden">
+      <ToastContainer />
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-[#0d1117] to-[#431aa0] text-yellow-400 py-20 px-6 text-center">
         <motion.h1
@@ -60,36 +100,65 @@ export default function ContactUs() {
           transition={{ duration: 1 }}
           className="bg-white p-6 sm:p-8 rounded-2xl shadow-md z-10"
         >
-          <form className="space-y-6" onSubmit={handleSubmit}>
+          <form className="space-y-6" onSubmit={handleSubmit} ref={formRef}>
             <div>
-              <label className="block text-gray-700 font-medium">Name</label>
+              <label className="block text-gray-700 font-medium">
+                Name <span className="text-red-500">*</span>
+              </label>
               <input
                 type="text"
+                name="name"
                 placeholder="Your Name"
+                required
                 className="w-full px-4 py-3 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400"
               />
             </div>
             <div>
-              <label className="block text-gray-700 font-medium">Email</label>
+              <label className="block text-gray-700 font-medium">
+                Email <span className="text-red-500">*</span>
+              </label>
               <input
                 type="email"
+                name="email"
                 placeholder="you@example.com"
+                required
                 className="w-full px-4 py-3 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400"
               />
             </div>
             <div>
-              <label className="block text-gray-700 font-medium">Subject</label>
+              <label className="block text-gray-700 font-medium">
+                Mobile Number <span className="text-red-500">*</span>
+              </label>
+              <input
+                type="tel"
+                name="mobile"
+                placeholder="+91 98765 43210"
+                pattern="[0-9+\s\-()]+"
+                required
+                className="w-full px-4 py-3 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400"
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700 font-medium">
+                Subject <span className="text-red-500">*</span>
+              </label>
               <input
                 type="text"
+                name="subject"
                 placeholder="Subject"
+                required
                 className="w-full px-4 py-3 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400"
               />
             </div>
             <div>
-              <label className="block text-gray-700 font-medium">Message</label>
+              <label className="block text-gray-700 font-medium">
+                Message <span className="text-red-500">*</span>
+              </label>
               <textarea
                 rows="4"
+                name="message"
                 placeholder="Write your message..."
+                required
                 className="w-full px-4 py-3 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400"
               ></textarea>
             </div>
@@ -97,9 +166,10 @@ export default function ContactUs() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               type="submit"
-              className="w-full py-3 bg-yellow-400 text-blue-900 font-semibold rounded-lg shadow-md hover:bg-yellow-500 transition"
+              disabled={isSubmitting}
+              className="w-full py-3 bg-yellow-400 text-blue-900 font-semibold rounded-lg shadow-md hover:bg-yellow-500 transition disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Send Message
+              {isSubmitting ? "Submitting..." : "Send Message"}
             </motion.button>
           </form>
         </motion.div>

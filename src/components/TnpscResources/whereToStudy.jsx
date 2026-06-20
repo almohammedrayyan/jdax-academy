@@ -363,7 +363,7 @@ export default function TNPSCWhereToStudyPage() {
         {/* Back Button */}
         <div className="max-w-6xl mx-auto mt-8 text-center">
           <Link
-            to="/tnpsc"
+            to="/"
             className="inline-flex items-center gap-2 px-6 py-3 bg-slate-200 hover:bg-slate-300 text-slate-800 rounded-lg font-medium transition-colors"
           >
             <svg

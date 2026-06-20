@@ -45,7 +45,7 @@ const pyqGroups = [
       {
         name: "Mains PYQs",
         href: "/resource/group-two-main-pyq",
-        years: "2021-2025",
+        years: "2025",
         icon: FileText,
       },
     ],

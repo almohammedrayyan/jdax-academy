@@ -7,23 +7,42 @@ import {
   FileText,
   CheckCircle,
 } from "lucide-react";
-import React from "react";
-const metadata = {
-  title: "GROUP 4 PYQ Papers (2021-2025) - TNPSC",
-  description:
-    "Download GROUP 4 Previous Year Question Papers from 2021 to 2025 for TNPSC preparation.",
-};
 
 const years = [
-  { year: 2025, status: "latest" },
-  { year: 2024, status: "available" },
-  { year: 2023, status: "available" },
-  { year: 2022, status: "available" },
-  { year: 2021, status: "available" },
+  {
+    year: 2024,
+    status: "latest",
+    title: "General English",
+    url: "1ONwMguPuk4KUqrdmSM1kiI2fkrbw0sxP",
+  },
+  {
+    year: 2025,
+    status: "available",
+    title: "General English and General Studies",
+    url: "1wJn7qel_g1XT6DJKBAf-VhzvuvRZeBcA",
+  },
+  {
+    year: 2022,
+    status: "available",
+    title: "General Tamil and General Studies",
+    url: "1eZz7UliZiyedAaL7Kdh6V2d5uHHTuncT",
+  },
+  {
+    year: 2024,
+    status: "available",
+    title: "General Tamil and General Studies",
+    url: "1ji3PcgqOhapAI-zJlW6gsAtq5xBIkorN",
+  },
+  {
+    year: 2025,
+    status: "available",
+    title: "General Tamil and General Studies",
+    url: "1fDijJuo-2ySTz_fzfyp07Pfenn-HaJOK",
+  },
 ];
 
-function getDownloadLink(year) {
-  return `https://drive.google.com/file/d/YOUR_TNPSC_GROUP4_${year}_FILE_ID/view`;
+function getDownloadLink(url) {
+  return `https://drive.google.com/file/d/${url}/view`;
 }
 
 export default function Group4PYQPage() {
@@ -155,15 +174,15 @@ export default function Group4PYQPage() {
                             </span>
                           )}
                         </div>
-                        <p className="text-slate-600">
-                          Previous Year Question Paper
+                        <p className="text-slate-600 font-medium">
+                          {item.title}
                         </p>
                       </div>
                     </div>
 
                     {/* Download Button */}
                     <a
-                      href={getDownloadLink(item.year)}
+                      href={getDownloadLink(item.url)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium transition-all duration-200 shadow-md hover:shadow-lg"
